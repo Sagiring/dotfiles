@@ -124,4 +124,5 @@ PS1="\033[1;33m\A\[\033[00m\] \033[0;32m\u\[\033[00m\] \033[01;34m\]\W\[\033[00m
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
 alias vim=nvim
+alias up="cd .."
 export EDITOR=/opt/nvim-linux64/bin/nvim
