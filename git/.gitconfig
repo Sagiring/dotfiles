@@ -1,0 +1,12 @@
+
+[user]
+	email = dieter.anagram_0t@icloud.com
+	name = Sagiring
+
+[init] 
+	defaultBranch = main
+
+[alias] 
+	lo = log --all --graph --decorate --oneline
+	l = log --all --graph --decorate
+	s = status
