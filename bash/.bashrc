@@ -82,6 +82,18 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias serve='python -m http.server'
+
+# print current week number
+alias week='date +%V'
+
+# use nvim if available
+if [ -x "$(command -v nvim)" ]; then
+    alias vim='nvim'
+fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -107,6 +119,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
+. /usr/share/autojump/autojump.sh
+
+PS1="\033[1;33m\A\[\033[00m\] \033[0;32m\u\[\033[00m\] \033[01;34m\]\W\[\033[00m\] \033[0;31m\$\[\033[00m\] "
+
+export PATH="$PATH:/opt/nvim-linux64/bin"
+export EDITOR=/opt/nvim-linux64/bin/nvim
+# use vim as standard editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# Find out what's running on a given port
+whatsonport() {
+    lsof -i tcp:$1
+}
 # Set colors for man pages
 man() {
 env \
@@ -118,11 +144,4 @@ LESS_TERMCAP_ue=$(printf "\e[0m") \
 LESS_TERMCAP_us=$(printf "\e[1;32m") \
 man "$@"
 }
-. /usr/share/autojump/autojump.sh
 
-PS1="\033[1;33m\A\[\033[00m\] \033[0;32m\u\[\033[00m\] \033[01;34m\]\W\[\033[00m\] \033[0;31m\$\[\033[00m\] "
-export PATH="$PATH:/opt/nvim-linux64/bin"
-
-alias vim=nvim
-alias up="cd .."
-export EDITOR=/opt/nvim-linux64/bin/nvim
