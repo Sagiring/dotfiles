@@ -81,5 +81,14 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 " need to install Plug-Vim and PlugInstall "
 call plug#begin()
 Plug 'projekt0n/github-nvim-theme'
+
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
+
+
+" load lua/init.lua "
+lua require('init')
+
 colorscheme github_dark
