@@ -12,11 +12,11 @@ HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -34,7 +34,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -47,12 +47,16 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# PS1="\033[1;33m\]\A\[\033[00m\] \033[0;32m\]\u\[\033[00m\] \033[01;34m\]\W\[\033[00m\] \033[0;31m\]\$\[\033[00m\] "
+# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\033[1;33m\]\A\[\033[00m\] \033[0;32m\]\u\[\033[00m\] \033[01;34m\]\w\[\033[00m\]\033[0;31m\]\n\$\[\033[00m\] ' 
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
+
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -76,19 +80,13 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias serve='python -m http.server'
-
-# print current week number
-alias week='date +%V'
+export PATH="$PATH:/opt/nvim-linux64/bin"
+export EDITOR=/opt/nvim-linux64/bin/nvim
+# use vim as standard editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 # use nvim if available
 if [ -x "$(command -v nvim)" ]; then
@@ -121,13 +119,8 @@ fi
 
 . /usr/share/autojump/autojump.sh
 
-PS1="\033[1;33m\A\[\033[00m\] \033[0;32m\u\[\033[00m\] \033[01;34m\]\W\[\033[00m\] \033[0;31m\$\[\033[00m\] "
 
-export PATH="$PATH:/opt/nvim-linux64/bin"
-export EDITOR=/opt/nvim-linux64/bin/nvim
-# use vim as standard editor
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+
 
 # Find out what's running on a given port
 whatsonport() {
