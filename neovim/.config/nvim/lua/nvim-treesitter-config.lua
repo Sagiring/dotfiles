@@ -12,4 +12,18 @@ require'nvim-treesitter.configs'.setup {
 	indent = {
 		enable = true
 	},
+	rainbow = {
+		enable = true,
+		-- Which query to use for finding delimiters
+		query = 'rainbow-parens',
+		-- Highlight the entire buffer all at once
+		strategy = require('ts-rainbow').strategy.global,
+		-- set my colors
+		colors = {
+			'#d98940',
+			'#cf64c2',
+			'#4c8dee',
+		
+		},
+	}
 }

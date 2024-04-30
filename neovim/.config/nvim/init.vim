@@ -96,6 +96,8 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'https://github.com/HiPhish/nvim-ts-rainbow2'
+
 call plug#end()
 
 
