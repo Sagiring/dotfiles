@@ -2,11 +2,13 @@ require('keymaps')
 
 -- theme
 -- require('github-theme-config')
-require('catppuccin-config')
+require('plugins.catppuccin-config')
 
 -- Plugins
-require('lualine-config')
-require('nvim-tree-config')
-require('nvim-treesitter-config')
-require('mason-config')
-require('nvim-cmp-config')
+require('plugins.lualine-config')
+require('plugins.nvim-tree-config')
+require('plugins.nvim-treesitter-config')
+require('plugins.mason-config')
+require('plugins.nvim-cmp-config')
+require('plugins.commit-config')
+require('plugins.autopairs-config')
