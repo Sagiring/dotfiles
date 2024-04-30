@@ -12,3 +12,7 @@ require('plugins.mason-config')
 require('plugins.nvim-cmp-config')
 require('plugins.commit-config')
 require('plugins.autopairs-config')
+require('plugins.bufferline-config')
+require('plugins.gitsigns-config')
+
+require('plugins.telescope-config')

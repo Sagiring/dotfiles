@@ -6,7 +6,7 @@ export EDITOR=/opt/nvim-linux64/bin/nvim
 # use vim as standard editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-
+export PATH="$PATH:/mnt/e/Software/Microsoft VS Code/bin"
 
 # don't put duplicate lines or lines starting with space in the history.
 #
