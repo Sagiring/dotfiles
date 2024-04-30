@@ -1,6 +1,5 @@
 require('github-theme').setup({
-	options = {
-		--transparent = true,
-		terminal_colors = true,
-	}
+
 })
+-- setup must be called before loading
+vim.cmd.colorscheme "github_dark"

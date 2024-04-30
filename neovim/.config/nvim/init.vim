@@ -78,17 +78,27 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
+" open true color "
+if has("termguicolors")
+    set termguicolors
+endif
 " need to install Plug-Vim and PlugInstall "
 call plug#begin()
 Plug 'projekt0n/github-nvim-theme'
 
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
 Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
 Plug 'nvim-tree/nvim-web-devicons'
+
+Plug 'nvim-tree/nvim-tree.lua'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()
 
 
 " load lua/init.lua "
 lua require('init')
 
-colorscheme github_dark
