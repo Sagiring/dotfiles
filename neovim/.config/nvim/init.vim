@@ -78,25 +78,39 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
+set ts=4
+set expandtab
+
+
 " open true color "
 if has("termguicolors")
-    set termguicolors
+        set termguicolors
 endif
 " need to install Plug-Vim and PlugInstall "
 call plug#begin()
-Plug 'projekt0n/github-nvim-theme'
-
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 Plug 'nvim-lualine/lualine.nvim'
-" If you want to have icons in your statusline choose one of these
 Plug 'nvim-tree/nvim-web-devicons'
 
 Plug 'nvim-tree/nvim-tree.lua'
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
 Plug 'https://github.com/HiPhish/nvim-ts-rainbow2'
+
+" LSP"
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
+" Grammar Completion "
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+" For vsnip users.
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
 call plug#end()
 

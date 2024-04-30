@@ -5,6 +5,7 @@ require("catppuccin").setup({
         	nvimtree = true,
         	treesitter = true,
 		ts_rainbow2 = true,
+		cmp = true,
 	},
 
    

@@ -8,5 +8,5 @@ require('catppuccin-config')
 require('lualine-config')
 require('nvim-tree-config')
 require('nvim-treesitter-config')
-
-
+require('mason-config')
+require('nvim-cmp-config')
