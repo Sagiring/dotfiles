@@ -6,7 +6,7 @@ require("nvim-tree").setup({
 	sort_by = "case_sensitive",
 
 	git = {
-		enable = true,
+		enable = false,
 	},
 
 	view = {
@@ -14,7 +14,6 @@ require("nvim-tree").setup({
 		number = false,
 		relativenumber = false,
 		signcolumn = "yes",
-		width = 30,
 	},
 	renderer = {
 		group_empty = true,
