@@ -10,7 +10,7 @@ require("mason").setup({
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
+local lspconfig = require("lspconfig")
 local handlers = {
         -- The first entry (without a key) will be the default handler
         -- and will be called for each installed server that doesn't have
@@ -20,34 +20,34 @@ local handlers = {
                         capabilities = capabilities,
                 }
         end,
+        -- ["ast_grep"] = function()
+        --         require'lspconfig'.ast_grep.setup{
+        --                 cmd = { "ast-grep", "lsp" },
+        --                 filetypes = { "c", "cpp", "rust", "go", "java", "python", "javascript", "typescript", "html", "css", "kotlin", "dart", "lua" },
+        --                 root_dir = vim.loop.cwd,
+        --         }
+        -- end,
         ["pylsp"] = function ()
-                local lspconfig = require("lspconfig")
                 lspconfig.pylsp.setup {
                         capabilities = capabilities,
+                        root_dir = vim.loop.cwd,
                         settings = {
                                 pylsp = {
                                         plugins = {
-                                                pyflakes={
-                                                        enabled=true
-                                                },
-                                                pylint = {
-                                                        args = {'--ignore=E501,E231', '-'}, enabled=false, debounce=200
-                                                },
-                                                pylsp_mypy={
-                                                        enabled=false
-                                                },
-                                                pycodestyle={
-                                                        enabled=false,
-                                                        ignore={'E501', 'E231'},
-                                                        maxLineLength=120},
+                                                pyflakes={enabled=true},
+        
+                                                pylint = {enabled=false, debounce=200,args = {'--ignore=E501,E231', '-'}},
+        
+                                                pylsp_mypy={enabled=false},
+        
+                                                pycodestyle={enabled=false,ignore={'E501', 'E231'},maxLineLength=120},
                                         }
                                 }
                         }
                 }
-
+        
         end,
         ["lua_ls"] = function ()
-                local lspconfig = require("lspconfig")
                 lspconfig.lua_ls.setup {
                         capabilities = capabilities,
                         settings = {
@@ -59,6 +59,30 @@ local handlers = {
                         }
                 }
         end,
+        -- ["java_language_server"] = function ()
+        --         lspconfig.java_language_server.setup {
+        --                 filetypes = {"java"},
+        --                 root_dir = vim.loop.cwd,
+        --
+        --         }
+        -- end,
+        ["bashls"] = function ()
+                lspconfig.bashls.setup {
+                        capabilities = capabilities,
+                        cmd =  { "bash-language-server", "start" },
+                        filetypes = { "sh" },
+                        settings = {
+                                bashIde = {
+                                        globPattern = "*@(.sh|.inc|.bash|.command)"
+                                }
+                        },
+                        single_file_support = true,
+                        root_dir = vim.loop.cwd,
+
+                }
+
+        end,
+
 }
 
 
