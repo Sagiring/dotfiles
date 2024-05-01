@@ -87,7 +87,7 @@ local handlers = {
 
 
 require("mason-lspconfig").setup({
-        automatic_installation = true,
+        ensure_installed = {'pylsp','lua_ls','bashls'},
         handlers = handlers
 })
 
