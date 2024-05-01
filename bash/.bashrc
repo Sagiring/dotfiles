@@ -7,7 +7,11 @@ export EDITOR=/opt/nvim-linux64/bin/nvim
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH="$PATH:/mnt/e/Software/Microsoft VS Code/bin"
-cd ~
+
+export JAVA_HOME=/usr/lib/jvm/jdk-17.0.11+9
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
 # don't put duplicate lines or lines starting with space in the history.
 #
 # See bash(1) for more options
@@ -139,3 +143,4 @@ man() {
 		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 		man "$@"
 	}
+

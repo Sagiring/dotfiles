@@ -10,4 +10,4 @@ keymap.set("n", "<C-M-l>", "gg=G")
 
 -- bufferline
 keymap.set("n", "<C-L>", ":BufferLineCycleNext<CR>")
-keymap.set("n", "<C-H>", ":BufferLineMovePrev<CR>")
+keymap.set("n", "<C-H>", ":BufferLineCyclePrev<CR>")
