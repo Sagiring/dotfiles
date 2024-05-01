@@ -7,7 +7,7 @@ export EDITOR=/opt/nvim-linux64/bin/nvim
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH="$PATH:/mnt/e/Software/Microsoft VS Code/bin"
-
+cd ~
 # don't put duplicate lines or lines starting with space in the history.
 #
 # See bash(1) for more options
@@ -59,7 +59,7 @@ fi
 
 
 if [ "$color_prompt" = yes ]; then
-	PS1='\033[1;33m\]\d\[\033[00m\] \033[0;32m\]\H\[\033[00m\] \033[01;34m\]\w\[\033[00m\]\033[0;31m\]\n\$\[\033[00m\] ' 
+	PS1='\033[1;33m\]\d\[\033[00m\] \033[0;32m\]\u\[\033[00m\] \033[01;34m\]\W\[\033[00m\]\033[0;31m\]\n\$\[\033[00m\] ' 
 	# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
 	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
