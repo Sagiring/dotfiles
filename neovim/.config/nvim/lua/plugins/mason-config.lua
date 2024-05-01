@@ -87,6 +87,7 @@ local handlers = {
 
 
 require("mason-lspconfig").setup({
+        automatic_installation = true,
         handlers = handlers
 })
 
