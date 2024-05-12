@@ -121,6 +121,8 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
 
+Plug 'https://github.com/lambdalisue/vim-suda'
+
 call plug#end()
 
 
