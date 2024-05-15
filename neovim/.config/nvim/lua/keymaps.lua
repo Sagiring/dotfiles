@@ -1,8 +1,8 @@
 local keymap = vim.keymap
 
 keymap.set("i","jj","<Esc>")
-keymap.set("n","h","^")
-keymap.set("n","l","$")
+keymap.set("n","H","^")
+keymap.set("n","L","$")
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 keymap.set("n", "<M-h>", ":NvimTreeFocus<CR>")
