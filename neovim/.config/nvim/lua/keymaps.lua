@@ -1,5 +1,6 @@
 local keymap = vim.keymap
 
+keymap.set("i","jj","<Esc>")
 keymap.set("n","h","^")
 keymap.set("n","l","$")
 -- nvim-tree
