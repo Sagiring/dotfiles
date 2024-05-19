@@ -11,7 +11,8 @@ export EDITOR="$VISUAL"
 export PATH="$PATH:/mnt/e/Software/Microsoft VS Code/bin"
 export PATH="$PATH:~/script"
 
-export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:jre/bin/java::")
+# export JAVA_HOME=/usr/lib/jvm/jdk-17.0.11+9
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo'
@@ -25,3 +26,5 @@ fi
 . "$HOME/.cargo/env"
 
 export PATH="/home/sagiring/.local/share/solana/install/active_release/bin:$PATH"
+
+
