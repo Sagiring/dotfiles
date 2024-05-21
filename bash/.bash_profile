@@ -11,7 +11,7 @@ export EDITOR="$VISUAL"
 export PATH="$PATH:/mnt/e/Software/Microsoft VS Code/bin"
 export PATH="$PATH:~/script"
 
-export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:jre/bin/java::")
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:jre/bin/java::"| sed "s:bin/java::")
 # export JAVA_HOME=/usr/lib/jvm/jdk-17.0.11+9
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
