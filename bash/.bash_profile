@@ -1,10 +1,14 @@
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+export NAMESRV_ADDR=172.28.191.178:9876
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export EDITOR=/opt/nvim-linux64/bin/nvim
 export PATH="$PATH:/opt/idea/bin"
+
+export ROCKETMQ_HOME=/opt/rocketmq-all-5.2.0-bin-release
+export PATH="$PATH:$ROCKETMQ_HOME/bin"
 # use vim as standard editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
