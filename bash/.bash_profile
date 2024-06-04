@@ -1,7 +1,7 @@
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-export NAMESRV_ADDR=172.28.191.178:9876
+export NAMESRV_ADDR=$(hostname -I | awk '{print $1}'):9876
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export EDITOR=/opt/nvim-linux64/bin/nvim
@@ -12,7 +12,11 @@ export PATH="$PATH:$ROCKETMQ_HOME/bin"
 # use vim as standard editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export PATH="$PATH:/mnt/e/Software/Microsoft VS Code/bin"
+if [ -d "/mnt/e/Software/Microsoft VS Code/bin" ]; then
+	export PATH="$PATH:/mnt/e/Software/Microsoft VS Code/bin"
+else
+	export PATH="$PATH:/mnt/c/Program File/Microsoft VS Code/bin"
+fi
 export PATH="$PATH:~/script"
 
 export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:jre/bin/java::"| sed "s:bin/java::")
@@ -27,7 +31,9 @@ if [ -f ~/.bashrc ]; then
 fi
 
 
-. "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo/env" ]; then
+	. "$HOME/.cargo/env"
+fi
 
 export PATH="/home/sagiring/.local/share/solana/install/active_release/bin:$PATH"
 
