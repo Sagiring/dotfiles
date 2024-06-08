@@ -38,3 +38,4 @@ fi
 export PATH="/home/sagiring/.local/share/solana/install/active_release/bin:$PATH"
 
 
+export PATH=$(python -c 'import site; print(site.USER_BASE + "/bin")'):$PATH
