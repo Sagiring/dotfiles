@@ -15,7 +15,7 @@ export EDITOR="$VISUAL"
 if [ -d "/mnt/e/Software/Microsoft VS Code/bin" ]; then
 	export PATH="$PATH:/mnt/e/Software/Microsoft VS Code/bin"
 else
-	export PATH="$PATH:/mnt/c/Program File/Microsoft VS Code/bin"
+	export PATH="$PATH:/mnt/c/Program Files/Microsoft VS Code/bin"
 fi
 export PATH="$PATH:~/script"
 
@@ -38,3 +38,4 @@ fi
 export PATH="/home/sagiring/.local/share/solana/install/active_release/bin:$PATH"
 
 
+export PATH=$(python -c 'import site; print(site.USER_BASE + "/bin")'):$PATH
