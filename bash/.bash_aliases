@@ -9,9 +9,5 @@ alias serve='python -m http.server'
 
 # print current week number
 alias week='date +%V'
-
-alias wt="/mnt/c/Users/sagiriking/AppData/Local/Microsoft/WindowsApps/wt.exe"
-alias explorer="/mnt/c/Windows/explorer.exe"
-alias browser="/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe"
-alias b=browser
-alias e="explorer ."
+alias c="code ."
+alias bash="/opt/homebrew/bin/bash"

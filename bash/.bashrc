@@ -16,7 +16,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-shopt -s globstar
+# shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -28,7 +28,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-	xterm-color|*-256color) color_prompt=yes;;
+	xterm-color|*-256color) color_prompt=yes;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -109,8 +109,7 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-. /usr/share/autojump/autojump.sh
-
+ [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 
 
@@ -133,3 +132,5 @@ man() {
 
 socket=$(ls -1t /run/user/$UID/vscode-ipc-*.sock 2> /dev/null | head -1)
 export VSCODE_IPC_HOOK_CLI=${socket}
+~/.tmux/plugins/tpm/tpm
+complete -W "$(echo `cat ~/.ssh/config | grep 'Host '| cut -f 2 -d ' '|uniq`;)" ssh
