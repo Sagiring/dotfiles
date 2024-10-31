@@ -167,3 +167,56 @@
 [WARN][2024-09-02 10:41:43] ...lsp/handlers.lua:537	"02:41:43.896 WARNING ⛔️ file:///opt/homebrew/etc/profile.d/autojump.sh line 20: non-constant source not supported"
 [WARN][2024-09-02 10:41:43] ...lsp/handlers.lua:537	"02:41:43.896 WARNING ⛔️ file:///opt/homebrew/etc/profile.d/autojump.sh line 24: non-constant source not supported"
 [WARN][2024-09-02 10:41:43] ...lsp/handlers.lua:537	"02:41:43.896 WARNING ⛔️ file:///opt/homebrew/etc/profile.d/autojump.sh line 29: non-constant source not supported"
+[START][2024-10-14 18:00:37] LSP logging initiated
+[ERROR][2024-10-14 18:00:37] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:25134) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-14 18:00:37] ...lsp/handlers.lua:537	"10:00:37.851 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-14 18:00:38] ...lsp/handlers.lua:537	"10:00:38.370 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[WARN][2024-10-14 18:00:45] ...lsp/handlers.lua:537	"10:00:45.056 WARNING ⛔️ Error while parsing file:///Users/sagiring/dotfiles/bash/.bash_aliases: syntax error"
+[START][2024-10-14 18:10:41] LSP logging initiated
+[ERROR][2024-10-14 18:10:41] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:30246) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-14 18:10:41] ...lsp/handlers.lua:537	"10:10:41.952 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-14 18:10:42] ...lsp/handlers.lua:537	"10:10:42.473 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[WARN][2024-10-14 18:10:49] ...lsp/handlers.lua:537	"10:10:49.557 WARNING ⛔️ Error while parsing file:///Users/sagiring/.bash_aliases: syntax error"
+[START][2024-10-14 18:13:44] LSP logging initiated
+[ERROR][2024-10-14 18:13:44] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:31353) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-14 18:13:44] ...lsp/handlers.lua:537	"10:13:44.194 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-14 18:13:44] ...lsp/handlers.lua:537	"10:13:44.715 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[START][2024-10-15 17:21:25] LSP logging initiated
+[ERROR][2024-10-15 17:21:25] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:80976) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-15 17:21:25] ...lsp/handlers.lua:537	"09:21:25.059 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-15 17:21:25] ...lsp/handlers.lua:537	"09:21:25.579 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[START][2024-10-16 14:51:05] LSP logging initiated
+[ERROR][2024-10-16 14:51:05] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:35486) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-16 14:51:05] ...lsp/handlers.lua:537	"06:51:05.687 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-16 14:51:06] ...lsp/handlers.lua:537	"06:51:06.207 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[START][2024-10-16 14:55:43] LSP logging initiated
+[ERROR][2024-10-16 14:55:43] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:37520) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-16 14:55:43] ...lsp/handlers.lua:537	"06:55:43.172 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-16 14:55:43] ...lsp/handlers.lua:537	"06:55:43.200 WARNING ⛔️ file:///Users/sagiring/tools/hot-fix-helper/hot-fix-helper.sh line 2: failed to resolve path"
+[WARN][2024-10-16 14:55:43] ...lsp/handlers.lua:537	"06:55:43.202 WARNING ⛔️ file:///Users/sagiring/tools/hot-fix-helper/setup.sh line 16: failed to resolve path"
+[WARN][2024-10-16 14:55:43] ...lsp/handlers.lua:537	"06:55:43.697 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[WARN][2024-10-16 14:55:49] ...lsp/handlers.lua:537	"06:55:49.048 WARNING ⛔️ file:///Users/sagiring/.bashrc line 105: failed to resolve path"
+[WARN][2024-10-16 14:55:49] ...lsp/handlers.lua:537	"06:55:49.048 WARNING ⛔️ file:///Users/sagiring/.bashrc line 107: failed to resolve path"
+[WARN][2024-10-16 14:55:51] ...lsp/handlers.lua:537	"06:55:51.262 WARNING ⛔️ file:///opt/homebrew/etc/profile.d/autojump.sh line 20: non-constant source not supported"
+[WARN][2024-10-16 14:55:51] ...lsp/handlers.lua:537	"06:55:51.262 WARNING ⛔️ file:///opt/homebrew/etc/profile.d/autojump.sh line 24: non-constant source not supported"
+[WARN][2024-10-16 14:55:51] ...lsp/handlers.lua:537	"06:55:51.262 WARNING ⛔️ file:///opt/homebrew/etc/profile.d/autojump.sh line 29: non-constant source not supported"
+[START][2024-10-21 14:37:59] LSP logging initiated
+[ERROR][2024-10-21 14:37:59] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:88485) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-21 14:37:59] ...lsp/handlers.lua:537	"06:37:59.571 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-21 14:38:00] ...lsp/handlers.lua:537	"06:38:00.093 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[START][2024-10-21 14:38:10] LSP logging initiated
+[ERROR][2024-10-21 14:38:10] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:88625) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-21 14:38:10] ...lsp/handlers.lua:537	"06:38:10.496 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-21 14:38:11] ...lsp/handlers.lua:537	"06:38:11.010 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[START][2024-10-28 16:49:11] LSP logging initiated
+[ERROR][2024-10-28 16:49:11] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:18094) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-28 16:49:11] ...lsp/handlers.lua:537	"08:49:11.065 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-28 16:49:11] ...lsp/handlers.lua:537	"08:49:11.583 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[START][2024-10-28 16:50:30] LSP logging initiated
+[ERROR][2024-10-28 16:50:30] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:18438) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-28 16:50:30] ...lsp/handlers.lua:537	"08:50:30.342 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-28 16:50:30] ...lsp/handlers.lua:537	"08:50:30.858 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[START][2024-10-28 16:51:03] LSP logging initiated
+[ERROR][2024-10-28 16:51:03] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:18534) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-10-28 16:51:03] ...lsp/handlers.lua:537	"08:51:03.636 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-10-28 16:51:04] ...lsp/handlers.lua:537	"08:51:04.150 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"

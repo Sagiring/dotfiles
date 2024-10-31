@@ -11,3 +11,5 @@ alias serve='python -m http.server'
 alias week='date +%V'
 alias c="code ."
 alias bash="/opt/homebrew/bin/bash"
+alias python="/opt/homebrew/bin/python3"
+alias python3="/opt/homebrew/bin/python3"
