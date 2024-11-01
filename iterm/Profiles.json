@@ -517,7 +517,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.52941176470588236
   },
-  "Name" : "Default",
+  "Name" : "Sagiring",
   "Transparency" : 0,
   "Horizontal Spacing" : 1,
   "Cursor Color (Dark)" : {
@@ -645,6 +645,7 @@
     "Alpha Component" : 0.070000000000000007,
     "Green Component" : 0.82745098039215681
   },
+  "Title Components" : 4,
   "Custom Directory" : "No",
   "Working Directory" : "\/Users\/sagiring",
   "ASCII Anti Aliased" : true,
@@ -668,6 +669,7 @@
     "Green Component" : 0.98600882291793823
   },
   "Background Image Location" : "",
+  "Allow Title Setting" : true,
   "Ansi 1 Color (Light)" : {
     "Red Component" : 0.82352941176470584,
     "Color Space" : "sRGB",
@@ -690,7 +692,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.85490196078431369
   },
-  "Normal Font" : "CaskaydiaMonoNFM-Regular 16",
+  "Normal Font" : "CaskaydiaMonoNFM-Regular 15",
   "Unlimited Scrollback" : false,
   "Ansi 12 Color (Light)" : {
     "Red Component" : 0.11764705882352941,
