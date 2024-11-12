@@ -1,9 +1,6 @@
 #!/bin/bash
-
-# Find the most relevant application (case-insensitive search)
 app=$(find /Applications -maxdepth 1 -type d -iname "*$1*.app" | head -n 1)
 
-# Check if an application was found
 if [ -n "$app" ]; then
     echo "open -a $app ${@:2}"
     eval "open -a $app ${@:2}" 
