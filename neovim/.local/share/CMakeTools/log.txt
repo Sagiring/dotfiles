@@ -1,16 +1,17 @@
-2024-10-31T09:57:52.195Z [debug] [main] 安全构造新的 CMakeProject 实例
-2024-10-31T09:57:52.196Z [debug] [variant] 构造 VariantManager
-2024-10-31T09:57:52.196Z [debug] [main] 构造新的 CMakeProject 实例
-2024-10-31T09:57:52.196Z [debug] [main] 正在启动 CMake 工具第二阶段初始化
-2024-10-31T09:57:52.197Z [debug] [expand] 已展开 ${workspaceFolder}
-2024-10-31T09:57:52.295Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
-2024-10-31T09:57:54.428Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 1 工具包
-2024-10-31T09:57:54.595Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/logs/.vscode/cmake-kits.json
-2024-10-31T09:57:54.611Z [info] [variant] 已加载一组新变量
-2024-10-31T09:57:54.612Z [debug] [main] CMakeProject 实例初始化完成。
-2024-10-31T09:57:57.786Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:44:33.587Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:44:40.514Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2024-11-11T02:54:33.173Z [debug] [main] 安全构造新的 CMakeProject 实例
+2024-11-11T02:54:33.173Z [debug] [variant] 构造 VariantManager
+2024-11-11T02:54:33.173Z [debug] [main] 构造新的 CMakeProject 实例
+2024-11-11T02:54:33.173Z [debug] [main] 正在启动 CMake 工具第二阶段初始化
+2024-11-11T02:54:33.174Z [debug] [expand] 已展开 ${workspaceFolder}
+2024-11-11T02:54:33.194Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2024-11-11T02:54:33.265Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 1 工具包
+2024-11-11T02:54:33.385Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/project/vc++/.vscode/cmake-kits.json
+2024-11-11T02:54:33.553Z [info] [variant] 已加载一组新变量
+2024-11-11T02:54:33.557Z [debug] [main] CMakeProject 实例初始化完成。
+2024-11-11T02:54:33.584Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2024-11-11T02:54:38.173Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2024-11-11T03:02:27.190Z [debug] [extension] 停用 CMakeTools
+��选择任何工具包
 2024-11-01T09:44:55.513Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
 2024-11-01T09:45:04.522Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
 2024-11-01T09:45:41.518Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
@@ -30,8 +31,8 @@
 2024-11-01T09:52:17.511Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
 2024-11-01T09:52:33.497Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
 2024-11-01T09:54:30.484Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-任何工具包
-2024-10-16T03:42:04.749Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2024-11-04T02:29:33.247Z [debug] [extension] 停用 CMakeTools
+�� CMake 驱动程序: 未选择任何工具包
 2024-10-16T03:42:10.409Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
 2024-10-16T03:42:11.795Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
 2024-10-16T03:42:13.786Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包

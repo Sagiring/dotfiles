@@ -61,3 +61,5 @@
 [INFO  Thu Aug 15 17:12:32 2024] ...vim/plugged/mason.nvim/lua/mason-core/installer/init.lua:184: Executing installer for Package(name=python-lsp-server) {}
 [INFO  Thu Aug 15 17:12:44 2024] ...vim/plugged/mason.nvim/lua/mason-core/installer/init.lua:245: Installation succeeded for Package(name=python-lsp-server)
 [ERROR Thu Aug 15 17:13:02 2024] ...plugged/mason.nvim/lua/mason-registry/sources/github.lua:146: Failed to install registry GitHubRegistrySource(repo=mason-org/mason-registry). "Failed to download checksums.txt."
+[ERROR Mon Nov 11 16:07:19 2024] ...plugged/mason.nvim/lua/mason-registry/sources/github.lua:146: Failed to install registry GitHubRegistrySource(repo=mason-org/mason-registry). "Failed to download registry archive."
+[ERROR Mon Nov 11 16:12:32 2024] ...plugged/mason.nvim/lua/mason-registry/sources/github.lua:146: Failed to install registry GitHubRegistrySource(repo=mason-org/mason-registry). "Failed to download registry archive."
