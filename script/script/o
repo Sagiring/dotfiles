@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Find the most relevant application (case-insensitive search)
+app=$(find /Applications -maxdepth 1 -type d -iname "*$1*.app" | head -n 1)
+
+# Check if an application was found
+if [ -n "$app" ]; then
+    open "$app" "${@:2}"
+else
+    echo "No application found matching $1"
+fi
