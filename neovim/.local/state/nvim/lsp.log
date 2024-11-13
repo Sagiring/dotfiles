@@ -291,3 +291,12 @@
 [ERROR][2024-11-12 18:55:23] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:56454) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
 [WARN][2024-11-12 18:55:23] ...lsp/handlers.lua:537	"10:55:23.563 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
 [WARN][2024-11-12 18:55:24] ...lsp/handlers.lua:537	"10:55:24.086 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[START][2024-11-13 15:45:10] LSP logging initiated
+[ERROR][2024-11-13 15:45:10] .../vim/lsp/rpc.lua:734	"rpc"	"/Users/sagiring/.local/share/nvim/mason/bin/bash-language-server"	"stderr"	"(node:13443) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+[WARN][2024-11-13 15:45:10] ...lsp/handlers.lua:537	"07:45:10.703 WARNING ⛔️ Environment variable configuration is being deprecated, please use workspace configuration. The following environment variables were used: shfmt"
+[WARN][2024-11-13 15:45:11] ...lsp/handlers.lua:537	"07:45:11.224 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'"
+[WARN][2024-11-13 15:45:30] ...lsp/handlers.lua:537	"07:45:30.141 WARNING ⛔️ Error while parsing file:///Users/sagiring/dotfiles/script/script/o: syntax error"
+[WARN][2024-11-13 15:45:31] ...lsp/handlers.lua:537	"07:45:31.827 WARNING ⛔️ Error while parsing file:///Users/sagiring/dotfiles/script/script/o: syntax error"
+[WARN][2024-11-13 15:45:32] ...lsp/handlers.lua:537	"07:45:32.499 WARNING ⛔️ Error while parsing file:///Users/sagiring/dotfiles/script/script/o: syntax error"
+[WARN][2024-11-13 15:45:35] ...lsp/handlers.lua:537	"07:45:35.874 WARNING ⛔️ Error while parsing file:///Users/sagiring/dotfiles/script/script/o: syntax error"
+[WARN][2024-11-13 15:45:36] ...lsp/handlers.lua:537	"07:45:36.490 WARNING ⛔️ Error while parsing file:///Users/sagiring/dotfiles/script/script/o: syntax error"
