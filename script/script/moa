@@ -1,0 +1,12 @@
+#!/bin/bash
+if [[ "$1" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    moa_ip="$1"
+else
+    moa_ip=$(get-moa-ip.sh $1)
+fi
+if [[ "$moa_ip" == *"error"* ]]; then
+    echo $moa_ip
+    exit 1
+fi
+echo "MOA-IP $moa_ip"
+auth-ssh.sh && ssh -t gw1 log $moa_ip
