@@ -1,0 +1,9 @@
+#!/bin/bash
+app=$(find /Applications -maxdepth 1 -type d -iname "*$1*.app" | head -n 1)
+
+if [ -n "$app" ]; then
+    echo "open -a \"$app\" \"${@:2}\""
+    eval "open -a \"$app\" \"${@:2}\"" 
+else
+    echo "No application found matching $1"
+fi
