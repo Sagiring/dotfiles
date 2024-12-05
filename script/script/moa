@@ -1,8 +1,0 @@
-#!/bin/bash
-moa_ip=$(get-moa-ip.sh $@)
-if [[ "$moa_ip" == *"error"* ]]; then
-    echo $moa_ip
-    exit 1
-fi
-echo "MOA-IP $moa_ip"
-auth-ssh.sh && ssh -t gw1 log $moa_ip
