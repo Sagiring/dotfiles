@@ -2,7 +2,7 @@
 if [[ "$1" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
     moa_ip="$1"
 else
-    moa_ip=$(get-moa-ip.sh $1)
+    moa_ip=$(get-moa-ip.sh $@)
 fi
 if [[ "$moa_ip" == *"error"* ]]; then
     echo $moa_ip
