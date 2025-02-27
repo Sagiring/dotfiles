@@ -20,7 +20,10 @@ shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
+# lesspipe will activate by ".bash_profile"
+lessc() { 
+        /usr/share/vim/vim91/macros/less.sh "$@"
+}
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_chroot)
@@ -70,15 +73,23 @@ unset color_prompt force_color_prompt
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls='ls --color=auto'
-	#alias dir='dir --color=auto'
-	#alias vdir='vdir --color=auto'
+	alias dir='dir --color=auto'
+	alias vdir='vdir --color=auto'
 
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
 fi
 
+if [ -x /opt/homebrew/bin/gdircolors ]; then
+        alias ls="gls --color=auto"
+        alias dir="gdir --color=auto"
+        alias vdir="gvdir --color=auto"
+	    alias grep='grep --color=auto'
+	    alias fgrep='fgrep --color=auto'
+	    alias egrep='egrep --color=auto'
 
+fi
 
 # use nvim if available
 if [ -x "$(command -v nvim)" ]; then
@@ -87,8 +98,8 @@ fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert='terminal-notifier -title "Terminal" -message "Done with task! Exit status: $?"'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -114,7 +125,7 @@ fi
 
 
 # Find out what's running on a given port
-whatsonport() {
+port() {
 	lsof -i tcp:$1
 }
 # Set colors for man pages
@@ -134,3 +145,18 @@ socket=$(ls -1t /run/user/$UID/vscode-ipc-*.sock 2> /dev/null | head -1)
 export VSCODE_IPC_HOOK_CLI=${socket}
 ~/.tmux/plugins/tpm/tpm
 complete -W "$(echo `cat ~/.ssh/config | grep 'Host '| cut -f 2 -d ' '|uniq`;)" ssh
+
+
+_moa_completions()
+{
+    local cur opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts="vchat-service vchat-game-service vchat-gift-moa vchat-support-service vchat-task-service"
+    if [[ ${COMP_CWORD} -eq 1 ]]; then
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    fi
+    return 0
+}
+
+complete -F _moa_completions moa

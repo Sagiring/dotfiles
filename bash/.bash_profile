@@ -7,7 +7,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 export PATH="$PATH:/opt/nvim-macos/bin/"
 export EDITOR=/opt/nvim-macos/bin/nvim/
 export PATH="$PATH:/opt/homebrew/bin/"
-
+export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
@@ -26,3 +26,4 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export LANG="en_US.UTF-8"
+export PATH=/Users/sagiring/development/flutter/bin:/opt/homebrew/opt/mysql-client/bin:/Users/sagiring/.jenv/shims:/Users/sagiring/.jenv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/usr/local/corplink/mdm/opt/corplink-mdm/bin:/Applications/iTerm.app/Contents/Resources/utilities:/opt/nvim-macos/bin/:/opt/homebrew/bin/:~/script

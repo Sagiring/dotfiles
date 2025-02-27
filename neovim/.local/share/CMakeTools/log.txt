@@ -1,88 +1,102 @@
-2024-11-11T02:54:33.173Z [debug] [main] 安全构造新的 CMakeProject 实例
-2024-11-11T02:54:33.173Z [debug] [variant] 构造 VariantManager
-2024-11-11T02:54:33.173Z [debug] [main] 构造新的 CMakeProject 实例
-2024-11-11T02:54:33.173Z [debug] [main] 正在启动 CMake 工具第二阶段初始化
-2024-11-11T02:54:33.174Z [debug] [expand] 已展开 ${workspaceFolder}
-2024-11-11T02:54:33.194Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
-2024-11-11T02:54:33.265Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 1 工具包
-2024-11-11T02:54:33.385Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/project/vc++/.vscode/cmake-kits.json
-2024-11-11T02:54:33.553Z [info] [variant] 已加载一组新变量
-2024-11-11T02:54:33.557Z [debug] [main] CMakeProject 实例初始化完成。
-2024-11-11T02:54:33.584Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-11T02:54:38.173Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-11T03:02:27.190Z [debug] [extension] 停用 CMakeTools
-��选择任何工具包
-2024-11-01T09:44:55.513Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:45:04.522Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:45:41.518Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:45:49.502Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:46:03.514Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:46:12.501Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:46:24.518Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:46:54.506Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:47:05.511Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:48:33.501Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:49:07.504Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:49:39.506Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:49:58.505Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:50:14.499Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:50:26.522Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:51:21.497Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:52:17.511Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:52:33.497Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-01T09:54:30.484Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-11-04T02:29:33.247Z [debug] [extension] 停用 CMakeTools
-�� CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:10.409Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:11.795Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:13.786Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:16.320Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:19.287Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:20.952Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:22.177Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:23.499Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:27.610Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:29.483Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:33.994Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:35.186Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:37.302Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:40.765Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:44.576Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:47.600Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:49.659Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:42:52.198Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:43:15.836Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:43:17.607Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:43:18.744Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:43:21.853Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:43:24.920Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:43:27.450Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:43:31.617Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:43:34.931Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:43:42.842Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:09.143Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:11.333Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:14.497Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:17.032Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:18.201Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:19.612Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:20.738Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:46.470Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:48.779Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:49.982Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:44:51.336Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:01.115Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:06.105Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:10.835Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:15.124Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:18.807Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:21.069Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:23.156Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:26.192Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:28.732Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:31.761Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:38.302Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:39.880Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2025-02-26T11:00:14.272Z [debug] [main] 安全构造新的 CMakeProject 实例
+2025-02-26T11:00:14.272Z [debug] [variant] 正在构造 VariantManager
+2025-02-26T11:00:14.272Z [debug] [main] 构造新的 CMakeProject 实例
+2025-02-26T11:00:14.273Z [debug] [main] 正在启动 CMake 工具第二阶段初始化
+2025-02-26T11:00:14.273Z [debug] [expand] 已展开 ${workspaceFolder}
+2025-02-26T11:00:14.365Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2025-02-26T11:00:14.960Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 1 工具包
+2025-02-26T11:00:15.017Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/tools/flutter/.vscode/cmake-kits.json
+2025-02-26T11:00:15.505Z [info] [variant] 已加载一组新变量
+2025-02-26T11:00:15.514Z [debug] [main] CMakeProject 实例初始化完成。
+2025-02-26T11:00:23.949Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2025-02-27T10:41:18.192Z [debug] [extension] 停用 CMakeTools
+nt] 已加载一组新变量
+2025-02-26T03:11:35.612Z [debug] [main] CMakeProject 实例初始化完成。
+2025-02-26T03:11:37.177Z [debug] [main] 正在启动新的 CMake 驱动程序
+2025-02-26T03:11:37.177Z [debug] [main] 正在启动 CMake 驱动程序
+2025-02-26T03:11:37.177Z [debug] [cmakefileapi-driver] 正在创建 CMakeFileApiDriver 的实例
+2025-02-26T03:11:37.181Z [debug] [driver] 正在使用工具包初始化基本驱动程序
+2025-02-26T03:11:37.182Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
+2025-02-26T03:11:37.183Z [info] [proc] 执行命令: /usr/bin/clang -v
+2025-02-26T03:11:48.881Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
+2025-02-26T03:11:48.882Z [debug] [driver] CMakeDriver 工具包设置为 Clang 15.0.0 arm64-apple-darwin24.0.0
+2025-02-26T03:11:48.884Z [debug] [kit] 工具包 'Clang 15.0.0 arm64-apple-darwin24.0.0' 的环境: {
+  "AUTOJUMP_ERROR_PATH": "/Users/sagiring/Library/autojump/errors.log",
+  "AUTOJUMP_SOURCED": "1",
+  "BASH_SILENCE_DEPRECATION_WARNING": "1",
+  "COLORFGBG": "15;0",
+  "COLORTERM": "truecolor",
+  "COMMAND_MODE": "unix2003",
+  "EDITOR": "nvim",
+  "ELECTRON_NO_ATTACH_CONSOLE": "1",
+  "GCC_COLORS": "error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01",
+  "HOME": "/Users/sagiring",
+  "ITERM_PROFILE": "Sagiring",
+  "ITERM_SESSION_ID": "w0t0p0:B08A5F2E-182D-40E4-A67E-F37BEEDCCF80",
+  "JAVA_HOME": "/Users/sagiring/.jenv/versions/zulu64-1.8.0.432",
+  "JDK_HOME": "/Users/sagiring/.jenv/versions/zulu64-1.8.0.432",
+  "JENV_FORCEJAVAHOME": "true",
+  "JENV_FORCEJDKHOME": "true",
+  "JENV_LOADED": "1",
+  "JENV_SHELL": "bash",
+  "LANG": "en_US.UTF-8",
+  "LC_TERMINAL": "iTerm2",
+  "LC_TERMINAL_VERSION": "3.5.11",
+  "LESSOPEN": "|/opt/homebrew/bin/lesspipe.sh %s",
+  "LOGNAME": "sagiring",
+  "LaunchInstanceID": "4626D241-C789-49E1-BFC3-D2693A690CEA",
+  "MallocNanoZone": "0",
+  "ORIGINAL_XDG_CURRENT_DESKTOP": "undefined",
+  "PATH": "/Users/sagiring/development/flutter/bin:/opt/homebrew/opt/mysql-client/bin:/Users/sagiring/.jenv/shims:/Users/sagiring/.jenv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/usr/local/corplink/mdm/opt/corplink-mdm/bin:/Applications/iTerm.app/Contents/Resources/utilities:/opt/nvim-macos/bin/:/opt/homebrew/bin/:/Users/sagiring/script",
+  "PWD": "/Users/sagiring/tools",
+  "REPO_URL": "https://mirrors.tuna.tsinghua.edu.cn/git/git-repo",
+  "SECURITYSESSIONID": "186a3",
+  "SHELL": "/opt/homebrew/bin/bash",
+  "SHLVL": "2",
+  "SSH_AUTH_SOCK": "/private/tmp/com.apple.launchd.TtsARGgfHY/Listeners",
+  "TERM": "screen-256color",
+  "TERMINFO_DIRS": "/Applications/iTerm.app/Contents/Resources/terminfo:/usr/share/terminfo",
+  "TERM_FEATURES": "T3CwLrMSc7UUw9Ts3BFGsSyHNoSxF",
+  "TERM_PROGRAM": "tmux",
+  "TERM_PROGRAM_VERSION": "3.4",
+  "TERM_SESSION_ID": "w0t0p0:B08A5F2E-182D-40E4-A67E-F37BEEDCCF80",
+  "TMPDIR": "/var/folders/7c/ddkm7fx552l7j0h8zz3bcc5m0000gn/T/",
+  "TMUX": "/private/tmp/tmux-501/default,751,11",
+  "TMUX_PANE": "%13",
+  "TMUX_PLUGIN_MANAGER_PATH": "/Users/sagiring/.tmux/plugins/",
+  "USER": "sagiring",
+  "VISUAL": "nvim",
+  "VSCODE_CLI": "1",
+  "VSCODE_CODE_CACHE_PATH": "/Users/sagiring/Library/Application Support/Code/CachedData/e54c774e0add60467559eb0d1e229c6452cf8447",
+  "VSCODE_CRASH_REPORTER_PROCESS_TYPE": "extensionHost",
+  "VSCODE_CWD": "/Users/sagiring/tools",
+  "VSCODE_ESM_ENTRYPOINT": "vs/workbench/api/node/extensionHostProcess",
+  "VSCODE_HANDLES_UNCAUGHT_ERRORS": "true",
+  "VSCODE_IPC_HOOK": "/Users/sagiring/Library/Application Support/Code/1.97-main.sock",
+  "VSCODE_NLS_CONFIG": "{\"userLocale\":\"zh-cn\",\"osLocale\":\"zh-cn\",\"resolvedLanguage\":\"zh-cn\",\"defaultMessagesFile\":\"/Applications/Visual Studio Code.app/Contents/Resources/app/out/nls.messages.json\",\"languagePack\":{\"translationsConfigFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/tcf.json\",\"messagesFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/e54c774e0add60467559eb0d1e229c6452cf8447/nls.messages.json\",\"corruptMarkerFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/corrupted.info\"},\"locale\":\"zh-cn\",\"availableLanguages\":{\"*\":\"zh-cn\"},\"_languagePackId\":\"5e10987ca24d4d94022b2c496b166799.zh-cn\",\"_languagePackSupport\":true,\"_translationsConfigFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/tcf.json\",\"_cacheRoot\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn\",\"_resolvedLanguagePackCoreLocation\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/e54c774e0add60467559eb0d1e229c6452cf8447\",\"_corruptedFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/corrupted.info\"}",
+  "VSCODE_PID": "626",
+  "XPC_FLAGS": "0x0",
+  "XPC_SERVICE_NAME": "application.com.microsoft.VSCode.31303993.31303999.232DC498-A639-425C-B49D-F6EB089D2F2F",
+  "__CFBundleIdentifier": "com.microsoft.VSCode",
+  "__CF_USER_TEXT_ENCODING": "0x1F5:0x19:0x34",
+  "ELECTRON_RUN_AS_NODE": "1",
+  "VSCODE_DOTNET_INSTALL_TOOL_ORIGINAL_HOME": "/Users/sagiring",
+  "NODE_TLS_REJECT_UNAUTHORIZED": "undefined",
+  "APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL": "1",
+  "APPLICATIONINSIGHTS_CONFIGURATION_CONTENT": "{}",
+  "VSCODE_L10N_BUNDLE_LOCATION": "file:///Users/sagiring/.vscode/extensions/ms-ceintl.vscode-language-pack-zh-hans-1.97.2025021209/translations/extensions/vscode.json-language-features.i18n.json"
+}
+2025-02-26T03:11:48.886Z [debug] [driver] 正在尝试检测系统支持的生成器
+2025-02-26T03:11:48.899Z [warning] [proc] 命令: ninja --version 失败，出现错误: Error: spawn ninja ENOENT
+2025-02-26T03:11:48.916Z [warning] [proc] 命令: ninja-build --version 失败，出现错误: Error: spawn ninja-build ENOENT
+2025-02-26T03:12:03.021Z [debug] [expand] 已展开 ${workspaceFolder}/build
+2025-02-26T03:12:03.023Z [debug] [driver] 正在设置新变量 Debug
+2025-02-26T03:12:03.025Z [debug] [expand] 已展开 ${workspaceFolder}/build
+2025-02-27T10:10:24.125Z [debug] [extension] 停用 CMakeTools
+5T03:36:42.777Z [debug] [driver] 正在设置新变量 Debug
+2024-12-25T03:36:42.778Z [debug] [expand] 已展开 ${workspaceFolder}/build
+2024-12-25T03:37:06.916Z [debug] [extension] 停用 CMakeTools
+g] [main] 未启动 CMake 驱动程序: 未选择任何工具包
 2024-10-16T03:45:42.890Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
 2024-10-16T03:45:44.964Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
 2024-10-16T03:45:47.508Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
