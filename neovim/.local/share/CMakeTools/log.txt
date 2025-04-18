@@ -1,26 +1,26 @@
-2025-02-26T11:00:14.272Z [debug] [main] 安全构造新的 CMakeProject 实例
-2025-02-26T11:00:14.272Z [debug] [variant] 正在构造 VariantManager
-2025-02-26T11:00:14.272Z [debug] [main] 构造新的 CMakeProject 实例
-2025-02-26T11:00:14.273Z [debug] [main] 正在启动 CMake 工具第二阶段初始化
-2025-02-26T11:00:14.273Z [debug] [expand] 已展开 ${workspaceFolder}
-2025-02-26T11:00:14.365Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
-2025-02-26T11:00:14.960Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 1 工具包
-2025-02-26T11:00:15.017Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/tools/flutter/.vscode/cmake-kits.json
-2025-02-26T11:00:15.505Z [info] [variant] 已加载一组新变量
-2025-02-26T11:00:15.514Z [debug] [main] CMakeProject 实例初始化完成。
-2025-02-26T11:00:23.949Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2025-02-27T10:41:18.192Z [debug] [extension] 停用 CMakeTools
-nt] 已加载一组新变量
-2025-02-26T03:11:35.612Z [debug] [main] CMakeProject 实例初始化完成。
-2025-02-26T03:11:37.177Z [debug] [main] 正在启动新的 CMake 驱动程序
-2025-02-26T03:11:37.177Z [debug] [main] 正在启动 CMake 驱动程序
-2025-02-26T03:11:37.177Z [debug] [cmakefileapi-driver] 正在创建 CMakeFileApiDriver 的实例
-2025-02-26T03:11:37.181Z [debug] [driver] 正在使用工具包初始化基本驱动程序
-2025-02-26T03:11:37.182Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
-2025-02-26T03:11:37.183Z [info] [proc] 执行命令: /usr/bin/clang -v
-2025-02-26T03:11:48.881Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
-2025-02-26T03:11:48.882Z [debug] [driver] CMakeDriver 工具包设置为 Clang 15.0.0 arm64-apple-darwin24.0.0
-2025-02-26T03:11:48.884Z [debug] [kit] 工具包 'Clang 15.0.0 arm64-apple-darwin24.0.0' 的环境: {
+2025-03-24T07:58:15.632Z [info] [proc] 执行命令: /opt/homebrew/bin/cmake --version
+2025-03-24T07:58:15.768Z [info] [proc] 执行命令: /opt/homebrew/bin/cmake -E capabilities
+2025-03-24T07:58:15.948Z [debug] [main] 安全构造新的 CMakeProject 实例
+2025-03-24T07:58:15.948Z [debug] [variant] 正在构造 VariantManager
+2025-03-24T07:58:15.949Z [debug] [main] 构造新的 CMakeProject 实例
+2025-03-24T07:58:15.949Z [debug] [main] 正在启动 CMake 工具第二阶段初始化
+2025-03-24T07:58:15.949Z [debug] [expand] 已展开 ${workspaceFolder}
+2025-03-24T07:58:16.137Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2025-03-24T07:58:16.189Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 1 工具包
+2025-03-24T07:58:16.310Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/tools/flutter/.vscode/cmake-kits.json
+2025-03-24T07:58:16.339Z [info] [variant] 已加载一组新变量
+2025-03-24T07:58:16.339Z [debug] [main] CMakeProject 实例初始化完成。
+2025-03-24T07:58:24.783Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2025-03-25T02:44:15.676Z [debug] [extension] 停用 CMakeTools
+�序
+2025-02-28T06:27:28.654Z [debug] [main] 正在启动 CMake 驱动程序
+2025-02-28T06:27:28.654Z [debug] [cmakefileapi-driver] 正在创建 CMakeFileApiDriver 的实例
+2025-02-28T06:27:28.655Z [debug] [driver] 正在使用工具包初始化基本驱动程序
+2025-02-28T06:27:28.655Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
+2025-02-28T06:27:28.655Z [info] [proc] 执行命令: /usr/bin/clang -v
+2025-02-28T06:27:28.876Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
+2025-02-28T06:27:28.876Z [debug] [driver] CMakeDriver 工具包设置为 Clang 15.0.0 arm64-apple-darwin24.0.0
+2025-02-28T06:27:28.877Z [debug] [kit] 工具包 'Clang 15.0.0 arm64-apple-darwin24.0.0' 的环境: {
   "AUTOJUMP_ERROR_PATH": "/Users/sagiring/Library/autojump/errors.log",
   "AUTOJUMP_SOURCED": "1",
   "BASH_SILENCE_DEPRECATION_WARNING": "1",
@@ -33,8 +33,8 @@ nt] 已加载一组新变量
   "HOME": "/Users/sagiring",
   "ITERM_PROFILE": "Sagiring",
   "ITERM_SESSION_ID": "w0t0p0:B08A5F2E-182D-40E4-A67E-F37BEEDCCF80",
-  "JAVA_HOME": "/Users/sagiring/.jenv/versions/zulu64-1.8.0.432",
-  "JDK_HOME": "/Users/sagiring/.jenv/versions/zulu64-1.8.0.432",
+  "JAVA_HOME": "/Users/sagiring/.jenv/versions/zulu64-21.0.5",
+  "JDK_HOME": "/Users/sagiring/.jenv/versions/zulu64-21.0.5",
   "JENV_FORCEJAVAHOME": "true",
   "JENV_FORCEJDKHOME": "true",
   "JENV_LOADED": "1",
@@ -61,8 +61,8 @@ nt] 已加载一组新变量
   "TERM_PROGRAM_VERSION": "3.4",
   "TERM_SESSION_ID": "w0t0p0:B08A5F2E-182D-40E4-A67E-F37BEEDCCF80",
   "TMPDIR": "/var/folders/7c/ddkm7fx552l7j0h8zz3bcc5m0000gn/T/",
-  "TMUX": "/private/tmp/tmux-501/default,751,11",
-  "TMUX_PANE": "%13",
+  "TMUX": "/private/tmp/tmux-501/default,751,26",
+  "TMUX_PANE": "%32",
   "TMUX_PLUGIN_MANAGER_PATH": "/Users/sagiring/.tmux/plugins/",
   "USER": "sagiring",
   "VISUAL": "nvim",
@@ -76,18 +76,19 @@ nt] 已加载一组新变量
   "VSCODE_NLS_CONFIG": "{\"userLocale\":\"zh-cn\",\"osLocale\":\"zh-cn\",\"resolvedLanguage\":\"zh-cn\",\"defaultMessagesFile\":\"/Applications/Visual Studio Code.app/Contents/Resources/app/out/nls.messages.json\",\"languagePack\":{\"translationsConfigFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/tcf.json\",\"messagesFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/e54c774e0add60467559eb0d1e229c6452cf8447/nls.messages.json\",\"corruptMarkerFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/corrupted.info\"},\"locale\":\"zh-cn\",\"availableLanguages\":{\"*\":\"zh-cn\"},\"_languagePackId\":\"5e10987ca24d4d94022b2c496b166799.zh-cn\",\"_languagePackSupport\":true,\"_translationsConfigFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/tcf.json\",\"_cacheRoot\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn\",\"_resolvedLanguagePackCoreLocation\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/e54c774e0add60467559eb0d1e229c6452cf8447\",\"_corruptedFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/corrupted.info\"}",
   "VSCODE_PID": "626",
   "XPC_FLAGS": "0x0",
-  "XPC_SERVICE_NAME": "application.com.microsoft.VSCode.31303993.31303999.232DC498-A639-425C-B49D-F6EB089D2F2F",
+  "XPC_SERVICE_NAME": "application.com.microsoft.VSCode.31303993.31303999.666B5454-C99B-4846-93D1-554697F409C6",
   "__CFBundleIdentifier": "com.microsoft.VSCode",
   "__CF_USER_TEXT_ENCODING": "0x1F5:0x19:0x34",
-  "ELECTRON_RUN_AS_NODE": "1",
-  "VSCODE_DOTNET_INSTALL_TOOL_ORIGINAL_HOME": "/Users/sagiring",
-  "NODE_TLS_REJECT_UNAUTHORIZED": "undefined",
-  "APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL": "1",
-  "APPLICATIONINSIGHTS_CONFIGURATION_CONTENT": "{}",
-  "VSCODE_L10N_BUNDLE_LOCATION": "file:///Users/sagiring/.vscode/extensions/ms-ceintl.vscode-language-pack-zh-hans-1.97.2025021209/translations/extensions/vscode.json-language-features.i18n.json"
+  "ELECTRON_RUN_AS_NODE": "1"
 }
-2025-02-26T03:11:48.886Z [debug] [driver] 正在尝试检测系统支持的生成器
-2025-02-26T03:11:48.899Z [warning] [proc] 命令: ninja --version 失败，出现错误: Error: spawn ninja ENOENT
+2025-02-28T06:27:28.877Z [debug] [driver] 正在尝试检测系统支持的生成器
+2025-02-28T06:27:28.881Z [warning] [proc] 命令: ninja --version 失败，出现错误: Error: spawn ninja ENOENT
+2025-02-28T06:27:28.884Z [warning] [proc] 命令: ninja-build --version 失败，出现错误: Error: spawn ninja-build ENOENT
+2025-02-28T06:27:28.912Z [debug] [expand] 已展开 ${workspaceFolder}/build
+2025-02-28T06:27:28.913Z [debug] [driver] 正在设置新变量 Debug
+2025-02-28T06:27:28.913Z [debug] [expand] 已展开 ${workspaceFolder}/build
+2025-02-28T08:36:57.101Z [debug] [extension] 停用 CMakeTools
+ENOENT
 2025-02-26T03:11:48.916Z [warning] [proc] 命令: ninja-build --version 失败，出现错误: Error: spawn ninja-build ENOENT
 2025-02-26T03:12:03.021Z [debug] [expand] 已展开 ${workspaceFolder}/build
 2025-02-26T03:12:03.023Z [debug] [driver] 正在设置新变量 Debug

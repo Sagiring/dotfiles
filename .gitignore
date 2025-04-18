@@ -1,2 +1,4 @@
 neovim/.local/share/nvim/mason/**
 neovim/.local/share/nvim/plugged/**
+github-copilot
+CMakeTools

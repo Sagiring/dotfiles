@@ -152,7 +152,7 @@ _moa_completions()
     local cur opts
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
-    opts="vchat-service vchat-game-service vchat-gift-moa vchat-support-service vchat-task-service"
+    opts="vchat-service vchat-game-service vchat-gift-moa vchat-support-service vchat-task-service vchat-callback-service-v2"
     if [[ ${COMP_CWORD} -eq 1 ]]; then
         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     fi
