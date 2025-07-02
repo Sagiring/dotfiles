@@ -86,10 +86,10 @@ local handlers = {
 }
 
 
-require("mason-lspconfig").setup({
-        ensure_installed = {'pylsp','lua_ls','bashls'},
-        handlers = handlers
-})
+-- require("mason-lspconfig").setup({
+--         ensure_installed = {'pylsp','lua_ls','bashls'},
+--         handlers = handlers
+-- })
 
 
 

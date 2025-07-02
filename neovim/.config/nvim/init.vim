@@ -95,7 +95,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'https://github.com/HiPhish/nvim-ts-rainbow2'
+Plug 'https://github.com/HiPhish/rainbow-delimiters.nvim'
 
 " LSP"
 Plug 'williamboman/mason.nvim'

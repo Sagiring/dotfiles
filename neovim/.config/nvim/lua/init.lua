@@ -16,3 +16,11 @@ require('plugins.bufferline-config')
 require('plugins.gitsigns-config')
 
 require('plugins.telescope-config')
+
+local old_notify = vim.notify
+vim.notify = function(msg, ...)
+  if type(msg) == "string" and msg:match("deprecated") then
+    return
+  end
+  old_notify(msg, ...)
+end
