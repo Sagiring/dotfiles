@@ -147,12 +147,17 @@ export VSCODE_IPC_HOOK_CLI=${socket}
 complete -W "$(echo `cat ~/.ssh/config | grep 'Host '| cut -f 2 -d ' '|uniq`;)" ssh
 
 
+
+# added by tools-all-in-one setup
+export PATH="$PATH:/Users/sagiring/tools/tools-all-in-one/script/local/"
+# moa 自动完成函数
+# moa completion added by tools-all-in-one setup
 _moa_completions()
 {
     local cur opts
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
-    opts="vchat-service vchat-game-service vchat-gift-moa vchat-support-service vchat-task-service vchat-callback-service-v2"
+    opts="vchat-service vchat-game-service vchat-gift-moa vchat-gift-business vchat-support-service vchat-task-service vchat-callback-service-v2 biz-spacey-back"
     if [[ ${COMP_CWORD} -eq 1 ]]; then
         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     fi
@@ -160,3 +165,8 @@ _moa_completions()
 }
 
 complete -F _moa_completions moa
+
+complete -F _moa_completions moa_arthas
+
+# opencode
+export PATH=/Users/sagiring/.opencode/bin:$PATH

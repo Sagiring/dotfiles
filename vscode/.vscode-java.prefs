@@ -1,0 +1,9 @@
+org.eclipse.jdt.core.compiler.problem.memberOfDeprecatedTypeNotDeprecated=ignore
+org.eclipse.jdt.core.compiler.problem.nullUncheckedConversion=ignore
+org.eclipse.jdt.core.compiler.problem.nullUncheckedConversion=ignore
+org.eclipse.jdt.core.compiler.problem.uncheckedTypeOperation=ignore
+org.eclipse.jdt.core.compiler.problem.unusedImport=info
+org.eclipse.jdt.core.compiler.problem.missingSerialVersion=warning
+org.eclipse.jdt.core.compiler.problem.missingOverrideAnnotationForInterfaceMethodImplementation=info
+org.eclipse.jdt.core.compiler.problem.fallthroughCase=info
+org.eclipse.jdt.core.compiler.codegen.unusedLocal=info

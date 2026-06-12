@@ -7,9 +7,10 @@
 	defaultBranch = main
 
 [alias] 
-	ll = log --all --graph --decorate --oneline
-	l = log --all --graph --decorate
+	ll = log --graph --decorate --oneline
+	l = log --graph --decorate
 	s = status
+    base = merge-base HEAD master
 [color]
 	ui = auto
 [pull]

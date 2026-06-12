@@ -1,565 +1,762 @@
-2025-03-24T07:58:15.632Z [info] [proc] 执行命令: /opt/homebrew/bin/cmake --version
-2025-03-24T07:58:15.768Z [info] [proc] 执行命令: /opt/homebrew/bin/cmake -E capabilities
-2025-03-24T07:58:15.948Z [debug] [main] 安全构造新的 CMakeProject 实例
-2025-03-24T07:58:15.948Z [debug] [variant] 正在构造 VariantManager
-2025-03-24T07:58:15.949Z [debug] [main] 构造新的 CMakeProject 实例
-2025-03-24T07:58:15.949Z [debug] [main] 正在启动 CMake 工具第二阶段初始化
-2025-03-24T07:58:15.949Z [debug] [expand] 已展开 ${workspaceFolder}
-2025-03-24T07:58:16.137Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
-2025-03-24T07:58:16.189Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 1 工具包
-2025-03-24T07:58:16.310Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/tools/flutter/.vscode/cmake-kits.json
-2025-03-24T07:58:16.339Z [info] [variant] 已加载一组新变量
-2025-03-24T07:58:16.339Z [debug] [main] CMakeProject 实例初始化完成。
-2025-03-24T07:58:24.783Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2025-03-25T02:44:15.676Z [debug] [extension] 停用 CMakeTools
-�序
-2025-02-28T06:27:28.654Z [debug] [main] 正在启动 CMake 驱动程序
-2025-02-28T06:27:28.654Z [debug] [cmakefileapi-driver] 正在创建 CMakeFileApiDriver 的实例
-2025-02-28T06:27:28.655Z [debug] [driver] 正在使用工具包初始化基本驱动程序
-2025-02-28T06:27:28.655Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
-2025-02-28T06:27:28.655Z [info] [proc] 执行命令: /usr/bin/clang -v
-2025-02-28T06:27:28.876Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
-2025-02-28T06:27:28.876Z [debug] [driver] CMakeDriver 工具包设置为 Clang 15.0.0 arm64-apple-darwin24.0.0
-2025-02-28T06:27:28.877Z [debug] [kit] 工具包 'Clang 15.0.0 arm64-apple-darwin24.0.0' 的环境: {
-  "AUTOJUMP_ERROR_PATH": "/Users/sagiring/Library/autojump/errors.log",
-  "AUTOJUMP_SOURCED": "1",
-  "BASH_SILENCE_DEPRECATION_WARNING": "1",
-  "COLORFGBG": "15;0",
-  "COLORTERM": "truecolor",
-  "COMMAND_MODE": "unix2003",
-  "EDITOR": "nvim",
-  "ELECTRON_NO_ATTACH_CONSOLE": "1",
-  "GCC_COLORS": "error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01",
-  "HOME": "/Users/sagiring",
-  "ITERM_PROFILE": "Sagiring",
-  "ITERM_SESSION_ID": "w0t0p0:B08A5F2E-182D-40E4-A67E-F37BEEDCCF80",
-  "JAVA_HOME": "/Users/sagiring/.jenv/versions/zulu64-21.0.5",
-  "JDK_HOME": "/Users/sagiring/.jenv/versions/zulu64-21.0.5",
-  "JENV_FORCEJAVAHOME": "true",
-  "JENV_FORCEJDKHOME": "true",
-  "JENV_LOADED": "1",
-  "JENV_SHELL": "bash",
-  "LANG": "en_US.UTF-8",
-  "LC_TERMINAL": "iTerm2",
-  "LC_TERMINAL_VERSION": "3.5.11",
-  "LESSOPEN": "|/opt/homebrew/bin/lesspipe.sh %s",
-  "LOGNAME": "sagiring",
-  "LaunchInstanceID": "4626D241-C789-49E1-BFC3-D2693A690CEA",
-  "MallocNanoZone": "0",
-  "ORIGINAL_XDG_CURRENT_DESKTOP": "undefined",
-  "PATH": "/Users/sagiring/development/flutter/bin:/opt/homebrew/opt/mysql-client/bin:/Users/sagiring/.jenv/shims:/Users/sagiring/.jenv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/usr/local/corplink/mdm/opt/corplink-mdm/bin:/Applications/iTerm.app/Contents/Resources/utilities:/opt/nvim-macos/bin/:/opt/homebrew/bin/:/Users/sagiring/script",
-  "PWD": "/Users/sagiring/tools",
-  "REPO_URL": "https://mirrors.tuna.tsinghua.edu.cn/git/git-repo",
-  "SECURITYSESSIONID": "186a3",
-  "SHELL": "/opt/homebrew/bin/bash",
-  "SHLVL": "2",
-  "SSH_AUTH_SOCK": "/private/tmp/com.apple.launchd.TtsARGgfHY/Listeners",
-  "TERM": "screen-256color",
-  "TERMINFO_DIRS": "/Applications/iTerm.app/Contents/Resources/terminfo:/usr/share/terminfo",
-  "TERM_FEATURES": "T3CwLrMSc7UUw9Ts3BFGsSyHNoSxF",
-  "TERM_PROGRAM": "tmux",
-  "TERM_PROGRAM_VERSION": "3.4",
-  "TERM_SESSION_ID": "w0t0p0:B08A5F2E-182D-40E4-A67E-F37BEEDCCF80",
-  "TMPDIR": "/var/folders/7c/ddkm7fx552l7j0h8zz3bcc5m0000gn/T/",
-  "TMUX": "/private/tmp/tmux-501/default,751,26",
-  "TMUX_PANE": "%32",
-  "TMUX_PLUGIN_MANAGER_PATH": "/Users/sagiring/.tmux/plugins/",
-  "USER": "sagiring",
-  "VISUAL": "nvim",
-  "VSCODE_CLI": "1",
-  "VSCODE_CODE_CACHE_PATH": "/Users/sagiring/Library/Application Support/Code/CachedData/e54c774e0add60467559eb0d1e229c6452cf8447",
-  "VSCODE_CRASH_REPORTER_PROCESS_TYPE": "extensionHost",
-  "VSCODE_CWD": "/Users/sagiring/tools",
-  "VSCODE_ESM_ENTRYPOINT": "vs/workbench/api/node/extensionHostProcess",
-  "VSCODE_HANDLES_UNCAUGHT_ERRORS": "true",
-  "VSCODE_IPC_HOOK": "/Users/sagiring/Library/Application Support/Code/1.97-main.sock",
-  "VSCODE_NLS_CONFIG": "{\"userLocale\":\"zh-cn\",\"osLocale\":\"zh-cn\",\"resolvedLanguage\":\"zh-cn\",\"defaultMessagesFile\":\"/Applications/Visual Studio Code.app/Contents/Resources/app/out/nls.messages.json\",\"languagePack\":{\"translationsConfigFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/tcf.json\",\"messagesFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/e54c774e0add60467559eb0d1e229c6452cf8447/nls.messages.json\",\"corruptMarkerFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/corrupted.info\"},\"locale\":\"zh-cn\",\"availableLanguages\":{\"*\":\"zh-cn\"},\"_languagePackId\":\"5e10987ca24d4d94022b2c496b166799.zh-cn\",\"_languagePackSupport\":true,\"_translationsConfigFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/tcf.json\",\"_cacheRoot\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn\",\"_resolvedLanguagePackCoreLocation\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/e54c774e0add60467559eb0d1e229c6452cf8447\",\"_corruptedFile\":\"/Users/sagiring/Library/Application Support/Code/clp/5e10987ca24d4d94022b2c496b166799.zh-cn/corrupted.info\"}",
-  "VSCODE_PID": "626",
-  "XPC_FLAGS": "0x0",
-  "XPC_SERVICE_NAME": "application.com.microsoft.VSCode.31303993.31303999.666B5454-C99B-4846-93D1-554697F409C6",
-  "__CFBundleIdentifier": "com.microsoft.VSCode",
-  "__CF_USER_TEXT_ENCODING": "0x1F5:0x19:0x34",
-  "ELECTRON_RUN_AS_NODE": "1"
-}
-2025-02-28T06:27:28.877Z [debug] [driver] 正在尝试检测系统支持的生成器
-2025-02-28T06:27:28.881Z [warning] [proc] 命令: ninja --version 失败，出现错误: Error: spawn ninja ENOENT
-2025-02-28T06:27:28.884Z [warning] [proc] 命令: ninja-build --version 失败，出现错误: Error: spawn ninja-build ENOENT
-2025-02-28T06:27:28.912Z [debug] [expand] 已展开 ${workspaceFolder}/build
-2025-02-28T06:27:28.913Z [debug] [driver] 正在设置新变量 Debug
-2025-02-28T06:27:28.913Z [debug] [expand] 已展开 ${workspaceFolder}/build
-2025-02-28T08:36:57.101Z [debug] [extension] 停用 CMakeTools
-ENOENT
-2025-02-26T03:11:48.916Z [warning] [proc] 命令: ninja-build --version 失败，出现错误: Error: spawn ninja-build ENOENT
-2025-02-26T03:12:03.021Z [debug] [expand] 已展开 ${workspaceFolder}/build
-2025-02-26T03:12:03.023Z [debug] [driver] 正在设置新变量 Debug
-2025-02-26T03:12:03.025Z [debug] [expand] 已展开 ${workspaceFolder}/build
-2025-02-27T10:10:24.125Z [debug] [extension] 停用 CMakeTools
-5T03:36:42.777Z [debug] [driver] 正在设置新变量 Debug
-2024-12-25T03:36:42.778Z [debug] [expand] 已展开 ${workspaceFolder}/build
-2024-12-25T03:37:06.916Z [debug] [extension] 停用 CMakeTools
-g] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:42.890Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:44.964Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:47.508Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:49.974Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:45:52.150Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:51:50.762Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:51:52.722Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:51:59.083Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:06.664Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:11.364Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:13.156Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:19.848Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:22.357Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:28.421Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:34.224Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:38.260Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:47.387Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:49.890Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:53.005Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:52:58.206Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:53:00.159Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:53:11.726Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:53:14.138Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:53:15.755Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:53:51.276Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:53:56.843Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:53:57.983Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:06.062Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:12.462Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:13.575Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:16.030Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:29.962Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:31.994Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:39.174Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:40.157Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:42.044Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:52.538Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:54.395Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:56.413Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:54:58.529Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:04.220Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:07.214Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:11.352Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:14.274Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:16.898Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:18.755Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:20.204Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:23.189Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:28.090Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:31.087Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:35.117Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:36.548Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:39.779Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:43.386Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:46.794Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:55:50.489Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:56:06.028Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:56:09.068Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:56:13.892Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:56:17.837Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:56:26.115Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:56:27.562Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:56:36.490Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:56:43.203Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:56:49.110Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:56:58.392Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:02.410Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:04.345Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:05.796Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:08.121Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:10.521Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:14.000Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:17.655Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:20.662Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:27.209Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:29.616Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:30.658Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:37.826Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T03:57:42.933Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:15:17.357Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:15:32.157Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:15:37.140Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:15:54.714Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:15:59.400Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:09.550Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:11.551Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:21.373Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:22.645Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:24.271Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:27.170Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:28.486Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:32.605Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:36.086Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:37.473Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:39.596Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:42.716Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:45.037Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:16:48.394Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:04.120Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:06.062Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:09.541Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:15.920Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:24.426Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:30.157Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:32.856Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:34.452Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:39.703Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:43.560Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:45.954Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:47.592Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:50.215Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:51.289Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:54.185Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:17:57.949Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:00.987Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:04.302Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:06.894Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:09.934Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:14.875Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:26.211Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:28.040Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:29.787Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:31.507Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:35.101Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:40.718Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:46.307Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:18:50.565Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:02.214Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:06.112Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:12.136Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:18.215Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:21.223Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:28.085Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:34.708Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:36.443Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:38.670Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:41.491Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:45.560Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:19:57.374Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:00.824Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:05.329Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:08.185Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:11.613Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:15.736Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:18.770Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:22.800Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:25.573Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:29.541Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:31.688Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:36.717Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:40.195Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:43.304Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:48.823Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:50.347Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:52.815Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:55.380Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:20:58.471Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:25.632Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:32.484Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:34.858Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:38.028Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:41.058Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:43.416Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:46.642Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:48.964Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:51.501Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:54.702Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:21:58.406Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:00.795Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:03.674Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:05.667Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:11.065Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:13.701Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:15.206Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:17.034Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:18.475Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:24.344Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:40.945Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:42.273Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:22:44.724Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:13.708Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:18.844Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:24.558Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:26.443Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:27.754Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:29.195Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:30.733Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:34.169Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:38.287Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:39.708Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:42.413Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:44.778Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:46.772Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:49.471Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:51.564Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:54.405Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:23:57.593Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:02.641Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:05.766Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:11.109Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:13.992Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:16.136Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:29.740Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:35.284Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:38.951Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:40.279Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:47.236Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:24:55.891Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:25:03.946Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:25:06.622Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:25:12.230Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:25:16.501Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:33:50.407Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T05:33:54.362Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:06:26.709Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:06:32.715Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:06:38.606Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:06:39.835Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:06:43.306Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:06:45.518Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:06:49.799Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:06:53.291Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:06:54.570Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:07:02.944Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:07:16.037Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:07:22.839Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:07:26.102Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:07:42.926Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:07:46.640Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:07:55.697Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:07:57.496Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:07:59.585Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:08:02.165Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:08:03.935Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:08:08.093Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:08:45.004Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:08:48.356Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:08:58.558Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:09:18.114Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:09:19.207Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:09:20.964Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:09:24.426Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:09:30.338Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:09:32.268Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:09:34.522Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:09:35.585Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:09:45.099Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:09:55.223Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:13.125Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:14.520Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:19.055Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:22.328Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:24.047Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:25.173Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:35.271Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:37.386Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:39.362Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:44.343Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:51.141Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:54.506Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:10:59.063Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:11:26.748Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:11:30.476Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:11:33.137Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:11:42.530Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:11:58.625Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:12:21.088Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:12:27.479Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:12:47.266Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:12:50.828Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:12:53.692Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:03.318Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:07.815Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:10.935Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:12.403Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:21.253Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:26.754Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:28.546Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:30.444Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:37.924Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:40.381Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:41.689Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:47.527Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:13:49.631Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:14:04.130Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:14:06.253Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:14:07.941Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:14:31.227Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:14:36.727Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:14:50.313Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:14:59.923Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:15:05.740Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:15:09.036Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:15:22.973Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:15:24.143Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:15:40.855Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:15:54.086Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:15:59.925Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:16:19.396Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:16:26.657Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:16:33.270Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:16:35.987Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:16:45.072Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:16:47.128Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:16:48.547Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:16:50.272Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:16:52.348Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:17:12.772Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:17:16.991Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:17:19.328Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:17:21.309Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:18:34.760Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:19:55.224Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:20:00.329Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:20:03.737Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:20:05.778Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:20:32.647Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:20:45.133Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:20:47.015Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:20:50.008Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:20:53.317Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:20:57.129Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:21:03.438Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:21:08.433Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:21:10.188Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:21:16.168Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:21:17.363Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:21:23.851Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:21:26.411Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:21:30.243Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:22:40.627Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:22:44.454Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:22:45.971Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:22:53.934Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:22:57.072Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:22:58.775Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:23:00.504Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:23:02.571Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:23:04.152Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:23:06.439Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:23:12.522Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:23:16.655Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:23:42.866Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:23:47.110Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:23:50.869Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:23:52.320Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:24:07.718Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:24:08.980Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:24:12.659Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:24:43.387Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:00.702Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:05.033Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:07.199Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:12.042Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:14.895Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:16.334Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:39.335Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:41.976Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:51.803Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:55.874Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:25:59.425Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:26:41.434Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:26:48.002Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:26:51.556Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:26:53.768Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:26:55.419Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:26:56.487Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:01.116Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:02.791Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:06.912Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:08.435Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:10.011Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:12.363Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:16.367Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:18.267Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:27.107Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:33.160Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:47.250Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:50.871Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:52.808Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:54.297Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:27:58.730Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:28:03.874Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:28:06.009Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:28:14.430Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:28:21.277Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:29:40.131Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:30:11.665Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:30:15.412Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:30:18.578Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:30:19.933Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:30:22.136Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:31:10.918Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:31:14.981Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:31:16.614Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:31:21.018Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:31:41.505Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:32:00.105Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:32:03.706Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:32:06.642Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:32:09.729Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:32:12.008Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:32:44.680Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:32:50.043Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:32:51.896Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:09.110Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:11.873Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:15.171Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:16.358Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:18.182Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:24.484Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:28.303Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:36.033Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:43.273Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:46.059Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:50.675Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:33:53.632Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:01.377Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:03.875Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:07.775Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:12.818Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:24.627Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:30.289Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:32.556Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:33.638Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:39.407Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:48.868Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:34:58.079Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:35:00.322Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:36:39.910Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:37:46.881Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:38:27.621Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:38:30.953Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:38:32.928Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:38:38.852Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:38:48.128Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:39:51.567Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:40:01.287Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:44:43.942Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:44:45.957Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:44:54.222Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:02.874Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:04.209Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:08.434Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:12.214Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:19.040Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:28.070Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:37.028Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:39.713Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:45.902Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:51.882Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:45:55.582Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:46:49.882Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:46:57.510Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:47:05.993Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:47:10.082Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:47:17.768Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:47:21.962Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:53:32.411Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:53:34.332Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:53:37.952Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:53:39.051Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:54:05.641Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T06:54:20.274Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
-2024-10-16T07:04:54.068Z [debug] [extension] 停用 CMakeTools
+2026-06-08T09:37:26.407Z [info] [bookmarks] 已加载 0 个书签
+2026-06-08T09:37:26.618Z [debug] [main] 安全构造新的 CMakeProject 实例
+2026-06-08T09:37:26.618Z [debug] [variant] 正在构造 VariantManager
+2026-06-08T09:37:26.618Z [debug] [main] 构造新的 CMakeProject 实例
+2026-06-08T09:37:26.618Z [debug] [main] 正在启动 CMake Tools 第二阶段初始化
+2026-06-08T09:37:26.619Z [debug] [expand] 已展开 ${workspaceFolder}
+2026-06-08T09:37:26.621Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:26.638Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 4 工具包
+2026-06-08T09:37:26.646Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/project/java/vchat/.vscode/cmake-kits.json
+2026-06-08T09:37:26.657Z [info] [variant] 已加载一组新变量
+2026-06-08T09:37:26.658Z [debug] [main] CMakeProject 实例初始化完成。
+2026-06-08T09:37:26.658Z [debug] [main] 安全构造新的 CMakeProject 实例
+2026-06-08T09:37:26.658Z [debug] [variant] 正在构造 VariantManager
+2026-06-08T09:37:26.658Z [debug] [main] 构造新的 CMakeProject 实例
+2026-06-08T09:37:26.658Z [debug] [main] 正在启动 CMake Tools 第二阶段初始化
+2026-06-08T09:37:26.659Z [debug] [expand] 已展开 ${workspaceFolder}
+2026-06-08T09:37:26.660Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/project/java/vchat-web/.vscode/cmake-kits.json
+2026-06-08T09:37:26.670Z [info] [variant] 已加载一组新变量
+2026-06-08T09:37:26.670Z [debug] [main] CMakeProject 实例初始化完成。
+2026-06-08T09:37:26.671Z [debug] [main] 安全构造新的 CMakeProject 实例
+2026-06-08T09:37:26.671Z [debug] [variant] 正在构造 VariantManager
+2026-06-08T09:37:26.671Z [debug] [main] 构造新的 CMakeProject 实例
+2026-06-08T09:37:26.671Z [debug] [main] 正在启动 CMake Tools 第二阶段初始化
+2026-06-08T09:37:26.671Z [debug] [expand] 已展开 ${workspaceFolder}
+2026-06-08T09:37:26.679Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/project/java/vchat-game/.vscode/cmake-kits.json
+2026-06-08T09:37:26.700Z [info] [variant] 已加载一组新变量
+2026-06-08T09:37:26.700Z [debug] [main] CMakeProject 实例初始化完成。
+2026-06-08T09:37:26.700Z [debug] [main] 安全构造新的 CMakeProject 实例
+2026-06-08T09:37:26.701Z [debug] [variant] 正在构造 VariantManager
+2026-06-08T09:37:26.701Z [debug] [main] 构造新的 CMakeProject 实例
+2026-06-08T09:37:26.701Z [debug] [main] 正在启动 CMake Tools 第二阶段初始化
+2026-06-08T09:37:26.701Z [debug] [expand] 已展开 ${workspaceFolder}
+2026-06-08T09:37:26.706Z [debug] [kit] 未读取不存在的工具包文件: /Users/sagiring/project/java/vchat-gift-moa/.vscode/cmake-kits.json
+2026-06-08T09:37:26.740Z [info] [variant] 已加载一组新变量
+2026-06-08T09:37:26.740Z [debug] [main] CMakeProject 实例初始化完成。
+2026-06-08T09:37:26.899Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:26.907Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:26.911Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:26.913Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:26.993Z [debug] [extension] [3398] cmake.scanForKits 已启动
+2026-06-08T09:37:27.057Z [debug] [kitsController] 正在重新扫描工具包
+2026-06-08T09:37:27.057Z [debug] [kit] 正在系统上扫描工具包
+2026-06-08T09:37:27.060Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.local/bin
+2026-06-08T09:37:27.060Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.opencode/bin
+2026-06-08T09:37:27.060Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.jenv/shims
+2026-06-08T09:37:27.060Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/.jenv/bin
+2026-06-08T09:37:27.060Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/bin 中找到 0 工具包
+2026-06-08T09:37:27.060Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/opt/mysql-client/bin
+2026-06-08T09:37:27.060Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/development/flutter/bin
+2026-06-08T09:37:27.060Z [debug] [kit] 已在目录 /Users/sagiring/development/flutter/bin 中找到 0 工具包
+2026-06-08T09:37:27.060Z [debug] [kit] 正在扫描编译器的目录 /usr/local/bin
+2026-06-08T09:37:27.060Z [debug] [kit] 正在扫描编译器的目录 /System/Cryptexes/App/usr/bin
+2026-06-08T09:37:27.060Z [debug] [kit] 正在扫描编译器的目录 /usr/bin
+2026-06-08T09:37:27.060Z [debug] [kit] 正在扫描编译器的目录 /bin
+2026-06-08T09:37:27.060Z [debug] [kit] 正在扫描编译器的目录 /usr/sbin
+2026-06-08T09:37:27.060Z [debug] [kit] 正在扫描编译器的目录 /sbin
+2026-06-08T09:37:27.060Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+2026-06-08T09:37:27.060Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:27.061Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+2026-06-08T09:37:27.061Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin 中找到 0 工具包
+2026-06-08T09:37:27.061Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+2026-06-08T09:37:27.061Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin 中找到 0 工具包
+2026-06-08T09:37:27.061Z [debug] [kit] 正在扫描编译器的目录 /Library/Apple/usr/bin
+2026-06-08T09:37:27.061Z [debug] [kit] 正在扫描编译器的目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin
+2026-06-08T09:37:27.061Z [debug] [kit] 正在扫描编译器的目录 /Applications/iTerm.app/Contents/Resources/utilities
+2026-06-08T09:37:27.061Z [debug] [kit] 正在扫描编译器的目录 /opt/nvim-macos/bin
+2026-06-08T09:37:27.061Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/bin
+2026-06-08T09:37:27.061Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/script
+2026-06-08T09:37:27.061Z [debug] [kit] 正在跳过扫描不存在的路径 ~/script
+2026-06-08T09:37:27.061Z [debug] [kit] 已在目录 ~/script 中找到 0 工具包
+2026-06-08T09:37:27.061Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/tools/tools-all-in-one/script/local
+2026-06-08T09:37:27.061Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\LLVM\bin
+2026-06-08T09:37:27.061Z [debug] [kit] 已在目录 undefined\LLVM\bin 中找到 0 工具包
+2026-06-08T09:37:27.061Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw32\bin
+2026-06-08T09:37:27.061Z [debug] [kit] 已在目录 undefined\msys64\mingw32\bin 中找到 0 工具包
+2026-06-08T09:37:27.061Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw64\bin
+2026-06-08T09:37:27.061Z [debug] [kit] 已在目录 undefined\msys64\mingw64\bin 中找到 0 工具包
+2026-06-08T09:37:27.061Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang32\bin
+2026-06-08T09:37:27.061Z [debug] [kit] 已在目录 undefined\msys64\clang32\bin 中找到 0 工具包
+2026-06-08T09:37:27.062Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang64\bin
+2026-06-08T09:37:27.062Z [debug] [kit] 已在目录 undefined\msys64\clang64\bin 中找到 0 工具包
+2026-06-08T09:37:27.062Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clangarm64\bin
+2026-06-08T09:37:27.062Z [debug] [kit] 已在目录 undefined\msys64\clangarm64\bin 中找到 0 工具包
+2026-06-08T09:37:27.062Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\ucrt64\bin
+2026-06-08T09:37:27.062Z [debug] [kit] 已在目录 undefined\msys64\ucrt64\bin 中找到 0 工具包
+2026-06-08T09:37:27.071Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/shims 中找到 0 工具包
+2026-06-08T09:37:27.072Z [debug] [kit] 已在目录 /opt/homebrew/opt/mysql-client/bin 中找到 0 工具包
+2026-06-08T09:37:27.072Z [debug] [kit] 已在目录 /usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:27.072Z [debug] [kit] 已在目录 /System/Cryptexes/App/usr/bin 中找到 0 工具包
+2026-06-08T09:37:27.072Z [debug] [kit] 已在目录 /Users/sagiring/.local/bin 中找到 0 工具包
+2026-06-08T09:37:27.072Z [debug] [kit] 已在目录 /bin 中找到 0 工具包
+2026-06-08T09:37:27.076Z [debug] [kit] 已在目录 /usr/sbin 中找到 0 工具包
+2026-06-08T09:37:27.077Z [debug] [kit] 已在目录 /sbin 中找到 0 工具包
+2026-06-08T09:37:27.077Z [debug] [kit] 已在目录 /Library/Apple/usr/bin 中找到 0 工具包
+2026-06-08T09:37:27.078Z [debug] [kit] 已在目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin 中找到 0 工具包
+2026-06-08T09:37:27.079Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
+2026-06-08T09:37:27.086Z [info] [proc] 正在执行命令: /usr/bin/clang -v
+2026-06-08T09:37:27.090Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/gcc
+2026-06-08T09:37:27.091Z [info] [proc] 正在执行命令: /usr/bin/gcc -v
+2026-06-08T09:37:27.096Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/llvm-gcc
+2026-06-08T09:37:27.096Z [info] [proc] 正在执行命令: /usr/bin/llvm-gcc -v
+2026-06-08T09:37:27.108Z [debug] [kit] 已在目录 /opt/nvim-macos/bin 中找到 0 工具包
+2026-06-08T09:37:27.108Z [debug] [kit] 已在目录 /Users/sagiring/script 中找到 0 工具包
+2026-06-08T09:37:27.108Z [debug] [kit] 已在目录 /Users/sagiring/.opencode/bin 中找到 0 工具包
+2026-06-08T09:37:27.115Z [debug] [kit] 已在目录 /Users/sagiring/tools/tools-all-in-one/script/local 中找到 0 工具包
+2026-06-08T09:37:27.143Z [debug] [kit] 已在目录 /opt/homebrew/bin 中找到 0 工具包
+2026-06-08T09:37:27.144Z [debug] [kit] 已在目录 /Applications/iTerm.app/Contents/Resources/utilities 中找到 0 工具包
+2026-06-08T09:37:27.148Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:27.172Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 4 工具包
+2026-06-08T09:37:28.631Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:28.631Z [debug] [kit] 已检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:28.631Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:28.631Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/llvm-gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:28.632Z [debug] [kit] 已在目录 /usr/bin 中找到 1 工具包
+2026-06-08T09:37:28.632Z [info] [kit] 已找到工具包(受信任): Clang 17.0.0 arm64-apple-darwin25.3.0
+2026-06-08T09:37:28.632Z [debug] [kitsController] 正在将工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:28.632Z [debug] [kitsController] 正在将新工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:28.633Z [debug] [extension] [3398] cmake.scanForKits 已完成(已返回 undefined)
+2026-06-08T09:37:28.635Z [debug] [extension] [4382] cmake.scanForKits 已启动
+2026-06-08T09:37:28.638Z [debug] [kitsController] 正在重新扫描工具包
+2026-06-08T09:37:28.638Z [debug] [kit] 正在系统上扫描工具包
+2026-06-08T09:37:28.639Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.local/bin
+2026-06-08T09:37:28.639Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.opencode/bin
+2026-06-08T09:37:28.639Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.jenv/shims
+2026-06-08T09:37:28.639Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/.jenv/bin
+2026-06-08T09:37:28.639Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/bin 中找到 0 工具包
+2026-06-08T09:37:28.639Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/opt/mysql-client/bin
+2026-06-08T09:37:28.639Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/development/flutter/bin
+2026-06-08T09:37:28.639Z [debug] [kit] 已在目录 /Users/sagiring/development/flutter/bin 中找到 0 工具包
+2026-06-08T09:37:28.639Z [debug] [kit] 正在扫描编译器的目录 /usr/local/bin
+2026-06-08T09:37:28.639Z [debug] [kit] 正在扫描编译器的目录 /usr/bin
+2026-06-08T09:37:28.639Z [debug] [kit] 正在扫描编译器的目录 /bin
+2026-06-08T09:37:28.639Z [debug] [kit] 正在扫描编译器的目录 /System/Cryptexes/App/usr/bin
+2026-06-08T09:37:28.639Z [debug] [kit] 正在扫描编译器的目录 /usr/sbin
+2026-06-08T09:37:28.639Z [debug] [kit] 正在扫描编译器的目录 /sbin
+2026-06-08T09:37:28.639Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+2026-06-08T09:37:28.639Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:28.639Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+2026-06-08T09:37:28.639Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin 中找到 0 工具包
+2026-06-08T09:37:28.640Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+2026-06-08T09:37:28.640Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin 中找到 0 工具包
+2026-06-08T09:37:28.640Z [debug] [kit] 正在扫描编译器的目录 /Library/Apple/usr/bin
+2026-06-08T09:37:28.640Z [debug] [kit] 正在扫描编译器的目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin
+2026-06-08T09:37:28.640Z [debug] [kit] 正在扫描编译器的目录 /Applications/iTerm.app/Contents/Resources/utilities
+2026-06-08T09:37:28.640Z [debug] [kit] 正在扫描编译器的目录 /opt/nvim-macos/bin
+2026-06-08T09:37:28.640Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/bin
+2026-06-08T09:37:28.640Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/script
+2026-06-08T09:37:28.640Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/tools/tools-all-in-one/script/local
+2026-06-08T09:37:28.640Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\LLVM\bin
+2026-06-08T09:37:28.640Z [debug] [kit] 已在目录 undefined\LLVM\bin 中找到 0 工具包
+2026-06-08T09:37:28.640Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw32\bin
+2026-06-08T09:37:28.640Z [debug] [kit] 已在目录 undefined\msys64\mingw32\bin 中找到 0 工具包
+2026-06-08T09:37:28.640Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw64\bin
+2026-06-08T09:37:28.640Z [debug] [kit] 已在目录 undefined\msys64\mingw64\bin 中找到 0 工具包
+2026-06-08T09:37:28.640Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang32\bin
+2026-06-08T09:37:28.640Z [debug] [kit] 已在目录 undefined\msys64\clang32\bin 中找到 0 工具包
+2026-06-08T09:37:28.640Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang64\bin
+2026-06-08T09:37:28.641Z [debug] [kit] 已在目录 undefined\msys64\clang64\bin 中找到 0 工具包
+2026-06-08T09:37:28.641Z [debug] [kit] 正在跳过扫描不存在的路径 ~/script
+2026-06-08T09:37:28.641Z [debug] [kit] 已在目录 ~/script 中找到 0 工具包
+2026-06-08T09:37:28.641Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clangarm64\bin
+2026-06-08T09:37:28.641Z [debug] [kit] 已在目录 undefined\msys64\clangarm64\bin 中找到 0 工具包
+2026-06-08T09:37:28.641Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\ucrt64\bin
+2026-06-08T09:37:28.641Z [debug] [kit] 已在目录 undefined\msys64\ucrt64\bin 中找到 0 工具包
+2026-06-08T09:37:28.642Z [debug] [kit] 已在目录 /Users/sagiring/.local/bin 中找到 0 工具包
+2026-06-08T09:37:28.642Z [debug] [kit] 已在目录 /Users/sagiring/.opencode/bin 中找到 0 工具包
+2026-06-08T09:37:28.642Z [debug] [kit] 已在目录 /opt/homebrew/opt/mysql-client/bin 中找到 0 工具包
+2026-06-08T09:37:28.642Z [debug] [kit] 已在目录 /usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:28.642Z [debug] [kit] 已在目录 /System/Cryptexes/App/usr/bin 中找到 0 工具包
+2026-06-08T09:37:28.643Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/shims 中找到 0 工具包
+2026-06-08T09:37:28.644Z [debug] [kit] 已在目录 /bin 中找到 0 工具包
+2026-06-08T09:37:28.644Z [debug] [kit] 已在目录 /Library/Apple/usr/bin 中找到 0 工具包
+2026-06-08T09:37:28.644Z [debug] [kit] 已在目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin 中找到 0 工具包
+2026-06-08T09:37:28.644Z [debug] [kit] 已在目录 /Applications/iTerm.app/Contents/Resources/utilities 中找到 0 工具包
+2026-06-08T09:37:28.644Z [debug] [kit] 已在目录 /opt/nvim-macos/bin 中找到 0 工具包
+2026-06-08T09:37:28.645Z [debug] [kit] 已在目录 /sbin 中找到 0 工具包
+2026-06-08T09:37:28.645Z [debug] [kit] 已在目录 /Users/sagiring/script 中找到 0 工具包
+2026-06-08T09:37:28.646Z [debug] [kit] 已在目录 /Users/sagiring/tools/tools-all-in-one/script/local 中找到 0 工具包
+2026-06-08T09:37:28.649Z [debug] [kit] 已在目录 /usr/sbin 中找到 0 工具包
+2026-06-08T09:37:28.651Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
+2026-06-08T09:37:28.652Z [info] [proc] 正在执行命令: /usr/bin/clang -v
+2026-06-08T09:37:28.654Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/gcc
+2026-06-08T09:37:28.655Z [info] [proc] 正在执行命令: /usr/bin/gcc -v
+2026-06-08T09:37:28.658Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/llvm-gcc
+2026-06-08T09:37:28.658Z [info] [proc] 正在执行命令: /usr/bin/llvm-gcc -v
+2026-06-08T09:37:28.683Z [debug] [kit] 已在目录 /opt/homebrew/bin 中找到 0 工具包
+2026-06-08T09:37:28.684Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/llvm-gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:28.684Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:28.684Z [debug] [kit] 已检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:28.750Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:28.756Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 4 工具包
+2026-06-08T09:37:29.153Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.154Z [debug] [kit] 已在目录 /usr/bin 中找到 1 工具包
+2026-06-08T09:37:29.154Z [info] [kit] 已找到工具包(受信任): Clang 17.0.0 arm64-apple-darwin25.3.0
+2026-06-08T09:37:29.154Z [debug] [kitsController] 正在将工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.154Z [debug] [kitsController] 正在将新工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.155Z [debug] [extension] [4382] cmake.scanForKits 已完成(已返回 undefined)
+2026-06-08T09:37:29.157Z [debug] [extension] [4821] cmake.scanForKits 已启动
+2026-06-08T09:37:29.163Z [debug] [kitsController] 正在重新扫描工具包
+2026-06-08T09:37:29.164Z [debug] [kit] 正在系统上扫描工具包
+2026-06-08T09:37:29.164Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.local/bin
+2026-06-08T09:37:29.164Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.opencode/bin
+2026-06-08T09:37:29.164Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.jenv/shims
+2026-06-08T09:37:29.164Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/.jenv/bin
+2026-06-08T09:37:29.164Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/bin 中找到 0 工具包
+2026-06-08T09:37:29.164Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/opt/mysql-client/bin
+2026-06-08T09:37:29.164Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/development/flutter/bin
+2026-06-08T09:37:29.164Z [debug] [kit] 已在目录 /Users/sagiring/development/flutter/bin 中找到 0 工具包
+2026-06-08T09:37:29.164Z [debug] [kit] 正在扫描编译器的目录 /usr/local/bin
+2026-06-08T09:37:29.164Z [debug] [kit] 正在扫描编译器的目录 /System/Cryptexes/App/usr/bin
+2026-06-08T09:37:29.164Z [debug] [kit] 正在扫描编译器的目录 /usr/bin
+2026-06-08T09:37:29.164Z [debug] [kit] 正在扫描编译器的目录 /usr/sbin
+2026-06-08T09:37:29.165Z [debug] [kit] 正在扫描编译器的目录 /sbin
+2026-06-08T09:37:29.165Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+2026-06-08T09:37:29.165Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.165Z [debug] [kit] 正在扫描编译器的目录 /bin
+2026-06-08T09:37:29.165Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+2026-06-08T09:37:29.165Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin 中找到 0 工具包
+2026-06-08T09:37:29.165Z [debug] [kit] 正在扫描编译器的目录 /Library/Apple/usr/bin
+2026-06-08T09:37:29.165Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+2026-06-08T09:37:29.165Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.165Z [debug] [kit] 正在扫描编译器的目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin
+2026-06-08T09:37:29.165Z [debug] [kit] 正在扫描编译器的目录 /Applications/iTerm.app/Contents/Resources/utilities
+2026-06-08T09:37:29.165Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/bin
+2026-06-08T09:37:29.165Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/script
+2026-06-08T09:37:29.165Z [debug] [kit] 正在跳过扫描不存在的路径 ~/script
+2026-06-08T09:37:29.165Z [debug] [kit] 已在目录 ~/script 中找到 0 工具包
+2026-06-08T09:37:29.165Z [debug] [kit] 正在扫描编译器的目录 /opt/nvim-macos/bin
+2026-06-08T09:37:29.165Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\LLVM\bin
+2026-06-08T09:37:29.166Z [debug] [kit] 已在目录 undefined\LLVM\bin 中找到 0 工具包
+2026-06-08T09:37:29.166Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw32\bin
+2026-06-08T09:37:29.166Z [debug] [kit] 已在目录 undefined\msys64\mingw32\bin 中找到 0 工具包
+2026-06-08T09:37:29.166Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/tools/tools-all-in-one/script/local
+2026-06-08T09:37:29.166Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw64\bin
+2026-06-08T09:37:29.166Z [debug] [kit] 已在目录 undefined\msys64\mingw64\bin 中找到 0 工具包
+2026-06-08T09:37:29.166Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang64\bin
+2026-06-08T09:37:29.166Z [debug] [kit] 已在目录 undefined\msys64\clang64\bin 中找到 0 工具包
+2026-06-08T09:37:29.166Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clangarm64\bin
+2026-06-08T09:37:29.166Z [debug] [kit] 已在目录 undefined\msys64\clangarm64\bin 中找到 0 工具包
+2026-06-08T09:37:29.166Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\ucrt64\bin
+2026-06-08T09:37:29.166Z [debug] [kit] 已在目录 undefined\msys64\ucrt64\bin 中找到 0 工具包
+2026-06-08T09:37:29.166Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang32\bin
+2026-06-08T09:37:29.166Z [debug] [kit] 已在目录 undefined\msys64\clang32\bin 中找到 0 工具包
+2026-06-08T09:37:29.167Z [debug] [kit] 已在目录 /Users/sagiring/.local/bin 中找到 0 工具包
+2026-06-08T09:37:29.167Z [debug] [kit] 已在目录 /Users/sagiring/.opencode/bin 中找到 0 工具包
+2026-06-08T09:37:29.167Z [debug] [kit] 已在目录 /usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.168Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/shims 中找到 0 工具包
+2026-06-08T09:37:29.168Z [debug] [kit] 已在目录 /opt/homebrew/opt/mysql-client/bin 中找到 0 工具包
+2026-06-08T09:37:29.169Z [debug] [kit] 已在目录 /System/Cryptexes/App/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.170Z [debug] [kit] 已在目录 /sbin 中找到 0 工具包
+2026-06-08T09:37:29.170Z [debug] [kit] 已在目录 /Library/Apple/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.170Z [debug] [kit] 已在目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin 中找到 0 工具包
+2026-06-08T09:37:29.171Z [debug] [kit] 已在目录 /Applications/iTerm.app/Contents/Resources/utilities 中找到 0 工具包
+2026-06-08T09:37:29.171Z [debug] [kit] 已在目录 /bin 中找到 0 工具包
+2026-06-08T09:37:29.178Z [debug] [kit] 已在目录 /usr/sbin 中找到 0 工具包
+2026-06-08T09:37:29.178Z [debug] [kit] 已在目录 /opt/nvim-macos/bin 中找到 0 工具包
+2026-06-08T09:37:29.178Z [debug] [kit] 已在目录 /Users/sagiring/script 中找到 0 工具包
+2026-06-08T09:37:29.178Z [debug] [kit] 已在目录 /Users/sagiring/tools/tools-all-in-one/script/local 中找到 0 工具包
+2026-06-08T09:37:29.181Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
+2026-06-08T09:37:29.181Z [info] [proc] 正在执行命令: /usr/bin/clang -v
+2026-06-08T09:37:29.184Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/gcc
+2026-06-08T09:37:29.185Z [info] [proc] 正在执行命令: /usr/bin/gcc -v
+2026-06-08T09:37:29.188Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/llvm-gcc
+2026-06-08T09:37:29.188Z [info] [proc] 正在执行命令: /usr/bin/llvm-gcc -v
+2026-06-08T09:37:29.211Z [debug] [kit] 已在目录 /opt/homebrew/bin 中找到 0 工具包
+2026-06-08T09:37:29.214Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/llvm-gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.214Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.215Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.215Z [debug] [kit] 已检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.215Z [debug] [kit] 已在目录 /usr/bin 中找到 1 工具包
+2026-06-08T09:37:29.215Z [info] [kit] 已找到工具包(受信任): Clang 17.0.0 arm64-apple-darwin25.3.0
+2026-06-08T09:37:29.215Z [debug] [kitsController] 正在将工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.215Z [debug] [kitsController] 正在将新工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.216Z [debug] [extension] [4821] cmake.scanForKits 已完成(已返回 undefined)
+2026-06-08T09:37:29.217Z [debug] [extension] [3952] cmake.scanForKits 已启动
+2026-06-08T09:37:29.220Z [debug] [kitsController] 正在重新扫描工具包
+2026-06-08T09:37:29.220Z [debug] [kit] 正在系统上扫描工具包
+2026-06-08T09:37:29.221Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.local/bin
+2026-06-08T09:37:29.221Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.opencode/bin
+2026-06-08T09:37:29.221Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.jenv/shims
+2026-06-08T09:37:29.221Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/.jenv/bin
+2026-06-08T09:37:29.221Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/bin 中找到 0 工具包
+2026-06-08T09:37:29.221Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/development/flutter/bin
+2026-06-08T09:37:29.221Z [debug] [kit] 已在目录 /Users/sagiring/development/flutter/bin 中找到 0 工具包
+2026-06-08T09:37:29.221Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/opt/mysql-client/bin
+2026-06-08T09:37:29.221Z [debug] [kit] 正在扫描编译器的目录 /usr/local/bin
+2026-06-08T09:37:29.221Z [debug] [kit] 正在扫描编译器的目录 /usr/bin
+2026-06-08T09:37:29.221Z [debug] [kit] 正在扫描编译器的目录 /System/Cryptexes/App/usr/bin
+2026-06-08T09:37:29.221Z [debug] [kit] 正在扫描编译器的目录 /bin
+2026-06-08T09:37:29.221Z [debug] [kit] 正在扫描编译器的目录 /usr/sbin
+2026-06-08T09:37:29.221Z [debug] [kit] 正在扫描编译器的目录 /sbin
+2026-06-08T09:37:29.222Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+2026-06-08T09:37:29.222Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.222Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+2026-06-08T09:37:29.222Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.222Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+2026-06-08T09:37:29.222Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin 中找到 0 工具包
+2026-06-08T09:37:29.222Z [debug] [kit] 正在扫描编译器的目录 /Library/Apple/usr/bin
+2026-06-08T09:37:29.222Z [debug] [kit] 正在扫描编译器的目录 /Applications/iTerm.app/Contents/Resources/utilities
+2026-06-08T09:37:29.222Z [debug] [kit] 正在扫描编译器的目录 /opt/nvim-macos/bin
+2026-06-08T09:37:29.222Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/bin
+2026-06-08T09:37:29.222Z [debug] [kit] 正在跳过扫描不存在的路径 ~/script
+2026-06-08T09:37:29.222Z [debug] [kit] 已在目录 ~/script 中找到 0 工具包
+2026-06-08T09:37:29.222Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/script
+2026-06-08T09:37:29.222Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/tools/tools-all-in-one/script/local
+2026-06-08T09:37:29.222Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\LLVM\bin
+2026-06-08T09:37:29.222Z [debug] [kit] 已在目录 undefined\LLVM\bin 中找到 0 工具包
+2026-06-08T09:37:29.222Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw32\bin
+2026-06-08T09:37:29.222Z [debug] [kit] 已在目录 undefined\msys64\mingw32\bin 中找到 0 工具包
+2026-06-08T09:37:29.222Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw64\bin
+2026-06-08T09:37:29.222Z [debug] [kit] 已在目录 undefined\msys64\mingw64\bin 中找到 0 工具包
+2026-06-08T09:37:29.222Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang32\bin
+2026-06-08T09:37:29.223Z [debug] [kit] 已在目录 undefined\msys64\clang32\bin 中找到 0 工具包
+2026-06-08T09:37:29.223Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang64\bin
+2026-06-08T09:37:29.223Z [debug] [kit] 已在目录 undefined\msys64\clang64\bin 中找到 0 工具包
+2026-06-08T09:37:29.223Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clangarm64\bin
+2026-06-08T09:37:29.223Z [debug] [kit] 已在目录 undefined\msys64\clangarm64\bin 中找到 0 工具包
+2026-06-08T09:37:29.223Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\ucrt64\bin
+2026-06-08T09:37:29.223Z [debug] [kit] 已在目录 undefined\msys64\ucrt64\bin 中找到 0 工具包
+2026-06-08T09:37:29.223Z [debug] [kit] 正在扫描编译器的目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin
+2026-06-08T09:37:29.223Z [debug] [kit] 已在目录 /Users/sagiring/.local/bin 中找到 0 工具包
+2026-06-08T09:37:29.223Z [debug] [kit] 已在目录 /Users/sagiring/.opencode/bin 中找到 0 工具包
+2026-06-08T09:37:29.224Z [debug] [kit] 已在目录 /usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.225Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/shims 中找到 0 工具包
+2026-06-08T09:37:29.225Z [debug] [kit] 已在目录 /opt/homebrew/opt/mysql-client/bin 中找到 0 工具包
+2026-06-08T09:37:29.225Z [debug] [kit] 已在目录 /System/Cryptexes/App/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.226Z [debug] [kit] 已在目录 /sbin 中找到 0 工具包
+2026-06-08T09:37:29.227Z [debug] [kit] 已在目录 /bin 中找到 0 工具包
+2026-06-08T09:37:29.227Z [debug] [kit] 已在目录 /Library/Apple/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.227Z [debug] [kit] 已在目录 /opt/nvim-macos/bin 中找到 0 工具包
+2026-06-08T09:37:29.230Z [debug] [kit] 已在目录 /usr/sbin 中找到 0 工具包
+2026-06-08T09:37:29.230Z [debug] [kit] 已在目录 /Users/sagiring/script 中找到 0 工具包
+2026-06-08T09:37:29.230Z [debug] [kit] 已在目录 /Users/sagiring/tools/tools-all-in-one/script/local 中找到 0 工具包
+2026-06-08T09:37:29.231Z [debug] [kit] 已在目录 /Applications/iTerm.app/Contents/Resources/utilities 中找到 0 工具包
+2026-06-08T09:37:29.231Z [debug] [kit] 已在目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin 中找到 0 工具包
+2026-06-08T09:37:29.232Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
+2026-06-08T09:37:29.233Z [info] [proc] 正在执行命令: /usr/bin/clang -v
+2026-06-08T09:37:29.235Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/gcc
+2026-06-08T09:37:29.236Z [info] [proc] 正在执行命令: /usr/bin/gcc -v
+2026-06-08T09:37:29.238Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/llvm-gcc
+2026-06-08T09:37:29.239Z [info] [proc] 正在执行命令: /usr/bin/llvm-gcc -v
+2026-06-08T09:37:29.264Z [debug] [kit] 已在目录 /opt/homebrew/bin 中找到 0 工具包
+2026-06-08T09:37:29.314Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.322Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 4 工具包
+2026-06-08T09:37:29.336Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.336Z [debug] [kit] 已检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.356Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/llvm-gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.356Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.356Z [debug] [kit] 已在目录 /usr/bin 中找到 1 工具包
+2026-06-08T09:37:29.356Z [info] [kit] 已找到工具包(受信任): Clang 17.0.0 arm64-apple-darwin25.3.0
+2026-06-08T09:37:29.356Z [debug] [kitsController] 正在将工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.357Z [debug] [kitsController] 正在将新工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.357Z [debug] [extension] [3952] cmake.scanForKits 已完成(已返回 undefined)
+2026-06-08T09:37:29.359Z [debug] [extension] [6441] cmake.scanForKits 已启动
+2026-06-08T09:37:29.362Z [debug] [kitsController] 正在重新扫描工具包
+2026-06-08T09:37:29.362Z [debug] [kit] 正在系统上扫描工具包
+2026-06-08T09:37:29.362Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.local/bin
+2026-06-08T09:37:29.362Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.opencode/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.jenv/shims
+2026-06-08T09:37:29.363Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/.jenv/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/bin 中找到 0 工具包
+2026-06-08T09:37:29.363Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/development/flutter/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 已在目录 /Users/sagiring/development/flutter/bin 中找到 0 工具包
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/opt/mysql-client/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /usr/local/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /usr/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /bin
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /System/Cryptexes/App/usr/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.363Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.363Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin 中找到 0 工具包
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /Library/Apple/usr/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /usr/sbin
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /Applications/iTerm.app/Contents/Resources/utilities
+2026-06-08T09:37:29.363Z [debug] [kit] 正在扫描编译器的目录 /opt/nvim-macos/bin
+2026-06-08T09:37:29.364Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/bin
+2026-06-08T09:37:29.364Z [debug] [kit] 正在跳过扫描不存在的路径 ~/script
+2026-06-08T09:37:29.364Z [debug] [kit] 已在目录 ~/script 中找到 0 工具包
+2026-06-08T09:37:29.364Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/script
+2026-06-08T09:37:29.364Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/tools/tools-all-in-one/script/local
+2026-06-08T09:37:29.364Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\LLVM\bin
+2026-06-08T09:37:29.364Z [debug] [kit] 已在目录 undefined\LLVM\bin 中找到 0 工具包
+2026-06-08T09:37:29.364Z [debug] [kit] 正在扫描编译器的目录 /sbin
+2026-06-08T09:37:29.364Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw32\bin
+2026-06-08T09:37:29.364Z [debug] [kit] 已在目录 undefined\msys64\mingw32\bin 中找到 0 工具包
+2026-06-08T09:37:29.364Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw64\bin
+2026-06-08T09:37:29.364Z [debug] [kit] 已在目录 undefined\msys64\mingw64\bin 中找到 0 工具包
+2026-06-08T09:37:29.364Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang32\bin
+2026-06-08T09:37:29.364Z [debug] [kit] 已在目录 undefined\msys64\clang32\bin 中找到 0 工具包
+2026-06-08T09:37:29.364Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang64\bin
+2026-06-08T09:37:29.364Z [debug] [kit] 已在目录 undefined\msys64\clang64\bin 中找到 0 工具包
+2026-06-08T09:37:29.364Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\ucrt64\bin
+2026-06-08T09:37:29.364Z [debug] [kit] 已在目录 undefined\msys64\ucrt64\bin 中找到 0 工具包
+2026-06-08T09:37:29.364Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clangarm64\bin
+2026-06-08T09:37:29.364Z [debug] [kit] 已在目录 undefined\msys64\clangarm64\bin 中找到 0 工具包
+2026-06-08T09:37:29.365Z [debug] [kit] 已在目录 /Users/sagiring/.opencode/bin 中找到 0 工具包
+2026-06-08T09:37:29.365Z [debug] [kit] 已在目录 /usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.366Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/shims 中找到 0 工具包
+2026-06-08T09:37:29.366Z [debug] [kit] 已在目录 /Users/sagiring/.local/bin 中找到 0 工具包
+2026-06-08T09:37:29.367Z [debug] [kit] 已在目录 /bin 中找到 0 工具包
+2026-06-08T09:37:29.367Z [debug] [kit] 已在目录 /Library/Apple/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.367Z [debug] [kit] 已在目录 /System/Cryptexes/App/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.367Z [debug] [kit] 已在目录 /opt/homebrew/opt/mysql-client/bin 中找到 0 工具包
+2026-06-08T09:37:29.367Z [debug] [kit] 已在目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin 中找到 0 工具包
+2026-06-08T09:37:29.367Z [debug] [kit] 已在目录 /opt/nvim-macos/bin 中找到 0 工具包
+2026-06-08T09:37:29.368Z [debug] [kit] 已在目录 /Applications/iTerm.app/Contents/Resources/utilities 中找到 0 工具包
+2026-06-08T09:37:29.368Z [debug] [kit] 已在目录 /Users/sagiring/script 中找到 0 工具包
+2026-06-08T09:37:29.372Z [debug] [kit] 已在目录 /usr/sbin 中找到 0 工具包
+2026-06-08T09:37:29.372Z [debug] [kit] 已在目录 /Users/sagiring/tools/tools-all-in-one/script/local 中找到 0 工具包
+2026-06-08T09:37:29.374Z [debug] [kit] 已在目录 /sbin 中找到 0 工具包
+2026-06-08T09:37:29.376Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
+2026-06-08T09:37:29.376Z [info] [proc] 正在执行命令: /usr/bin/clang -v
+2026-06-08T09:37:29.379Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/gcc
+2026-06-08T09:37:29.379Z [info] [proc] 正在执行命令: /usr/bin/gcc -v
+2026-06-08T09:37:29.382Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/llvm-gcc
+2026-06-08T09:37:29.382Z [info] [proc] 正在执行命令: /usr/bin/llvm-gcc -v
+2026-06-08T09:37:29.406Z [debug] [kit] 已在目录 /opt/homebrew/bin 中找到 0 工具包
+2026-06-08T09:37:29.407Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/llvm-gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.408Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.408Z [debug] [kit] 已检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.414Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.414Z [debug] [kit] 已在目录 /usr/bin 中找到 1 工具包
+2026-06-08T09:37:29.414Z [info] [kit] 已找到工具包(受信任): Clang 17.0.0 arm64-apple-darwin25.3.0
+2026-06-08T09:37:29.414Z [debug] [kitsController] 正在将工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.414Z [debug] [kitsController] 正在将新工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.415Z [debug] [extension] [6441] cmake.scanForKits 已完成(已返回 undefined)
+2026-06-08T09:37:29.417Z [debug] [extension] [8849] cmake.scanForKits 已启动
+2026-06-08T09:37:29.420Z [debug] [kitsController] 正在重新扫描工具包
+2026-06-08T09:37:29.420Z [debug] [kit] 正在系统上扫描工具包
+2026-06-08T09:37:29.421Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.local/bin
+2026-06-08T09:37:29.421Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.opencode/bin
+2026-06-08T09:37:29.421Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.jenv/shims
+2026-06-08T09:37:29.421Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/.jenv/bin
+2026-06-08T09:37:29.421Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/bin 中找到 0 工具包
+2026-06-08T09:37:29.421Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/opt/mysql-client/bin
+2026-06-08T09:37:29.421Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/development/flutter/bin
+2026-06-08T09:37:29.421Z [debug] [kit] 已在目录 /Users/sagiring/development/flutter/bin 中找到 0 工具包
+2026-06-08T09:37:29.421Z [debug] [kit] 正在扫描编译器的目录 /usr/local/bin
+2026-06-08T09:37:29.421Z [debug] [kit] 正在扫描编译器的目录 /System/Cryptexes/App/usr/bin
+2026-06-08T09:37:29.421Z [debug] [kit] 正在扫描编译器的目录 /usr/bin
+2026-06-08T09:37:29.421Z [debug] [kit] 正在扫描编译器的目录 /bin
+2026-06-08T09:37:29.421Z [debug] [kit] 正在扫描编译器的目录 /sbin
+2026-06-08T09:37:29.422Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+2026-06-08T09:37:29.422Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.422Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+2026-06-08T09:37:29.422Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.422Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+2026-06-08T09:37:29.422Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin 中找到 0 工具包
+2026-06-08T09:37:29.422Z [debug] [kit] 正在扫描编译器的目录 /Library/Apple/usr/bin
+2026-06-08T09:37:29.422Z [debug] [kit] 正在扫描编译器的目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin
+2026-06-08T09:37:29.422Z [debug] [kit] 正在扫描编译器的目录 /Applications/iTerm.app/Contents/Resources/utilities
+2026-06-08T09:37:29.422Z [debug] [kit] 正在扫描编译器的目录 /opt/nvim-macos/bin
+2026-06-08T09:37:29.422Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/bin
+2026-06-08T09:37:29.422Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/script
+2026-06-08T09:37:29.422Z [debug] [kit] 正在跳过扫描不存在的路径 ~/script
+2026-06-08T09:37:29.422Z [debug] [kit] 已在目录 ~/script 中找到 0 工具包
+2026-06-08T09:37:29.422Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/tools/tools-all-in-one/script/local
+2026-06-08T09:37:29.422Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\LLVM\bin
+2026-06-08T09:37:29.422Z [debug] [kit] 已在目录 undefined\LLVM\bin 中找到 0 工具包
+2026-06-08T09:37:29.422Z [debug] [kit] 正在扫描编译器的目录 /usr/sbin
+2026-06-08T09:37:29.422Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw32\bin
+2026-06-08T09:37:29.422Z [debug] [kit] 已在目录 undefined\msys64\mingw32\bin 中找到 0 工具包
+2026-06-08T09:37:29.422Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang32\bin
+2026-06-08T09:37:29.423Z [debug] [kit] 已在目录 undefined\msys64\clang32\bin 中找到 0 工具包
+2026-06-08T09:37:29.423Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang64\bin
+2026-06-08T09:37:29.423Z [debug] [kit] 已在目录 undefined\msys64\clang64\bin 中找到 0 工具包
+2026-06-08T09:37:29.423Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw64\bin
+2026-06-08T09:37:29.423Z [debug] [kit] 已在目录 undefined\msys64\mingw64\bin 中找到 0 工具包
+2026-06-08T09:37:29.423Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\ucrt64\bin
+2026-06-08T09:37:29.423Z [debug] [kit] 已在目录 undefined\msys64\ucrt64\bin 中找到 0 工具包
+2026-06-08T09:37:29.423Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clangarm64\bin
+2026-06-08T09:37:29.423Z [debug] [kit] 已在目录 undefined\msys64\clangarm64\bin 中找到 0 工具包
+2026-06-08T09:37:29.424Z [debug] [kit] 已在目录 /Users/sagiring/.local/bin 中找到 0 工具包
+2026-06-08T09:37:29.424Z [debug] [kit] 已在目录 /Users/sagiring/.opencode/bin 中找到 0 工具包
+2026-06-08T09:37:29.424Z [debug] [kit] 已在目录 /opt/homebrew/opt/mysql-client/bin 中找到 0 工具包
+2026-06-08T09:37:29.424Z [debug] [kit] 已在目录 /System/Cryptexes/App/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.425Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/shims 中找到 0 工具包
+2026-06-08T09:37:29.425Z [debug] [kit] 已在目录 /usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.425Z [debug] [kit] 已在目录 /Library/Apple/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.426Z [debug] [kit] 已在目录 /bin 中找到 0 工具包
+2026-06-08T09:37:29.426Z [debug] [kit] 已在目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin 中找到 0 工具包
+2026-06-08T09:37:29.426Z [debug] [kit] 已在目录 /opt/nvim-macos/bin 中找到 0 工具包
+2026-06-08T09:37:29.427Z [debug] [kit] 已在目录 /Applications/iTerm.app/Contents/Resources/utilities 中找到 0 工具包
+2026-06-08T09:37:29.428Z [debug] [kit] 已在目录 /sbin 中找到 0 工具包
+2026-06-08T09:37:29.428Z [debug] [kit] 已在目录 /Users/sagiring/script 中找到 0 工具包
+2026-06-08T09:37:29.428Z [debug] [kit] 已在目录 /Users/sagiring/tools/tools-all-in-one/script/local 中找到 0 工具包
+2026-06-08T09:37:29.431Z [debug] [kit] 已在目录 /usr/sbin 中找到 0 工具包
+2026-06-08T09:37:29.433Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
+2026-06-08T09:37:29.433Z [info] [proc] 正在执行命令: /usr/bin/clang -v
+2026-06-08T09:37:29.436Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/gcc
+2026-06-08T09:37:29.437Z [info] [proc] 正在执行命令: /usr/bin/gcc -v
+2026-06-08T09:37:29.439Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/llvm-gcc
+2026-06-08T09:37:29.440Z [info] [proc] 正在执行命令: /usr/bin/llvm-gcc -v
+2026-06-08T09:37:29.462Z [debug] [kit] 已在目录 /opt/homebrew/bin 中找到 0 工具包
+2026-06-08T09:37:29.464Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.464Z [debug] [kit] 已检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.464Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.464Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/llvm-gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.470Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 4 工具包
+2026-06-08T09:37:29.472Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.472Z [debug] [kit] 已在目录 /usr/bin 中找到 1 工具包
+2026-06-08T09:37:29.472Z [info] [kit] 已找到工具包(受信任): Clang 17.0.0 arm64-apple-darwin25.3.0
+2026-06-08T09:37:29.472Z [debug] [kitsController] 正在将工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.472Z [debug] [kitsController] 正在将新工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.473Z [debug] [extension] [8849] cmake.scanForKits 已完成(已返回 undefined)
+2026-06-08T09:37:29.476Z [debug] [extension] [8946] cmake.scanForKits 已启动
+2026-06-08T09:37:29.479Z [debug] [kitsController] 正在重新扫描工具包
+2026-06-08T09:37:29.479Z [debug] [kit] 正在系统上扫描工具包
+2026-06-08T09:37:29.479Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.local/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.opencode/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.jenv/shims
+2026-06-08T09:37:29.480Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/.jenv/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/bin 中找到 0 工具包
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/opt/mysql-client/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/development/flutter/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 已在目录 /Users/sagiring/development/flutter/bin 中找到 0 工具包
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /usr/local/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /System/Cryptexes/App/usr/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /usr/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /bin
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /usr/sbin
+2026-06-08T09:37:29.480Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin 中找到 0 工具包
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /Library/Apple/usr/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 正在扫描编译器的目录 /Applications/iTerm.app/Contents/Resources/utilities
+2026-06-08T09:37:29.480Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+2026-06-08T09:37:29.480Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.481Z [debug] [kit] 正在扫描编译器的目录 /opt/nvim-macos/bin
+2026-06-08T09:37:29.481Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/bin
+2026-06-08T09:37:29.481Z [debug] [kit] 正在跳过扫描不存在的路径 ~/script
+2026-06-08T09:37:29.481Z [debug] [kit] 已在目录 ~/script 中找到 0 工具包
+2026-06-08T09:37:29.481Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/script
+2026-06-08T09:37:29.481Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/tools/tools-all-in-one/script/local
+2026-06-08T09:37:29.481Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw32\bin
+2026-06-08T09:37:29.481Z [debug] [kit] 已在目录 undefined\msys64\mingw32\bin 中找到 0 工具包
+2026-06-08T09:37:29.481Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw64\bin
+2026-06-08T09:37:29.481Z [debug] [kit] 已在目录 undefined\msys64\mingw64\bin 中找到 0 工具包
+2026-06-08T09:37:29.481Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang32\bin
+2026-06-08T09:37:29.481Z [debug] [kit] 已在目录 undefined\msys64\clang32\bin 中找到 0 工具包
+2026-06-08T09:37:29.481Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang64\bin
+2026-06-08T09:37:29.481Z [debug] [kit] 已在目录 undefined\msys64\clang64\bin 中找到 0 工具包
+2026-06-08T09:37:29.481Z [debug] [kit] 正在扫描编译器的目录 /sbin
+2026-06-08T09:37:29.481Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clangarm64\bin
+2026-06-08T09:37:29.482Z [debug] [kit] 已在目录 undefined\msys64\clangarm64\bin 中找到 0 工具包
+2026-06-08T09:37:29.482Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+2026-06-08T09:37:29.482Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.482Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\LLVM\bin
+2026-06-08T09:37:29.482Z [debug] [kit] 已在目录 undefined\LLVM\bin 中找到 0 工具包
+2026-06-08T09:37:29.482Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\ucrt64\bin
+2026-06-08T09:37:29.482Z [debug] [kit] 已在目录 undefined\msys64\ucrt64\bin 中找到 0 工具包
+2026-06-08T09:37:29.483Z [debug] [kit] 已在目录 /Users/sagiring/.opencode/bin 中找到 0 工具包
+2026-06-08T09:37:29.483Z [debug] [kit] 已在目录 /Users/sagiring/.local/bin 中找到 0 工具包
+2026-06-08T09:37:29.483Z [debug] [kit] 已在目录 /System/Cryptexes/App/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.483Z [debug] [kit] 已在目录 /usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.484Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/shims 中找到 0 工具包
+2026-06-08T09:37:29.485Z [debug] [kit] 已在目录 /bin 中找到 0 工具包
+2026-06-08T09:37:29.485Z [debug] [kit] 已在目录 /Library/Apple/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.485Z [debug] [kit] 已在目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin 中找到 0 工具包
+2026-06-08T09:37:29.485Z [debug] [kit] 已在目录 /opt/homebrew/opt/mysql-client/bin 中找到 0 工具包
+2026-06-08T09:37:29.486Z [debug] [kit] 已在目录 /Applications/iTerm.app/Contents/Resources/utilities 中找到 0 工具包
+2026-06-08T09:37:29.486Z [debug] [kit] 已在目录 /opt/nvim-macos/bin 中找到 0 工具包
+2026-06-08T09:37:29.490Z [debug] [kit] 已在目录 /usr/sbin 中找到 0 工具包
+2026-06-08T09:37:29.490Z [debug] [kit] 已在目录 /Users/sagiring/script 中找到 0 工具包
+2026-06-08T09:37:29.490Z [debug] [kit] 已在目录 /Users/sagiring/tools/tools-all-in-one/script/local 中找到 0 工具包
+2026-06-08T09:37:29.492Z [debug] [kit] 已在目录 /sbin 中找到 0 工具包
+2026-06-08T09:37:29.506Z [debug] [kit] 已在目录 /opt/homebrew/bin 中找到 0 工具包
+2026-06-08T09:37:29.509Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
+2026-06-08T09:37:29.509Z [info] [proc] 正在执行命令: /usr/bin/clang -v
+2026-06-08T09:37:29.513Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/gcc
+2026-06-08T09:37:29.513Z [info] [proc] 正在执行命令: /usr/bin/gcc -v
+2026-06-08T09:37:29.516Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/llvm-gcc
+2026-06-08T09:37:29.516Z [info] [proc] 正在执行命令: /usr/bin/llvm-gcc -v
+2026-06-08T09:37:29.529Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.529Z [debug] [kit] 已检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.533Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/llvm-gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.537Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.537Z [debug] [kit] 已在目录 /usr/bin 中找到 1 工具包
+2026-06-08T09:37:29.537Z [info] [kit] 已找到工具包(受信任): Clang 17.0.0 arm64-apple-darwin25.3.0
+2026-06-08T09:37:29.538Z [debug] [kitsController] 正在将工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.538Z [debug] [kitsController] 正在将新工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.538Z [debug] [extension] [8946] cmake.scanForKits 已完成(已返回 undefined)
+2026-06-08T09:37:29.543Z [debug] [extension] [2876] cmake.scanForKits 已启动
+2026-06-08T09:37:29.546Z [debug] [kitsController] 正在重新扫描工具包
+2026-06-08T09:37:29.546Z [debug] [kit] 正在系统上扫描工具包
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.local/bin
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.opencode/bin
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/.jenv/shims
+2026-06-08T09:37:29.547Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/.jenv/bin
+2026-06-08T09:37:29.547Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/bin 中找到 0 工具包
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/opt/mysql-client/bin
+2026-06-08T09:37:29.547Z [debug] [kit] 正在跳过扫描不存在的路径 /Users/sagiring/development/flutter/bin
+2026-06-08T09:37:29.547Z [debug] [kit] 已在目录 /Users/sagiring/development/flutter/bin 中找到 0 工具包
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /usr/local/bin
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /System/Cryptexes/App/usr/bin
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /usr/bin
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /bin
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /usr/sbin
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /sbin
+2026-06-08T09:37:29.547Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+2026-06-08T09:37:29.547Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /Library/Apple/usr/bin
+2026-06-08T09:37:29.547Z [debug] [kit] 正在扫描编译器的目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin
+2026-06-08T09:37:29.548Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+2026-06-08T09:37:29.548Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.548Z [debug] [kit] 正在扫描编译器的目录 /opt/nvim-macos/bin
+2026-06-08T09:37:29.548Z [debug] [kit] 正在扫描编译器的目录 /opt/homebrew/bin
+2026-06-08T09:37:29.548Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/script
+2026-06-08T09:37:29.548Z [debug] [kit] 正在跳过扫描不存在的路径 ~/script
+2026-06-08T09:37:29.548Z [debug] [kit] 已在目录 ~/script 中找到 0 工具包
+2026-06-08T09:37:29.548Z [debug] [kit] 正在扫描编译器的目录 /Users/sagiring/tools/tools-all-in-one/script/local
+2026-06-08T09:37:29.548Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\LLVM\bin
+2026-06-08T09:37:29.548Z [debug] [kit] 已在目录 undefined\LLVM\bin 中找到 0 工具包
+2026-06-08T09:37:29.548Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw32\bin
+2026-06-08T09:37:29.548Z [debug] [kit] 已在目录 undefined\msys64\mingw32\bin 中找到 0 工具包
+2026-06-08T09:37:29.548Z [debug] [kit] 正在扫描编译器的目录 /Applications/iTerm.app/Contents/Resources/utilities
+2026-06-08T09:37:29.548Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\mingw64\bin
+2026-06-08T09:37:29.548Z [debug] [kit] 已在目录 undefined\msys64\mingw64\bin 中找到 0 工具包
+2026-06-08T09:37:29.548Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang32\bin
+2026-06-08T09:37:29.549Z [debug] [kit] 已在目录 undefined\msys64\clang32\bin 中找到 0 工具包
+2026-06-08T09:37:29.549Z [debug] [kit] 正在跳过扫描不存在的路径 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+2026-06-08T09:37:29.549Z [debug] [kit] 已在目录 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin 中找到 0 工具包
+2026-06-08T09:37:29.549Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clang64\bin
+2026-06-08T09:37:29.549Z [debug] [kit] 已在目录 undefined\msys64\clang64\bin 中找到 0 工具包
+2026-06-08T09:37:29.549Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\clangarm64\bin
+2026-06-08T09:37:29.549Z [debug] [kit] 已在目录 undefined\msys64\clangarm64\bin 中找到 0 工具包
+2026-06-08T09:37:29.549Z [debug] [kit] 正在跳过扫描不存在的路径 undefined\msys64\ucrt64\bin
+2026-06-08T09:37:29.549Z [debug] [kit] 已在目录 undefined\msys64\ucrt64\bin 中找到 0 工具包
+2026-06-08T09:37:29.550Z [debug] [kit] 已在目录 /Users/sagiring/.local/bin 中找到 0 工具包
+2026-06-08T09:37:29.550Z [debug] [kit] 已在目录 /Users/sagiring/.opencode/bin 中找到 0 工具包
+2026-06-08T09:37:29.550Z [debug] [kit] 已在目录 /opt/homebrew/opt/mysql-client/bin 中找到 0 工具包
+2026-06-08T09:37:29.550Z [debug] [kit] 已在目录 /usr/local/bin 中找到 0 工具包
+2026-06-08T09:37:29.550Z [debug] [kit] 已在目录 /System/Cryptexes/App/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.551Z [debug] [kit] 已在目录 /Users/sagiring/.jenv/shims 中找到 0 工具包
+2026-06-08T09:37:29.552Z [debug] [kit] 已在目录 /bin 中找到 0 工具包
+2026-06-08T09:37:29.552Z [debug] [kit] 已在目录 /Library/Apple/usr/bin 中找到 0 工具包
+2026-06-08T09:37:29.552Z [debug] [kit] 已在目录 /usr/local/corplink/mdm/opt/corplink-mdm/bin 中找到 0 工具包
+2026-06-08T09:37:29.552Z [debug] [kit] 已在目录 /opt/nvim-macos/bin 中找到 0 工具包
+2026-06-08T09:37:29.555Z [debug] [kit] 已在目录 /usr/sbin 中找到 0 工具包
+2026-06-08T09:37:29.556Z [debug] [kit] 已在目录 /sbin 中找到 0 工具包
+2026-06-08T09:37:29.557Z [debug] [kit] 已在目录 /Users/sagiring/script 中找到 0 工具包
+2026-06-08T09:37:29.557Z [debug] [kit] 已在目录 /Users/sagiring/tools/tools-all-in-one/script/local 中找到 0 工具包
+2026-06-08T09:37:29.557Z [debug] [kit] 已在目录 /Applications/iTerm.app/Contents/Resources/utilities 中找到 0 工具包
+2026-06-08T09:37:29.560Z [debug] [kit] 正在测试 Clang 二进制文件: /usr/bin/clang
+2026-06-08T09:37:29.560Z [info] [proc] 正在执行命令: /usr/bin/clang -v
+2026-06-08T09:37:29.563Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/gcc
+2026-06-08T09:37:29.563Z [info] [proc] 正在执行命令: /usr/bin/gcc -v
+2026-06-08T09:37:29.567Z [debug] [kit] 正在测试 GCC 二进制文件: /usr/bin/llvm-gcc
+2026-06-08T09:37:29.567Z [info] [proc] 正在执行命令: /usr/bin/llvm-gcc -v
+2026-06-08T09:37:29.591Z [debug] [kit] 已在目录 /opt/homebrew/bin 中找到 0 工具包
+2026-06-08T09:37:29.593Z [debug] [kit] 检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.594Z [debug] [kit] 已检测到 Clang 编译器: /usr/bin/clang
+2026-06-08T09:37:29.594Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.600Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 4 工具包
+2026-06-08T09:37:29.601Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.602Z [debug] [kit] 二进制 GCC 错误。"/usr/bin/llvm-gcc -v" 报表版本:  输出: Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+2026-06-08T09:37:29.602Z [debug] [kit] 已在目录 /usr/bin 中找到 1 工具包
+2026-06-08T09:37:29.602Z [info] [kit] 已找到工具包(受信任): Clang 17.0.0 arm64-apple-darwin25.3.0
+2026-06-08T09:37:29.602Z [debug] [kitsController] 正在将工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.602Z [debug] [kitsController] 正在将新工具包保存到 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.602Z [debug] [extension] [2876] cmake.scanForKits 已完成(已返回 undefined)
+2026-06-08T09:37:29.603Z [debug] [extension] [5895] cmake.buildKit 已启动
+2026-06-08T09:37:29.604Z [debug] [extension] [5895] cmake.buildKit 已完成(已返回 null)
+2026-06-08T09:37:29.604Z [debug] [extension] [8455] cmake.buildKit 已启动
+2026-06-08T09:37:29.604Z [debug] [extension] [8455] cmake.buildKit 已完成(已返回 null)
+2026-06-08T09:37:29.604Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:29.604Z [debug] [extension] [5673] cmake.buildKit 已启动
+2026-06-08T09:37:29.604Z [debug] [extension] [5673] cmake.buildKit 已完成(已返回 null)
+2026-06-08T09:37:29.605Z [debug] [extension] [6863] cmake.buildKit 已启动
+2026-06-08T09:37:29.605Z [debug] [extension] [6863] cmake.buildKit 已完成(已返回 null)
+2026-06-08T09:37:29.605Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:29.605Z [debug] [extension] [5777] cmake.buildKit 已启动
+2026-06-08T09:37:29.605Z [debug] [extension] [5777] cmake.buildKit 已完成(已返回 null)
+2026-06-08T09:37:29.605Z [debug] [extension] [2350] cmake.buildKit 已启动
+2026-06-08T09:37:29.605Z [debug] [extension] [2350] cmake.buildKit 已完成(已返回 null)
+2026-06-08T09:37:29.605Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:29.605Z [debug] [extension] [5224] cmake.buildKit 已启动
+2026-06-08T09:37:29.605Z [debug] [extension] [5224] cmake.buildKit 已完成(已返回 null)
+2026-06-08T09:37:29.605Z [debug] [extension] [2826] cmake.buildKit 已启动
+2026-06-08T09:37:29.606Z [debug] [extension] [2826] cmake.buildKit 已完成(已返回 null)
+2026-06-08T09:37:29.606Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:29.665Z [debug] [kit] 正在读取工具包文件 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json
+2026-06-08T09:37:29.672Z [info] [kit] 已成功从 /Users/sagiring/.local/share/CMakeTools/cmake-tools-kits.json 加载 4 工具包
+2026-06-08T09:37:32.737Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:32.745Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:32.748Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T09:37:32.754Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T10:39:08.544Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T10:39:11.128Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-06-08T10:53:25.279Z [debug] [extension] 停用 CMakeTools
+��序: 未选择任何工具包
+2026-05-29T09:58:39.458Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-05-29T11:30:50.484Z [debug] [main] 未启动 CMake 驱动程序: 未选择任何工具包
+2026-05-29T11:37:09.130Z [debug] [extension] 停用 CMakeTools
