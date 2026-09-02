@@ -8,6 +8,36 @@
 
 > **注**：`<leader>` 键已映射为 **`Space`（空格键）**。
 
+### 1.0 🧠 快捷键“模块化英文缩写”记忆法（3 分钟快速上手）
+> **核心记忆口诀**：**找东西按 `<Space>f + 首字母`，跳代码按 `g + 首字母`，搞 Git 按 `<Space>g + 首字母`。**
+
+- **`g` 系列（Go to 跳转）**：
+  - `gd` = **G**o to **D**efinition ➡️ 跳到**定义/接口**
+  - `gi` = **G**o to **I**mplementation ➡️ 跳到**实现类**
+  - `gr` = **G**o to **R**eferences ➡️ 找**引用** (Find Usages)
+  - `gD` = **G**o to **D**eclaration ➡️ 跳到**声明**
+- **`<Space>f` 系列（Find 搜索与查找）**：
+  - `<Space>ff` = **F**ind **F**iles ➡️ 找**文件**
+  - `<Space>fg` = **F**ind by **G**rep ➡️ 找**代码内容**（全局全文检索）
+  - `<Space>fw` = **F**ind **W**ord ➡️ 搜光标所在的**单词**
+  - `<Space>fb` = **F**ind **B**uffers ➡️ 找已打开的 **Buffer/Tab**
+  - `<Space>fd` = **F**ind **D**iagnostics ➡️ 找当前文件**警告与错误** (Warning/Error)
+  - `<Space>fD` = **F**ind **D**iagnostics (All) ➡️ 找**全工程所有警告与错误**
+  - `<Space>fs` = **F**ind **S**ymbols ➡️ 找 **Class 类名与方法符号**
+- **`<Space>g` 系列（Git 版本管理）**：
+  - `<Space>gb` = **G**it **B**ranches ➡️ 查分支并**一键切分支**（回车秒切）
+  - `<Space>gc` = **G**it **C**ommits ➡️ 查**提交历史**
+  - `<Space>gs` = **G**it **S**tatus ➡️ 查**修改状态**
+- **日常最高频操作（单词首字母）**：
+  - `<Space>w` = **W**rite ➡️ **保存文件** (`:w`)
+  - `<Space>c` = **C**lose ➡️ **关闭当前 Tab**
+  - `<Space>q` = **Q**uit ➡️ **退出窗口** (`:q`)
+  - `<Space>e` = **E**xplorer ➡️ 开关左侧目录树
+  - `<Space>rn` = **R**e**N**ame ➡️ 智能重命名变量/方法
+  - `K` = 查看方法入参和 Javadoc 注释（Vim 传统“查看手册”键）
+
+---
+
 ### 1.1 基础编辑与窗口导航
 | 模式 | 快捷键 | 功能说明 |
 |---|---|---|
