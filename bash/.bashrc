@@ -1,14 +1,15 @@
 # don't put duplicate lines or lines starting with space in the history.
 #
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth:erasedups
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=50000
+HISTFILESIZE=100000
+HISTTIMEFORMAT="%F %T "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -22,8 +23,15 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 # lesspipe will activate by ".bash_profile"
 lessc() { 
-        /usr/share/vim/vim91/macros/less.sh "$@"
+    local less_script
+    less_script=$(ls -d /usr/share/vim/vim*/macros/less.sh 2>/dev/null | tail -n 1)
+    if [ -n "$less_script" ] && [ -x "$less_script" ]; then
+        "$less_script" "$@"
+    else
+        less "$@"
+    fi
 }
+
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_chroot)
@@ -52,7 +60,8 @@ fi
 
 
 if [ "$color_prompt" = yes ]; then
-	PS1='\033[1;33m\]\d\[\033[00m\] \033[0;32m\]\u\[\033[00m\] \033[01;34m\]\W\[\033[00m\]\033[0;31m\]\n\$\[\033[00m\] ' 
+	# \d: Date, \u: User, \W: Current directory basename, \$: Prompt symbol
+	PS1='\[\033[1;33m\]\d\[\033[00m\] \[\033[0;32m\]\u\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]\n\[\033[0;31m\]\$\[\033[00m\] ' 
 	# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
 	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -99,7 +108,18 @@ fi
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 # alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias alert='terminal-notifier -title "Terminal" -message "Done with task! Exit status: $?"'
+alert() {
+    local exit_status=$?
+    if command -v terminal-notifier >/dev/null 2>&1; then
+        terminal-notifier -title "Terminal" -message "Done with task! Exit status: $exit_status"
+    elif [ "$exit_status" -eq 0 ]; then
+        echo -e "\033[0;32m[Alert] Task completed successfully.\033[0m"
+    else
+        echo -e "\033[0;31m[Alert] Task failed with exit status: $exit_status\033[0m"
+    fi
+    return $exit_status
+}
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -113,7 +133,9 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-	if [ -f /usr/share/bash-completion/bash_completion ]; then
+	if [ -f /opt/homebrew/etc/profile.d/bash_completion.sh ]; then
+		. /opt/homebrew/etc/profile.d/bash_completion.sh
+	elif [ -f /usr/share/bash-completion/bash_completion ]; then
 		. /usr/share/bash-completion/bash_completion
 	elif [ -f /etc/bash_completion ]; then
 		. /etc/bash_completion
@@ -143,9 +165,11 @@ man() {
 
 socket=$(ls -1t /run/user/$UID/vscode-ipc-*.sock 2> /dev/null | head -1)
 export VSCODE_IPC_HOOK_CLI=${socket}
-~/.tmux/plugins/tpm/tpm
-complete -W "$(echo `cat ~/.ssh/config | grep 'Host '| cut -f 2 -d ' '|uniq`;)" ssh
 
+# SSH host completion from ~/.ssh/config
+if [ -f "$HOME/.ssh/config" ]; then
+    complete -W "$(awk '$1=="Host" {for(i=2;i<=NF;i++) if($i !~ /[*?]/) print $i}' ~/.ssh/config 2>/dev/null | sort -u)" ssh
+fi
 
 
 # added by tools-all-in-one setup
@@ -170,3 +194,6 @@ complete -F _moa_completions moa_arthas
 
 # opencode
 export PATH=/Users/sagiring/.opencode/bin:$PATH
+
+# Added by AI Skills keyring.sh
+export ALPHA_LOG_USER="zhangjingming8725"

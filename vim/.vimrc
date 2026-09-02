@@ -1,4 +1,3 @@
-
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
 " Vim is based on Vi. Setting `nocompatible` switches from the default
@@ -10,11 +9,21 @@
 " `vim -u foo`).
 set nocompatible
 
+" Encoding settings for UTF-8 and Chinese charset compatibility
+set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+
 " Turn on syntax highlighting.
 syntax on
 
 " Disable the default Vim startup message.
 set shortmess+=I
+
+" Open true color if supported
+if has("termguicolors")
+    set termguicolors
+endif
 
 " Show line numbers.
 set number
@@ -30,6 +39,14 @@ set relativenumber
 " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
 
+" Indentation: 4 spaces standard
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+set smartindent
+
 " The backspace key has slightly unintuitive behavior by default. For example,
 " by default, you can't backspace before the insertion point set with 'i'.
 " This configuration makes backspace behave more reasonably, in that you can
@@ -37,7 +54,7 @@ set laststatus=2
 set backspace=indent,eol,start
 
 " By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
-" shown in any window) that has unsaved changes. This is to prevent you from "
+" shown in any window) that has unsaved changes. This is to prevent you from
 " forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
 " hidden buffers helpful enough to disable this protection. See `:help hidden`
 " for more information on this.
@@ -51,6 +68,24 @@ set smartcase
 
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
+
+" Highlight search results and shortcut to clear highlights
+set hlsearch
+nnoremap <silent> <leader><space> :nohlsearch<CR>
+
+" Command-line completion enhancement
+set wildmenu
+set wildmode=longest:full,full
+
+" Persistent undo history across sessions
+if has('persistent_undo')
+    let s:undodir = expand('~/.vim/undodir')
+    if !isdirectory(s:undodir)
+        call mkdir(s:undodir, 'p', 0700)
+    endif
+    set undofile
+    let &undodir = s:undodir
+endif
 
 " Unbind some useless/annoying default key bindings.
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
@@ -77,4 +112,3 @@ inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
-

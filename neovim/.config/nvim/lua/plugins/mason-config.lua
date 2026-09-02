@@ -11,41 +11,28 @@ require("mason").setup({
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require("lspconfig")
+local util = require("lspconfig.util")
+
 local handlers = {
-        -- The first entry (without a key) will be the default handler
-        -- and will be called for each installed server that doesn't have
-        -- a dedicated handler.
-        function (server_name) -- default handler (optional)
+        function (server_name)
                 require("lspconfig")[server_name].setup {
                         capabilities = capabilities,
                 }
         end,
-        -- ["ast_grep"] = function()
-        --         require'lspconfig'.ast_grep.setup{
-        --                 cmd = { "ast-grep", "lsp" },
-        --                 filetypes = { "c", "cpp", "rust", "go", "java", "python", "javascript", "typescript", "html", "css", "kotlin", "dart", "lua" },
-        --                 root_dir = vim.loop.cwd,
-        --         }
-        -- end,
         ["pylsp"] = function ()
                 lspconfig.pylsp.setup {
                         capabilities = capabilities,
-                        root_dir = vim.loop.cwd,
                         settings = {
                                 pylsp = {
                                         plugins = {
-                                                pyflakes={enabled=true},
-        
-                                                pylint = {enabled=false, debounce=200,args = {'--ignore=E501,E231', '-'}},
-        
-                                                pylsp_mypy={enabled=false},
-        
-                                                pycodestyle={enabled=false,ignore={'E501', 'E231'},maxLineLength=120},
+                                                pyflakes = { enabled = true },
+                                                pylint = { enabled = false, debounce = 200, args = { '--ignore=E501,E231', '-' } },
+                                                pylsp_mypy = { enabled = false },
+                                                pycodestyle = { enabled = false, ignore = { 'E501', 'E231' }, maxLineLength = 120 },
                                         }
                                 }
                         }
                 }
-        
         end,
         ["lua_ls"] = function ()
                 lspconfig.lua_ls.setup {
@@ -59,17 +46,10 @@ local handlers = {
                         }
                 }
         end,
-        -- ["java_language_server"] = function ()
-        --         lspconfig.java_language_server.setup {
-        --                 filetypes = {"java"},
-        --                 root_dir = vim.loop.cwd,
-        --
-        --         }
-        -- end,
         ["bashls"] = function ()
                 lspconfig.bashls.setup {
                         capabilities = capabilities,
-                        cmd =  { "bash-language-server", "start" },
+                        cmd = { "bash-language-server", "start" },
                         filetypes = { "sh" },
                         settings = {
                                 bashIde = {
@@ -77,21 +57,89 @@ local handlers = {
                                 }
                         },
                         single_file_support = true,
-                        root_dir = vim.loop.cwd,
-
                 }
-
         end,
+        ["jsonls"] = function ()
+                lspconfig.jsonls.setup {
+                        capabilities = capabilities,
+                        settings = {
+                                json = {
+                                        validate = { enable = true },
+                                }
+                        }
+                }
+        end,
+        ["yamlls"] = function ()
+                lspconfig.yamlls.setup {
+                        capabilities = capabilities,
+                        settings = {
+                                yaml = {
+                                        schemaStore = { enable = true }
+                                }
+                        }
+                }
+        end,
+        ["jdtls"] = function ()
+                local home = os.getenv("HOME") or "/Users/sagiring"
+                local java21_bin = "/Library/Java/JavaVirtualMachines/zulu21.46.19-ca-fx-jdk21.0.9-macosx_aarch64/bin/java"
 
+                local root_markers = { "pom.xml", "gradlew", "mvnw", ".git" }
+                local root_dir = util.root_pattern(unpack(root_markers))(vim.fn.expand("%:p:h")) or vim.fn.getcwd()
+                local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
+                local workspace_dir = home .. "/.local/share/nvim/jdtls-workspace/" .. project_name
+
+                lspconfig.jdtls.setup {
+                        capabilities = capabilities,
+                        cmd = {
+                                "jdtls",
+                                "--java-executable", java21_bin,
+                                "-data", workspace_dir,
+                                "--jvm-arg=-Xmx2G",
+                        },
+                        root_dir = util.root_pattern(unpack(root_markers)),
+                        settings = {
+                                java = {
+                                        configuration = {
+                                                runtimes = {
+                                                        {
+                                                                name = "JavaSE-1.8",
+                                                                path = "/Library/Java/JavaVirtualMachines/zulu8.86.0.25-ca-fx-jdk8.0.452-macosx_aarch64/zulu-8.jdk/Contents/Home",
+                                                        },
+                                                        {
+                                                                name = "JavaSE-11",
+                                                                path = "/Library/Java/JavaVirtualMachines/zulu11.80.21-ca-fx-jdk11.0.27-macosx_aarch64/zulu-11.jdk/Contents/Home",
+                                                        },
+                                                        {
+                                                                name = "JavaSE-21",
+                                                                path = "/Library/Java/JavaVirtualMachines/zulu21.46.19-ca-fx-jdk21.0.9-macosx_aarch64/zulu-21.jdk/Contents/Home",
+                                                                default = true,
+                                                        },
+                                                }
+                                        },
+                                        completion = {
+                                                favoriteStaticMembers = {
+                                                        "org.junit.Assert.*",
+                                                        "org.junit.Assume.*",
+                                                        "org.junit.jupiter.api.Assertions.*",
+                                                        "org.junit.jupiter.api.Assumptions.*",
+                                                        "org.mockito.Mockito.*",
+                                                        "org.mockito.ArgumentMatchers.*",
+                                                },
+                                        },
+                                }
+                        }
+                }
+        end,
 }
 
-
--- require("mason-lspconfig").setup({
---         ensure_installed = {'pylsp','lua_ls','bashls'},
---         handlers = handlers
--- })
-
-
-
-
-
+require("mason-lspconfig").setup({
+        ensure_installed = {
+                'pylsp',
+                'lua_ls',
+                'bashls',
+                'jsonls',
+                'yamlls',
+                'jdtls',
+        },
+        handlers = handlers
+})

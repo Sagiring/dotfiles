@@ -1,19 +1,17 @@
 require("catppuccin").setup({
         flavour = "macchiato", -- latte, frappe, macchiato, mocha
-        transparent_background = false, -- disables setting the background color.
+        transparent_background = false,
         integrations = {
                 nvimtree = true,
                 treesitter = true,
                 ts_rainbow2 = true,
                 cmp = true,
                 gitsigns = true,
+                bufferline = true,
                 telescope = {
                         enabled = true,
-                        -- style = "nvchad"
                 }
         },
-
-
 })
 
 -- setup must be called before loading

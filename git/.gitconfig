@@ -1,18 +1,35 @@
-
 [user]
 	email = zhang.jingming@hellogroup.com
 	name = zhang.jingming
 
-[init] 
+[init]
 	defaultBranch = main
 
-[alias] 
-	ll = log --graph --decorate --oneline
-	l = log --graph --decorate
-	s = status
-    base = merge-base HEAD master
-[color]
-	ui = auto
+[push]
+	autoSetupRemote = true
+	default = current
+
 [pull]
 	ff = only
 	rebase = true
+
+[merge]
+	conflictStyle = zdiff3
+
+[color]
+	ui = auto
+
+[core]
+	autocrlf = input
+
+[alias]
+	st = status -sb
+	s = status
+	co = checkout
+	br = branch
+	ci = commit
+	ll = log --graph --decorate --oneline
+	l = log --graph --decorate
+	base = merge-base HEAD master
+	unstage = reset HEAD --
+	last = log -1 HEAD --stat

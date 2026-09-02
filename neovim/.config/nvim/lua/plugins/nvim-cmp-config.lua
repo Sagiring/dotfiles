@@ -1,6 +1,6 @@
 local has_words_before = function()
-        unpack = unpack or table.unpack
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        local _unpack = unpack or table.unpack
+        local line, col = _unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
@@ -9,91 +9,90 @@ local feedkey = function(key, mode)
 end
 
 -- Set up nvim-cmp.
-local cmp = require'cmp'
+local cmp = require('cmp')
 
-local function tab(fallback)
-        if cmp.visible() then
-                if #cmp.get_entries() == 1 then
-                        cmp.confirm({ select = true })
-                else
-                        cmp.select_next_item()
-                end
-        elseif vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
-        elseif has_words_before() then
-                cmp.complete()
-                if #cmp.get_entries() == 1 then
-                        cmp.confirm({ select = true })
-                end
-        else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-        end
-end
-
-local function shift_tab()
-        if cmp.visible() then
-                cmp.select_prev_item()
-        elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                feedkey("<Plug>(vsnip-jump-prev)", "")
-        end
-end
-
-cmp.setup({   
+cmp.setup({
+        -- 性能优化配置：防抖与节流，防止打字打结
+        performance = {
+                debounce = 60,
+                throttle = 30,
+                fetching_timeout = 500,
+                max_view_entries = 30,
+        },
         snippet = {
-                -- REQUIRED - you must specify a snippet engine
                 expand = function(args)
-                        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-                        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-                        -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+                        vim.fn["vsnip#anonymous"](args.body)
                 end,
         },
         window = {
-                -- completion = cmp.config.window.bordered(),
-                -- documentation = cmp.config.window.bordered(),
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
                 ['<C-Up>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-Down>'] = cmp.mapping.scroll_docs(4),
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
                 ['<Up>'] = cmp.mapping.select_prev_item(),
                 ['<Down>'] = cmp.mapping.select_next_item(),
                 ['<C-k>'] = cmp.mapping.select_prev_item(),
                 ['<C-j>'] = cmp.mapping.select_next_item(),
 
-                ['<Tab>'] = cmp.mapping.confirm({select = true}),
+                ['<Tab>'] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                                cmp.confirm({ select = true })
+                        elseif vim.fn["vsnip#available"](1) == 1 then
+                                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+                        else
+                                fallback()
+                        end
+                end, { "i", "s" }),
 
-                -- ["<Tab>"] = cmp.mapping(tab, { "i", "s" }),
-                -- ["<S-Tab>"] = cmp.mapping(shift_tab, { "i", "s" }),
+                ['<S-Tab>'] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                                cmp.select_prev_item()
+                        elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+                                feedkey("<Plug>(vsnip-jump-prev)", "")
+                        else
+                                fallback()
+                        end
+                end, { "i", "s" }),
         }),
 
-
-
         sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'vsnip' }, -- For vsnip users.
-                -- { name = 'luasnip' }, -- For luasnip users.
-                -- { name = 'ultisnips' }, -- For ultisnips users.
-                -- { name = 'snippy' }, -- For snippy users.
-                }, {
-                        { name = 'buffer' },
+                { name = 'nvim_lsp', priority = 1000 },
+                { name = 'vsnip', priority = 750 },
+        }, {
+                { 
+                        name = 'buffer',
+                        priority = 500,
+                        keyword_length = 3,
+                        -- 仅索引当前可视窗口内的缓冲区，避免扫描上百个后台文件造成主线程卡顿
+                        option = {
+                                get_bufnrs = function()
+                                        local bufs = {}
+                                        for _, win in ipairs(vim.api.nvim_list_wins()) do
+                                                bufs[vim.api.nvim_win_get_buf(win)] = true
+                                        end
+                                        return vim.tbl_keys(bufs)
+                                end
+                        }
+                },
         })
 })
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources({
-                { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-                }, {
-                        { name = 'buffer' },
+                { name = 'git' },
+        }, {
+                { name = 'buffer' },
         })
 })
 
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+-- Use buffer source for `/` and `?`
 cmp.setup.cmdline({ '/', '?' }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
@@ -101,18 +100,13 @@ cmp.setup.cmdline({ '/', '?' }, {
         }
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- Use cmdline & path source for ':'
 cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
                 { name = 'path' }
-                }, {
-                        { name = 'cmdline' }
+        }, {
+                { name = 'cmdline' }
         }),
         matching = { disallow_symbol_nonprefix_matching = false }
-
 })
-
-
-
-

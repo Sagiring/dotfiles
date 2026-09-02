@@ -1,4 +1,12 @@
-neovim/.local/share/nvim/mason/**
-neovim/.local/share/nvim/plugged/**
+# Neovim state, logs, history, and runtime data
+neovim/.local/state/**
+neovim/.local/share/**
+*.log
+*.log.*
+.netrwhist
+.DS_Store
+*.swp
+*.swo
+*~
 github-copilot
 CMakeTools

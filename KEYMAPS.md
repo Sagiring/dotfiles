@@ -1,0 +1,125 @@
+# ⌨️ Dotfiles 快捷键与使用技巧速查手册 (Cheatsheet)
+
+本手册整理了当前环境中 **Neovim / Vim**、**Tmux**、**Bash 别名与实用函数**、**Git 别名** 的全部常用快捷键与操作指南。
+
+---
+
+## 1. 🚀 Neovim / Vim 快捷键
+
+> **注**：`<leader>` 键已映射为 **`Space`（空格键）**。
+
+### 1.1 基础编辑与窗口导航
+| 模式 | 快捷键 | 功能说明 |
+|---|---|---|
+| **Insert** | `jj` | 极速退出插入模式（替代 Esc） |
+| **Normal** | `H` | 快速跳至当前行首非空字符（等同于 `^`） |
+| **Normal** | `L` | 快速跳至当前行尾（等同于 `$`） |
+| **Normal** | `<leader>w` | 快速保存文件 (`:w`) |
+| **Normal** | `<leader>q` | 快速关闭当前窗口 (`:q`) |
+| **Normal** | `<leader><space>` | 清除搜索高亮颜色 (`:nohlsearch`) |
+| **Visual** | `<` / `>` | 连续左/右缩进代码块（**自动保持选区**，无需重复选中） |
+| **Visual** | `J` / `K` | 将选中的整块代码**上下平移** |
+| **Visual** | `<leader>p` | 粘贴并**保护剪贴板**（不会被替换掉的内容覆盖寄存器） |
+
+### 1.2 目录树与标签页（Nvim-Tree & Bufferline）
+| 快捷键 | 功能说明 |
+|---|---|
+| `<leader>e` 或 `Ctrl + n` | 展开 / 折叠左侧文件树 (`NvimTreeToggle`) |
+| `<leader>h` | 光标焦点快速跳入左侧目录树 |
+| `<leader>l` | 光标焦点从目录树切回右侧代码编辑窗口 |
+| `Ctrl + Shift + L` (`<C-L>`) | 切换到下一个文件标签页 (`BufferLineCycleNext`) |
+| `Ctrl + Shift + H` (`<C-H>`) | 切换到上一个文件标签页 (`BufferLineCyclePrev`) |
+
+### 1.3 全局模糊检索（Telescope）
+| 快捷键 | 功能说明 | 对应 IDEA 场景 |
+|---|---|---|
+| `<leader>ff` | **全局文件名搜索**（支持模糊匹配） | `Shift + Shift` / `Cmd + O` |
+| `<leader>fg` | **全局代码内容搜索**（Live Grep） | `Cmd + Shift + F` |
+| `<leader>fw` | **搜索当前光标所在单词** | Find in Path with selection |
+| `<leader>fb` | 查看当前所有已打开的 Buffers | Recent Files |
+| `<leader>fo` | 查看历史最近打开过的文件 (Oldfiles) | Recent Files |
+| `<leader>gc` | 查看 Git 提交历史列表 | Git Log |
+| `<leader>gs` | 查看当前 Git 变更与状态文件 | Git Changes |
+| `<leader>fs` | **全局检索 Class 类名与符号**（Java/LSP） | Search Everywhere (Classes/Symbols) |
+| `<leader>ds` | **当前文件类结构大纲与方法列表** | File Structure (`Cmd + F12`) |
+
+### 1.4 Java / LSP 智能开发与诊断
+| 快捷键 | 功能说明 | 对应 IDEA 场景 |
+|---|---|---|
+| `gd` | 跳转到定义 (Go to definition) | `Cmd + B` / `Cmd + Click` |
+| `gD` | 跳转到声明 (Go to declaration) | Go to Type Declaration |
+| `K` | 查看当前类/方法/变量的悬浮文档说明 (Hover Doc) | `F1` / Quick Documentation |
+| `gi` | 查找所有接口实现类 (Go to implementation) | `Cmd + Alt + B` |
+| `gr` | 查找当前方法/字段的所有引用 (Find references) | `Alt + F7` |
+| `<leader>rn` | 智能重命名符号 (Rename Symbol) | `Shift + F6` |
+| `<leader>ca` | 快速修复与代码重构 (Code Action) | `Alt + Enter` (Show Context Actions) |
+| `<leader>f` | 智能格式化代码 (LSP Format) | `Cmd + Alt + L` |
+| `[d` / `]d` | 上一个 / 下一个语法警告或编译错误 | Previous / Next Highlighted Error |
+| `<leader>d` | 浮窗展示当前行的详细错误信息 | Show Error Description |
+| `<leader>dq` | 在底部列表列出当前文件的所有诊断问题 | Show Problems Tool Window |
+
+---
+
+## 2. 🪟 Tmux 终端复用快捷键
+
+> **注**：Tmux 前缀键（Prefix）为 **`Ctrl + a`**。
+
+| 操作 | 快捷键 | 说明 |
+|---|---|---|
+| **水平分屏** | `Ctrl + a` 然后按 `|` | 左右并排分屏（自动继承当前路径） |
+| **垂直分屏** | `Ctrl + a` 然后按 `-` | 上下分屏（自动继承当前路径） |
+| **切换分屏** | `Alt + 方向键`（`←` `→` `↑` `↓`） | **无需前缀键**，直接跨面板平滑切换 |
+| **复制模式** | `Ctrl + a` 然后按 `[` | 进入 Vi 浏览与复制模式 |
+| └─ **选区文本** | `v` | （在复制模式下）开始选中字符 |
+| └─ **复制到剪贴板** | `y` | （在复制模式下）复制选区并同步系统剪贴板 (`pbcopy`) |
+| └─ **退出模式** | `q` 或 `Esc` | 退出复制模式 |
+| **重载配置** | `Ctrl + a` 然后按 `r` | 即时重新加载 `~/.tmux.conf` |
+| **新建窗口** | `Ctrl + a` 然后按 `c` | 创建新 Tab 窗口 |
+| **切换窗口** | `Ctrl + a` 然后按 `1` ~ `9` | 切换到指定数字编号的 Tab 窗口 |
+
+---
+
+## 3. 🐚 Bash 别名与实用命令
+
+### 3.1 常用目录与文件操作
+| 别名 / 命令 | 完整命令 | 说明 |
+|---|---|---|
+| `..` | `cd ..` | 返回上一级目录 |
+| `...` | `cd ../../` | 返回上两级目录 |
+| `....` | `cd ../../../` | 返回上三级目录 |
+| `ll` | `ls -lh` | 详细列表展示文件（易读大小） |
+| `la` | `ls -lha` | 包含隐藏文件的完整详细列表 |
+| `serve` | `python -m http.server` | 在当前目录快速启动本地 HTTP 文件服务 |
+
+### 3.2 效率提升小工具
+| 工具 / 函数 | 用法示例 | 说明 |
+|---|---|---|
+| `alert` | `mvn clean install; alert` | 耗时任务完成后发送系统弹窗通知并报告退出码 |
+| `port` | `port 8080` | 快速排查指定 TCP 端口的占用进程 (lsof) |
+| `o` | `o idea .` 或 `o chrome` | 模糊匹配并打开 macOS 应用程序 |
+| `week` | `week` | 快速输出当前是今年的第几周 |
+| `aicode` | `aicode` | 快速启动 Cursor 编辑器 |
+| `c` | `c .` | 快速用 VS Code 打开当前目录 |
+
+### 3.3 业务与基础工具
+| 补全 / 命令 | 说明 |
+|---|---|
+| `moa <service>` | Momo 内部 MOA 服务名自动补全调用 |
+| `moa_arthas <service>` | 一键接入对应 MOA 服务的 Arthas 诊断 |
+| `ssh <tab>` | 自动读取 `~/.ssh/config` 里的 Host 主机名进行补全 |
+
+---
+
+## 4. 🐙 Git 快捷别名
+
+| Alias 缩写 | 完整 Git 命令 | 说明 |
+|---|---|---|
+| `git st` / `git s` | `git status -sb` | 紧凑模式查看工作区状态 |
+| `git co <branch>` | `git checkout <branch>` | 切换分支或检出文件 |
+| `git br` | `git branch` | 查看本地分支列表 |
+| `git ci` | `git commit` | 提交暂存区变更 |
+| `git ll` | `git log --graph --decorate --oneline` | 极简单行彩色分支树状图 |
+| `git l` | `git log --graph --decorate` | 完整分支树状图 |
+| `git unstage <file>` | `git reset HEAD -- <file>` | 将文件移出暂存区 |
+| `git last` | `git log -1 HEAD --stat` | 查看最近一次提交的详细 Diff 统计 |
+| `git base` | `git merge-base HEAD master` | 查找当前分支与主干分支的交汇分叉点 Commit |
