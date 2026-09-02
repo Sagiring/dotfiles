@@ -138,46 +138,6 @@ vim.api.nvim_create_autocmd("FileType", {
     })
   end,
 })
-      name = "jdtls",
-      cmd = cmd,
-      root_dir = root_dir,
-      capabilities = capabilities,
-      settings = {
-        java = {
-          autobuild = { enabled = false },
-          maxConcurrentBuilds = 1,
-          import = {
-            generatesMetadataFilesAtProjectRoot = false,
-            maven = {
-              enabled = true,
-              downloadSources = false,
-              updateSnapshots = false,
-            },
-            gradle = { enabled = false },
-          },
-          references = { includeDecompiledSources = false },
-          configuration = {
-            runtimes = {
-              {
-                name = "JavaSE-1.8",
-                path = "/Library/Java/JavaVirtualMachines/zulu8.86.0.25-ca-fx-jdk8.0.452-macosx_aarch64/zulu-8.jdk/Contents/Home",
-              },
-              {
-                name = "JavaSE-11",
-                path = "/Library/Java/JavaVirtualMachines/zulu11.80.21-ca-fx-jdk11.0.27-macosx_aarch64/zulu-11.jdk/Contents/Home",
-              },
-              {
-                name = "JavaSE-21",
-                path = "/Library/Java/JavaVirtualMachines/zulu21.46.19-ca-fx-jdk21.0.9-macosx_aarch64/zulu-21.jdk/Contents/Home",
-                default = true,
-              },
-            },
-          },
-        },
-      },
-    })
-  end,
-})
 
 local old_notify = vim.notify
 vim.notify = function(msg, ...)
