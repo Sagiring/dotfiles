@@ -94,18 +94,31 @@ local handlers = {
                                 "jdtls",
                                 "--java-executable", java21_bin,
                                 "-data", workspace_dir,
-                                "--jvm-arg=-Xmx2G",
+                                "--jvm-arg=-Xmx1024m",
+                                "--jvm-arg=-XX:+UseG1GC",
+                                "--jvm-arg=-XX:MaxGCPauseMillis=100",
                         },
                         root_dir = util.root_pattern(unpack(root_markers)),
                         settings = {
                                 java = {
+                                        -- 限制并发构建，关闭后台自动频繁全量构建，防止高负载打满 CPU/内存
+                                        autobuild = { enabled = false },
+                                        maxConcurrentBuilds = 1,
                                         -- 彻底禁止在项目物理源码根目录下生成 .project / .classpath / .factorypath / .settings/
                                         -- 所有元数据与编译索引全部隔离在外部的 workspace_dir 中
                                         import = {
                                                 generatesMetadataFilesAtProjectRoot = false,
                                                 maven = {
                                                         enabled = true,
+                                                        downloadSources = false,
+                                                        updateSnapshots = false,
                                                 },
+                                                gradle = {
+                                                        enabled = false,
+                                                },
+                                        },
+                                        references = {
+                                                includeDecompiledSources = false,
                                         },
                                         configuration = {
                                                 runtimes = {
