@@ -82,7 +82,12 @@ local handlers = {
         ["jdtls"] = function ()
                 local home = os.getenv("HOME") or "/Users/sagiring"
                 local java21_bin = "/Library/Java/JavaVirtualMachines/zulu21.46.19-ca-fx-jdk21.0.9-macosx_aarch64/bin/java"
-                local root_markers = { "pom.xml", "gradlew", "mvnw", ".git" }
+
+                local function get_jdtls_root(fname)
+                        return util.root_pattern(".git")(fname)
+                                or util.root_pattern("pom.xml", "mvnw", "gradlew")(fname)
+                                or vim.fn.getcwd()
+                end
 
                 lspconfig.jdtls.setup {
                         capabilities = capabilities,
@@ -91,10 +96,13 @@ local handlers = {
                                 "--java-executable", java21_bin,
                                 "--jvm-arg=-Xmx1024m",
                         },
-                        root_dir = util.root_pattern(unpack(root_markers)),
+                        root_dir = get_jdtls_root,
                         on_new_config = function(config, new_root_dir)
                                 if new_root_dir then
-                                        local project_name = vim.fn.fnamemodify(new_root_dir, ":p:h:t")
+                                        local project_name = vim.fs.basename(new_root_dir) or vim.fn.fnamemodify(new_root_dir, ":t")
+                                        if not project_name or project_name == "" then
+                                                project_name = "default"
+                                        end
                                         local workspace_dir = home .. "/.local/share/nvim/jdtls-workspace/" .. project_name
                                         config.cmd = {
                                                 "jdtls",
