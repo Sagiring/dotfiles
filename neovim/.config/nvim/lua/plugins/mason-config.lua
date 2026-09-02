@@ -79,70 +79,6 @@ local handlers = {
                         }
                 }
         end,
-        ["jdtls"] = function ()
-                local java21_bin = "/Library/Java/JavaVirtualMachines/zulu21.46.19-ca-fx-jdk21.0.9-macosx_aarch64/bin/java"
-
-                lspconfig.jdtls.setup {
-                        capabilities = capabilities,
-                        cmd = {
-                                "jdtls",
-                                "--java-executable", java21_bin,
-                                "--jvm-arg=-Xms256m",
-                                "--jvm-arg=-Xmx1024m",
-                        },
-                        root_dir = util.root_pattern(".git", "pom.xml", "mvnw", "gradlew"),
-                        settings = {
-                                java = {
-                                        -- 限制并发构建，关闭后台自动频繁全量构建，防止高负载打满 CPU/内存
-                                        autobuild = { enabled = false },
-                                        maxConcurrentBuilds = 1,
-                                        -- 彻底禁止在项目物理源码根目录下生成 .project / .classpath / .factorypath / .settings/
-                                        -- 所有元数据与编译索引全部隔离在外部的 workspace_dir 中
-                                        import = {
-                                                generatesMetadataFilesAtProjectRoot = false,
-                                                maven = {
-                                                        enabled = true,
-                                                        downloadSources = false,
-                                                        updateSnapshots = false,
-                                                },
-                                                gradle = {
-                                                        enabled = false,
-                                                },
-                                        },
-                                        references = {
-                                                includeDecompiledSources = false,
-                                        },
-                                        configuration = {
-                                                runtimes = {
-                                                        {
-                                                                name = "JavaSE-1.8",
-                                                                path = "/Library/Java/JavaVirtualMachines/zulu8.86.0.25-ca-fx-jdk8.0.452-macosx_aarch64/zulu-8.jdk/Contents/Home",
-                                                        },
-                                                        {
-                                                                name = "JavaSE-11",
-                                                                path = "/Library/Java/JavaVirtualMachines/zulu11.80.21-ca-fx-jdk11.0.27-macosx_aarch64/zulu-11.jdk/Contents/Home",
-                                                        },
-                                                        {
-                                                                name = "JavaSE-21",
-                                                                path = "/Library/Java/JavaVirtualMachines/zulu21.46.19-ca-fx-jdk21.0.9-macosx_aarch64/zulu-21.jdk/Contents/Home",
-                                                                default = true,
-                                                        },
-                                                }
-                                        },
-                                        completion = {
-                                                favoriteStaticMembers = {
-                                                        "org.junit.Assert.*",
-                                                        "org.junit.Assume.*",
-                                                        "org.junit.jupiter.api.Assertions.*",
-                                                        "org.junit.jupiter.api.Assumptions.*",
-                                                        "org.mockito.Mockito.*",
-                                                        "org.mockito.ArgumentMatchers.*",
-                                                },
-                                        },
-                                }
-                        }
-                }
-        end,
 }
 
 require("mason-lspconfig").setup({
@@ -152,7 +88,6 @@ require("mason-lspconfig").setup({
                 'bashls',
                 'jsonls',
                 'yamlls',
-                'jdtls',
         },
         handlers = handlers
 })
