@@ -1,0 +1,38 @@
+# ==============================================================================
+# Global Git Ignore (~/.gitignore_global)
+# ==============================================================================
+
+# Eclipse / JDTLS (Neovim Java LSP Metadata)
+.project
+.classpath
+.factorypath
+.settings/
+bin/
+
+# JetBrains IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VS Code / Cursor
+.vscode/
+*.code-workspace
+
+# macOS System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+.netrwhist

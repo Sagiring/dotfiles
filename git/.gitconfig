@@ -21,6 +21,7 @@
 
 [core]
 	autocrlf = input
+	excludesfile = ~/.gitignore_global
 
 [alias]
 	st = status -sb
