@@ -1,5 +1,5 @@
 -- ==============================================================================
--- Lualine Configuration with Smooth LSP Progress Bar & Zero-Flicker State
+-- Lualine Configuration - Ultra-Clean & Professional Minimalist Design
 -- ==============================================================================
 
 local lsp_progress = {
@@ -52,20 +52,28 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
     pcall(vim.cmd, "redrawstatus")
 end
 
--- 状态栏组件：正在索引时展示高颜值动态进度条，空闲时展示稳定就绪的 LSP 引擎
+-- 状态栏组件：
+-- 1. 正在编译/索引时：醒目展示动态进度条 [████░░░░ 50%]
+-- 2. 原生 vim.lsp.status() 兼容：适配 Neovim 0.11 的内置状态
+-- 3. 空闲就绪时：展示极简绿点就绪图标
 local function lsp_status_component()
     if lsp_progress.active then
         local spinner = spinner_frames[lsp_progress.spinner_idx]
         local bar = render_progress_bar(lsp_progress.percentage, 8)
         local extra_msg = lsp_progress.message ~= "" and (" " .. lsp_progress.message) or (lsp_progress.title ~= "" and (" " .. lsp_progress.title) or "")
-        -- 截断过长消息防止顶破状态栏
-        if #extra_msg > 24 then
-            extra_msg = extra_msg:sub(1, 21) .. "..."
+        if #extra_msg > 20 then
+            extra_msg = extra_msg:sub(1, 17) .. "..."
         end
         return string.format("%s [%s]%s%s", spinner, lsp_progress.client, bar, extra_msg)
     end
 
-    -- 空闲就绪状态：稳定展示所有挂载的 LSP 引擎，杜绝任何微小抖动与闪烁
+    if vim.lsp.status then
+        local st = vim.lsp.status()
+        if st and st ~= "" then
+            return "󰑮 " .. st
+        end
+    end
+
     local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients
     local buf_clients = get_clients and get_clients({ bufnr = 0 }) or {}
     if #buf_clients == 0 then
@@ -83,8 +91,8 @@ require('lualine').setup({
     options = {
         icons_enabled = true,
         theme = 'auto',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        component_separators = { left = '│', right = '│' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -93,31 +101,35 @@ require('lualine').setup({
         always_divide_middle = true,
         globalstatus = true,
         refresh = {
-            statusline = 200, -- 200ms 高刷，保证进度条平滑更新
+            statusline = 100, -- 100ms 高刷，保证进度条平滑无延迟
             tabline = 1000,
             winbar = 1000,
         }
     },
     sections = {
+        -- 左侧：仅保留模式 (NORMAL/INSERT) 与 Git 分支 + 错误/警告小徽标
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_b = { 'branch', 'diagnostics' },
+        -- 中间：仅显示当前文件名（最简短名字，不再显示长路径）
         lualine_c = {
-            { 'filename', path = 1 }, -- 显示相对路径
+            { 'filename', path = 0, symbols = { modified = ' ●', readonly = ' 🔒' } }
+        },
+        -- 右侧：LSP 动态进度/引擎名称 + 极简行号位置（砍掉冗余编码、换行符、百分比、多余图标）
+        lualine_x = {
             { 
                 lsp_status_component, 
                 color = function()
-                    return lsp_progress.active and { fg = '#f5a97f', gui = 'bold' } or { fg = '#8bd5ca' }
+                    return lsp_progress.active and { fg = '#f5a97f', gui = 'bold' } or { fg = '#a6da95' }
                 end,
             },
         },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
+        lualine_y = { 'filetype' },
         lualine_z = { 'location' }
     },
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { 'filename' },
+        lualine_c = { { 'filename', path = 0 } },
         lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {}
