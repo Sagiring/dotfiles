@@ -27,8 +27,25 @@ telescope.setup({
 
 -- 全局与文件搜索
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files (全局文件名搜索)" })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Live grep (全局代码内容秒搜)" })
-vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = "Grep string (搜索光标所在单词)" })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Live grep (全局代码内容秒搜，支持 \\b 词边界正则)" })
+vim.keymap.set('n', '<leader>fw', function()
+    builtin.grep_string({
+        word_match = "-w",
+        prompt_title = "Grep Exact Word (全词精确搜索光标单词)",
+    })
+end, { desc = "Grep exact word (全词精确搜索光标所在单词)" })
+
+vim.keymap.set('n', '<leader>fW', function()
+    local search_term = vim.fn.input("全词精确搜索 (Whole Word) > ")
+    if search_term and search_term ~= "" then
+        builtin.grep_string({
+            search = search_term,
+            word_match = "-w",
+            prompt_title = "Grep Exact Word: " .. search_term,
+        })
+    end
+end, { desc = "Grep exact word by prompt (手动输入关键词进行全词精确搜索)" })
+
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Buffers (查看已打开的文件)" })
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = "Oldfiles (最近打开的历史文件)" })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Help tags (帮助文档)" })

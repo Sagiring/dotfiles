@@ -18,8 +18,9 @@
   - `gD` = **G**o to **D**eclaration ➡️ 跳到**声明**
 - **`<Space>f` 系列（Find 搜索与查找）**：
   - `<Space>ff` = **F**ind **F**iles ➡️ 找**文件**
-  - `<Space>fg` = **F**ind by **G**rep ➡️ 找**代码内容**（全局全文检索）
-  - `<Space>fw` = **F**ind **W**ord ➡️ 搜光标所在的**单词**
+  - `<Space>fg` = **F**ind by **G**rep ➡️ 找**代码内容**（全局全文检索，支持 `\b` 词边界）
+  - `<Space>fw` = **F**ind **W**ord ➡️ **全词精确搜索**光标所在单词（自动 `-w`）
+  - `<Space>fW` = **F**ind **W**ord (Input) ➡️ **手动输入关键词进行全词精确搜索**
   - `<Space>fb` = **F**ind **B**uffers ➡️ 找已打开的 **Buffer/Tab**
   - `<Space>fd` = **F**ind **D**iagnostics ➡️ 找当前文件**警告与错误** (Warning/Error)
   - `<Space>fD` = **F**ind **D**iagnostics (All) ➡️ 找**全工程所有警告与错误**
@@ -69,8 +70,9 @@
 | `<leader>fl` 或 `<leader>/` | **当前文件交互式模糊检索**（Telescope 实时过滤） | `Cmd + F` 悬浮增强版 |
 | `<leader>ds` | **当前文件类结构大纲与方法列表** | File Structure (`Cmd + F12`) |
 | `<leader>ff` | **全局文件名搜索**（支持模糊匹配） | `Shift + Shift` / `Cmd + O` |
-| `<leader>fg` | **全局代码内容搜索**（Live Grep） | `Cmd + Shift + F` |
-| `<leader>fw` | **全局搜索光标所在单词** | Find in Path with selection |
+| `<leader>fg` | **全局代码内容搜索**（Live Grep，支持 `\b` 词边界正则） | `Cmd + Shift + F` |
+| `<leader>fw` | **全词精确搜索光标所在单词**（自动 `-w` 严格全词匹配） | Match Whole Word with selection |
+| `<leader>fW` | **手动输入关键词进行全词精确搜索** | Match Whole Word by prompt |
 | `<leader>fb` | 查看当前所有已打开的 Buffers | Recent Files |
 | `<leader>fo` | 查看历史最近打开过的文件 (Oldfiles) | Recent Files |
 | `<leader>gb` | **查看并切换 Git 分支**（模糊搜索，回车秒切分支） | Git Branches Popup |
