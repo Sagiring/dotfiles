@@ -56,7 +56,7 @@
 | `gr` | 查找当前方法/字段的所有引用 (Find references) | `Alt + F7` |
 | `<leader>rn` | 智能重命名符号 (Rename Symbol) | `Shift + F6` |
 | `<leader>ca` | 快速修复与代码重构 (Code Action) | `Alt + Enter` (Show Context Actions) |
-| `<leader>f` | 智能格式化代码 (LSP Format) | `Cmd + Alt + L` |
+| `<leader>fm` 或 `<leader>cf` | 智能格式化代码 (LSP Format) | `Cmd + Alt + L` |
 | `[d` / `]d` | 上一个 / 下一个语法警告或编译错误 | Previous / Next Highlighted Error |
 | `<leader>d` | 浮窗展示当前行的详细错误信息 | Show Error Description |
 | `<leader>dq` | 在底部列表列出当前文件的所有诊断问题 | Show Problems Tool Window |

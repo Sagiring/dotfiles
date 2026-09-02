@@ -49,7 +49,8 @@ keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "LSP: Go to implement
 keymap.set("n", "gr", vim.lsp.buf.references, { desc = "LSP: Find references" })
 keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })
 keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code action" })
-keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end, { desc = "LSP: Format code" })
+keymap.set("n", "<leader>fm", function() vim.lsp.buf.format({ async = true }) end, { desc = "LSP: Format code" })
+keymap.set("n", "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, { desc = "LSP: Format code" })
 
 -- Diagnostic keymaps
 keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })

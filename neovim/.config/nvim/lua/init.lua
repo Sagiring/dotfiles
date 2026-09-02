@@ -20,6 +20,7 @@ opt.cursorline = true           -- Highlight current line
 opt.termguicolors = true        -- True color support
 opt.signcolumn = "yes"          -- Always show sign column
 opt.updatetime = 250            -- Faster completion and diagnostics
+opt.timeoutlen = 600            -- Keymap timeout (毫秒)，给快捷键充足的前缀输入等待时间
 
 require('keymaps')
 
