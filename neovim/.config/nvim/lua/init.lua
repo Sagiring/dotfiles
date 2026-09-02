@@ -61,7 +61,7 @@ do
   end
 end
 
--- 兼容修复 Treesitter 异步高亮渲染: 窗口或标签页关闭/切换时，安全拦截 Invalid window id，彻底消除红字报错
+-- 兼容修复 Treesitter 异步高亮渲染与 Lualine 状态栏更新
 do
   if vim.api and vim.api.nvim__redraw then
     local orig_redraw = vim.api.nvim__redraw
@@ -70,6 +70,22 @@ do
         return
       end
       pcall(orig_redraw, opts)
+    end
+  end
+
+  -- 拦截 Neovim 0.11 下 lualine 偶发的 win_set_option / set_option E539 字符解析报错
+  if vim.api and vim.api.nvim_win_set_option then
+    local orig_win_set_option = vim.api.nvim_win_set_option
+    vim.api.nvim_win_set_option = function(win, name, val)
+      if not vim.api.nvim_win_is_valid(win) then return end
+      pcall(orig_win_set_option, win, name, val)
+    end
+  end
+
+  if vim.api and vim.api.nvim_set_option then
+    local orig_set_option = vim.api.nvim_set_option
+    vim.api.nvim_set_option = function(name, val)
+      pcall(orig_set_option, name, val)
     end
   end
 end
