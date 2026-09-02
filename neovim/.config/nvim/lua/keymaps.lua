@@ -42,11 +42,20 @@ keymap.set("n", "<C-L>", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
 keymap.set("n", "<C-H>", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
 
 -- LSP keymaps
-keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP: Go to definition" })
+keymap.set("n", "gd", function()
+    local ok, tb = pcall(require, "telescope.builtin")
+    if ok then tb.lsp_definitions() else vim.lsp.buf.definition() end
+end, { desc = "LSP: Go to definition" })
 keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "LSP: Go to declaration" })
 keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover documentation" })
-keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "LSP: Go to implementation" })
-keymap.set("n", "gr", vim.lsp.buf.references, { desc = "LSP: Find references" })
+keymap.set("n", "gi", function()
+    local ok, tb = pcall(require, "telescope.builtin")
+    if ok then tb.lsp_implementations() else vim.lsp.buf.implementation() end
+end, { desc = "LSP: Go to implementation" })
+keymap.set("n", "gr", function()
+    local ok, tb = pcall(require, "telescope.builtin")
+    if ok then tb.lsp_references() else vim.lsp.buf.references() end
+end, { desc = "LSP: Find references" })
 keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })
 keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code action" })
 keymap.set("n", "<leader>fm", function() vim.lsp.buf.format({ async = true }) end, { desc = "LSP: Format code" })
