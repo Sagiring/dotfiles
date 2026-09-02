@@ -40,9 +40,12 @@ require('plugins.gitsigns-config')
 require('plugins.telescope-config')
 
 local old_notify = vim.notify
-vim.notify = function(msg, ...)
-  if type(msg) == "string" and msg:match("deprecated") then
-    return
+vim.notify = function(msg, level, opts)
+  if type(msg) == "string" then
+    -- 过滤已废弃 API 警告与常见良性通知
+    if msg:match("deprecated") or msg:match("exit code 13") then
+      return
+    end
   end
-  old_notify(msg, ...)
+  old_notify(msg, level, opts)
 end

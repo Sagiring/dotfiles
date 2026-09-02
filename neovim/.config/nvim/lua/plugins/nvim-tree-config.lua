@@ -1,6 +1,20 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- 自动打开目录树：当用 nvim 打开目录时自动进入 NvimTree
+local function open_nvim_tree(data)
+  -- 检查参数是否为一个真实存在的目录
+  local directory = vim.fn.isdirectory(data.file) == 1
+  if not directory then
+    return
+  end
+  -- 切换到该目录并打开目录树
+  vim.cmd.cd(data.file)
+  require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
 
