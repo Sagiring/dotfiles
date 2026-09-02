@@ -99,6 +99,14 @@ local handlers = {
                         root_dir = util.root_pattern(unpack(root_markers)),
                         settings = {
                                 java = {
+                                        -- 彻底禁止在项目物理源码根目录下生成 .project / .classpath / .factorypath / .settings/
+                                        -- 所有元数据与编译索引全部隔离在外部的 workspace_dir 中
+                                        import = {
+                                                generatesMetadataFilesAtProjectRoot = false,
+                                                maven = {
+                                                        enabled = true,
+                                                },
+                                        },
                                         configuration = {
                                                 runtimes = {
                                                         {
