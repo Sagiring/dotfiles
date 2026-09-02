@@ -52,10 +52,7 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
     pcall(vim.cmd, "redrawstatus")
 end
 
--- 状态栏组件：
--- 1. 正在编译/索引时：醒目展示动态进度条 [████░░░░ 50%]
--- 2. 原生 vim.lsp.status() 兼容：适配 Neovim 0.11 的内置状态
--- 3. 空闲就绪时：展示极简绿点就绪图标
+-- 进度条与 LSP 状态组件
 local function lsp_status_component()
     if lsp_progress.active then
         local spinner = spinner_frames[lsp_progress.spinner_idx]
@@ -98,7 +95,7 @@ require('lualine').setup({
             winbar = {},
         },
         ignore_focus = {},
-        always_divide_middle = true,
+        always_divide_middle = false, -- 彻底消除中间大面积留白断层，让内容自然向两侧对齐
         globalstatus = true,
         refresh = {
             statusline = 100, -- 100ms 高刷，保证进度条平滑无延迟
@@ -107,14 +104,13 @@ require('lualine').setup({
         }
     },
     sections = {
-        -- 左侧：仅保留模式 (NORMAL/INSERT) 与 Git 分支 + 错误/警告小徽标
+        -- 左侧：模式 + Git 分支 + 错误诊断 + 当前文件名
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diagnostics' },
-        -- 中间：仅显示当前文件名（最简短名字，不再显示长路径）
         lualine_c = {
             { 'filename', path = 0, symbols = { modified = ' ●', readonly = ' 🔒' } }
         },
-        -- 右侧：LSP 动态进度/引擎名称 + 极简行号位置（砍掉冗余编码、换行符、百分比、多余图标）
+        -- 右侧：LSP 进度条 / 引擎状态 + 文件类型 + 行列位置
         lualine_x = {
             { 
                 lsp_status_component, 
@@ -122,8 +118,9 @@ require('lualine').setup({
                     return lsp_progress.active and { fg = '#f5a97f', gui = 'bold' } or { fg = '#a6da95' }
                 end,
             },
+            'filetype',
         },
-        lualine_y = { 'filetype' },
+        lualine_y = {},
         lualine_z = { 'location' }
     },
     inactive_sections = {
