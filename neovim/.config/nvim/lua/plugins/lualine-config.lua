@@ -1,10 +1,30 @@
 -- ==============================================================================
--- Lualine Configuration with Real-Time LSP / JDTLS Progress Display
+-- Lualine Configuration with Smooth LSP Progress Bar & Zero-Flicker State
 -- ==============================================================================
 
-local lsp_progress_message = ""
+local lsp_progress = {
+    active = false,
+    client = "LSP",
+    title = "",
+    message = "",
+    percentage = nil,
+    spinner_idx = 1,
+}
 
--- 监听 LSP 进度推送事件 ($/progress)，实时捕获 JDTLS/LSP 初始化与编译索引进度
+local spinner_frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+
+-- 生成高颜值平滑进度条: 如 [████░░░░ 50%]
+local function render_progress_bar(percent, bar_len)
+    bar_len = bar_len or 8
+    if not percent then return "" end
+    local p = math.max(0, math.min(100, tonumber(percent) or 0))
+    local filled = math.floor((p / 100) * bar_len)
+    local empty = bar_len - filled
+    local bar = string.rep("█", filled) .. string.rep("░", empty)
+    return string.format(" [%s %d%%]", bar, p)
+end
+
+-- 监听 LSP 进度推送 ($/progress)，捕获 JDTLS/LSP 编译索引进度
 vim.lsp.handlers["$/progress"] = function(_, result, ctx)
     local client = vim.lsp.get_client_by_id(ctx.client_id)
     local client_name = client and client.name or "LSP"
@@ -14,32 +34,38 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
     end
 
     if val.kind == "begin" or val.kind == "report" then
-        local title = val.title or ""
-        local msg = val.message and (": " .. val.message) or ""
-        local percent = val.percentage and string.format(" %d%%", val.percentage) or ""
-        lsp_progress_message = string.format("󰑮 [%s] %s%s%s", client_name, title, msg, percent)
+        lsp_progress.active = true
+        lsp_progress.client = client_name
+        lsp_progress.title = val.title or ""
+        lsp_progress.message = val.message or ""
+        lsp_progress.percentage = val.percentage
+        lsp_progress.spinner_idx = (lsp_progress.spinner_idx % #spinner_frames) + 1
     elseif val.kind == "end" then
-        lsp_progress_message = ""
+        lsp_progress.active = false
+        lsp_progress.percentage = nil
+        lsp_progress.title = ""
+        lsp_progress.message = ""
         vim.defer_fn(function()
             pcall(vim.cmd, "redrawstatus")
-        end, 500)
+        end, 300)
     end
     pcall(vim.cmd, "redrawstatus")
 end
 
--- 状态栏组件：正在索引时展示动态进度条，完成后展示就绪的 LSP 引擎
+-- 状态栏组件：正在索引时展示高颜值动态进度条，空闲时展示稳定就绪的 LSP 引擎
 local function lsp_status_component()
-    if lsp_progress_message ~= "" then
-        return lsp_progress_message
-    end
-
-    if vim.lsp.status then
-        local st = vim.lsp.status()
-        if st and st ~= "" then
-            return "󰑮 " .. st
+    if lsp_progress.active then
+        local spinner = spinner_frames[lsp_progress.spinner_idx]
+        local bar = render_progress_bar(lsp_progress.percentage, 8)
+        local extra_msg = lsp_progress.message ~= "" and (" " .. lsp_progress.message) or (lsp_progress.title ~= "" and (" " .. lsp_progress.title) or "")
+        -- 截断过长消息防止顶破状态栏
+        if #extra_msg > 24 then
+            extra_msg = extra_msg:sub(1, 21) .. "..."
         end
+        return string.format("%s [%s]%s%s", spinner, lsp_progress.client, bar, extra_msg)
     end
 
+    -- 空闲就绪状态：稳定展示所有挂载的 LSP 引擎，杜绝任何微小抖动与闪烁
     local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients
     local buf_clients = get_clients and get_clients({ bufnr = 0 }) or {}
     if #buf_clients == 0 then
@@ -67,7 +93,7 @@ require('lualine').setup({
         always_divide_middle = true,
         globalstatus = true,
         refresh = {
-            statusline = 200, -- 200ms 高刷，保证进度条丝滑更新
+            statusline = 200, -- 200ms 高刷，保证进度条平滑更新
             tabline = 1000,
             winbar = 1000,
         }
@@ -80,7 +106,7 @@ require('lualine').setup({
             { 
                 lsp_status_component, 
                 color = function()
-                    return lsp_progress_message ~= "" and { fg = '#f5a97f', gui = 'bold' } or { fg = '#8bd5ca' }
+                    return lsp_progress.active and { fg = '#f5a97f', gui = 'bold' } or { fg = '#8bd5ca' }
                 end,
             },
         },
