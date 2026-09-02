@@ -46,9 +46,16 @@ end, { desc = "Document symbols (当前文件类结构/方法大纲)" })
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = "Git commits (查看提交历史)" })
 vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = "Git status (查看变更文件)" })
 
--- Java / LSP 类与符号搜索 (采用 dynamic 动态服务端查询，无初始 query 时自动以空字符开启实时搜索)
+-- Java / LSP 类与符号搜索 (优先 LSP，降级全局 ripgrep 极速匹配)
 vim.keymap.set('n', '<leader>fs', function()
-    builtin.lsp_dynamic_workspace_symbols({
-        prompt_title = "LSP Workspace Symbols (类与符号动态查询)",
-    })
-end, { desc = "Search classes & symbols (全局搜索类与符号)" })
+    local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients)({ bufnr = 0 })
+    if #clients > 0 then
+        builtin.lsp_dynamic_workspace_symbols({
+            prompt_title = "LSP Workspace Symbols (类与符号动态查询)",
+        })
+    else
+        builtin.live_grep({
+            prompt_title = "Live Grep (全局代码/类名搜索)",
+        })
+    end
+end, { desc = "Search classes & symbols (搜索类与符号 / 降级全局搜索)" })

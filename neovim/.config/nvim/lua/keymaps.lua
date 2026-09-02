@@ -41,21 +41,47 @@ end, { desc = "Focus editor window (Space+l)" })
 keymap.set("n", "<C-L>", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
 keymap.set("n", "<C-H>", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
 
--- LSP keymaps
+-- LSP keymaps (自动适应 LSP 客户端与原生/Telescope 降级)
+local function get_word_under_cursor()
+    return vim.fn.expand("<cword>")
+end
+
 keymap.set("n", "gd", function()
-    local ok, tb = pcall(require, "telescope.builtin")
-    if ok then tb.lsp_definitions() else vim.lsp.buf.definition() end
-end, { desc = "LSP: Go to definition" })
+    local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients)({ bufnr = 0 })
+    if #clients > 0 then
+        local ok, tb = pcall(require, "telescope.builtin")
+        if ok then tb.lsp_definitions() else vim.lsp.buf.definition() end
+    else
+        -- 无 LSP 时无缝降级为全局单词搜索
+        local ok, tb = pcall(require, "telescope.builtin")
+        if ok then tb.grep_string({ search = get_word_under_cursor() }) else vim.cmd("normal! *") end
+    end
+end, { desc = "Go to definition (跳转定义 / 降级全局搜索)" })
+
 keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "LSP: Go to declaration" })
 keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover documentation" })
+
 keymap.set("n", "gi", function()
-    local ok, tb = pcall(require, "telescope.builtin")
-    if ok then tb.lsp_implementations() else vim.lsp.buf.implementation() end
-end, { desc = "LSP: Go to implementation" })
+    local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients)({ bufnr = 0 })
+    if #clients > 0 then
+        local ok, tb = pcall(require, "telescope.builtin")
+        if ok then tb.lsp_implementations() else vim.lsp.buf.implementation() end
+    else
+        local ok, tb = pcall(require, "telescope.builtin")
+        if ok then tb.grep_string({ search = get_word_under_cursor() }) else vim.cmd("normal! *") end
+    end
+end, { desc = "Go to implementation (查看实现 / 降级全局搜索)" })
+
 keymap.set("n", "gr", function()
-    local ok, tb = pcall(require, "telescope.builtin")
-    if ok then tb.lsp_references() else vim.lsp.buf.references() end
-end, { desc = "LSP: Find references" })
+    local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients)({ bufnr = 0 })
+    if #clients > 0 then
+        local ok, tb = pcall(require, "telescope.builtin")
+        if ok then tb.lsp_references() else vim.lsp.buf.references() end
+    else
+        local ok, tb = pcall(require, "telescope.builtin")
+        if ok then tb.grep_string({ search = get_word_under_cursor() }) else vim.cmd("normal! *") end
+    end
+end, { desc = "Find references (查看引用 / 降级全局搜索)" })
 keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })
 keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code action" })
 keymap.set("n", "<leader>fm", function() vim.lsp.buf.format({ async = true }) end, { desc = "LSP: Format code" })

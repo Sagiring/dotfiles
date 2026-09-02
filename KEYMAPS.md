@@ -46,14 +46,15 @@
 | `<leader>gs` | 查看当前 Git 变更与状态文件 | Git Changes |
 | `<leader>fs` | **全局检索 Class 类名与符号**（Java/LSP） | Search Everywhere (Classes/Symbols) |
 
-### 1.4 Java / LSP 智能开发与诊断
+### 1.4 Java / LSP 智能开发与代码导航 (双重保障：LSP 优先，自动降级极速匹配)
 | 快捷键 | 功能说明 | 对应 IDEA 场景 |
 |---|---|---|
-| `gd` | 跳转到定义 (Go to definition) | `Cmd + B` / `Cmd + Click` |
+| `gd` | **跳转到定义 (Go to definition)**（无 LSP 时自动降级为全局单词定位） | `Cmd + B` / `Cmd + Click` |
+| `gi` | **查找接口实现 (Go to implementation)**（无 LSP 时自动降级为全局搜索） | `Cmd + Alt + B` |
+| `gr` | **查找全部引用 (Find references)**（无 LSP 时自动降级为全局搜索） | `Alt + F7` |
 | `gD` | 跳转到声明 (Go to declaration) | Go to Type Declaration |
 | `K` | 查看当前类/方法/变量的悬浮文档说明 (Hover Doc) | `F1` / Quick Documentation |
-| `gi` | 查找所有接口实现类 (Go to implementation) | `Cmd + Alt + B` |
-| `gr` | 查找当前方法/字段的所有引用 (Find references) | `Alt + F7` |
+| `<leader>fs` | **全局搜索类与符号**（优先 LSP，无 LSP 时秒切全局 Live Grep 搜索） | Search Everywhere (Classes/Symbols) |
 | `<leader>rn` | 智能重命名符号 (Rename Symbol) | `Shift + F6` |
 | `<leader>ca` | 快速修复与代码重构 (Code Action) | `Alt + Enter` (Show Context Actions) |
 | `<leader>fm` 或 `<leader>cf` | 智能格式化代码 (LSP Format) | `Cmd + Alt + L` |

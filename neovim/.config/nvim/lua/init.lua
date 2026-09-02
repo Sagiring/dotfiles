@@ -39,7 +39,7 @@ require('plugins.bufferline-config')
 require('plugins.gitsigns-config')
 require('plugins.telescope-config')
 
--- Java JDTLS 手动安全隔离拉起机制
+-- Java JDTLS 手动安全隔离拉起机制 (按需启用，默认安全静默启动)
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
   callback = function(ev)
@@ -48,6 +48,10 @@ vim.api.nvim_create_autocmd("FileType", {
     local config_dir = vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls/config_mac")
     local lombok_jar = vim.fn.glob(vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls/lombok.jar"))
     
+    if java21_bin == "" or equinox_jar == "" or config_dir == "" then
+      return
+    end
+
     local util = require("lspconfig.util")
     local root_dir = util.root_pattern(".git", "pom.xml", "mvnw", "gradlew")(vim.api.nvim_buf_get_name(ev.buf))
       or vim.fn.getcwd()
@@ -96,12 +100,13 @@ vim.api.nvim_create_autocmd("FileType", {
       end
     }
 
-    vim.lsp.start({
+    local client_id = vim.lsp.start({
       name = "jdtls",
       cmd = cmd,
       root_dir = root_dir,
       capabilities = capabilities,
       handlers = handlers,
+      silent = true,
       settings = {
         java = {
           autobuild = { enabled = false },
