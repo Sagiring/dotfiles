@@ -82,6 +82,18 @@ local handlers = {
                         }
                 }
         end,
+        ["intelephense"] = function ()
+                lspconfig.intelephense.setup {
+                        capabilities = capabilities,
+                        settings = {
+                                intelephense = {
+                                        files = {
+                                                maxSize = 5000000,
+                                        },
+                                }
+                        }
+                }
+        end,
         ["lua_ls"] = function ()
                 lspconfig.lua_ls.setup {
                         capabilities = capabilities,
@@ -242,6 +254,7 @@ local handlers = {
 require("mason-lspconfig").setup({
         ensure_installed = {
                 'pylsp',
+                'intelephense',
                 'lua_ls',
                 'bashls',
                 'jsonls',

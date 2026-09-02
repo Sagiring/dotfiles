@@ -26,6 +26,9 @@ require('nvim-treesitter.configs').setup {
 	-- 自动安装并确保以下常用语言/格式的高亮解析器就绪
 	ensure_installed = {
 		"java",
+		"php",
+		"php_only",
+		"python",
 		"json",
 		"jsonc",
 		"yaml",
@@ -35,7 +38,6 @@ require('nvim-treesitter.configs').setup {
 		"css",
 		"javascript",
 		"typescript",
-		"python",
 		"bash",
 		"lua",
 		"vim",
