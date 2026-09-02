@@ -35,6 +35,8 @@
   - `<Space>q` = **Q**uit ➡️ **退出窗口** (`:q`)
   - `<Space>e` = **E**xplorer ➡️ 开关左侧目录树
   - `<Space>rn` = **R**e**N**ame ➡️ 智能重命名变量/方法
+  - `Ctrl + o` = **O**ut / **O**ld ➡️ **返回上一个光标/跳转位置**（Back，跳进代码后一键返回）
+  - `Ctrl + i` = **I**n ➡️ **前进到下一个光标/跳转位置**（Forward）
   - `K` = 查看方法入参和 Javadoc 注释（Vim 传统“查看手册”键）
 
 ---
@@ -88,6 +90,8 @@
 | `gd` | **跳转到定义 (Go to definition)**（优先 LSP，无 LSP 时秒级定位） | `Cmd + B` / `Cmd + Click` |
 | `gi` | **查找接口实现 (Go to implementation)**（交互式浮窗查看实现） | `Cmd + Alt + B` |
 | `gr` | **查找全部引用 (Find references)**（交互式浮窗列出所有引用代码） | `Alt + F7` |
+| `Ctrl + o` | **返回上一个跳转/光标位置**（Back，原路返回上一个文件或引用位置） | `Cmd + [` / `Navigate Back` |
+| `Ctrl + i` | **前进到下一个跳转/光标位置**（Forward，按多了返回可以再前进） | `Cmd + ]` / `Navigate Forward` |
 | `gD` | 跳转到声明 (Go to declaration) | Go to Type Declaration |
 | `K` | 查看悬浮文档说明 (Hover Doc) | `F1` / Quick Documentation |
 | `<leader>fs` | **全局搜索类与符号**（交互式快速检索） | Search Everywhere (Classes/Symbols) |
