@@ -30,18 +30,21 @@
 | `Ctrl + Shift + L` (`<C-L>`) | 切换到下一个文件标签页 (`BufferLineCycleNext`) |
 | `Ctrl + Shift + H` (`<C-H>`) | 切换到上一个文件标签页 (`BufferLineCyclePrev`) |
 
-### 1.3 全局模糊检索（Telescope）
+### 1.3 模糊检索与当前文件搜索（Telescope & Vim）
 | 快捷键 | 功能说明 | 对应 IDEA 场景 |
 |---|---|---|
+| `/` | **Vim 原生行内高亮搜索**（回车后 `n`/`N` 下一个/上一个） | `Cmd + F` |
+| `*` / `#` | **极速向前/向后搜索光标所在单词** | Highlight Word |
+| `<leader>fl` 或 `<leader>/` | **当前文件交互式模糊检索**（Telescope 实时过滤） | `Cmd + F` 悬浮增强版 |
+| `<leader>ds` | **当前文件类结构大纲与方法列表** | File Structure (`Cmd + F12`) |
 | `<leader>ff` | **全局文件名搜索**（支持模糊匹配） | `Shift + Shift` / `Cmd + O` |
 | `<leader>fg` | **全局代码内容搜索**（Live Grep） | `Cmd + Shift + F` |
-| `<leader>fw` | **搜索当前光标所在单词** | Find in Path with selection |
+| `<leader>fw` | **全局搜索光标所在单词** | Find in Path with selection |
 | `<leader>fb` | 查看当前所有已打开的 Buffers | Recent Files |
 | `<leader>fo` | 查看历史最近打开过的文件 (Oldfiles) | Recent Files |
 | `<leader>gc` | 查看 Git 提交历史列表 | Git Log |
 | `<leader>gs` | 查看当前 Git 变更与状态文件 | Git Changes |
 | `<leader>fs` | **全局检索 Class 类名与符号**（Java/LSP） | Search Everywhere (Classes/Symbols) |
-| `<leader>ds` | **当前文件类结构大纲与方法列表** | File Structure (`Cmd + F12`) |
 
 ### 1.4 Java / LSP 智能开发与诊断
 | 快捷键 | 功能说明 | 对应 IDEA 场景 |
