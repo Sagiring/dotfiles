@@ -15,7 +15,21 @@ end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
+local function on_attach(bufnr)
+  local api = require("nvim-tree.api")
+
+  -- 加载标准默认快捷键（包含 Enter 打开、a 新建、d 删除、r 重命名、R 刷新等）
+  api.map.on_attach.default(bufnr)
+
+  -- 彻底移除容易误触的 live_filter（按 f / F 进入的 [FILTER] 过滤栏）及 search
+  pcall(vim.keymap.del, "n", "f", { buffer = bufnr })
+  pcall(vim.keymap.del, "n", "F", { buffer = bufnr })
+  pcall(vim.keymap.del, "n", "S", { buffer = bufnr })
+  pcall(vim.keymap.del, "n", "s", { buffer = bufnr })
+end
+
 require("nvim-tree").setup({
+	on_attach = on_attach,
 	sort_by = "case_sensitive",
 
 	-- 基础视图

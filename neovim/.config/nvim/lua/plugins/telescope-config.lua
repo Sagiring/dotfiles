@@ -42,9 +42,24 @@ vim.keymap.set('n', '<leader>ds', function()
     }) 
 end, { desc = "Document symbols (当前文件类结构/方法大纲)" })
 
--- Git 联动搜索
+-- Git 联动与切分支
+vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = "Git branches (查看并切换分支，回车秒切)" })
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = "Git commits (查看提交历史)" })
 vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = "Git status (查看变更文件)" })
+
+-- Warning / Error 诊断搜索列表
+vim.keymap.set('n', '<leader>fd', function()
+    builtin.diagnostics({
+        bufnr = 0,
+        prompt_title = "Document Diagnostics (当前文件 Warning/Error 列表)",
+    })
+end, { desc = "Diagnostics in current file (当前文件 Warning/Error 列表)" })
+
+vim.keymap.set('n', '<leader>fD', function()
+    builtin.diagnostics({
+        prompt_title = "Workspace Diagnostics (全工程 Warning/Error 列表)",
+    })
+end, { desc = "Workspace Diagnostics (全工程 Warning/Error 列表)" })
 
 -- Java / LSP 类与符号搜索 (优先 LSP，降级全局 ripgrep 极速匹配)
 vim.keymap.set('n', '<leader>fs', function()

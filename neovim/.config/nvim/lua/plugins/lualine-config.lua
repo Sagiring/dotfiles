@@ -33,6 +33,13 @@ local function lsp_status_component()
         return lsp_progress_message
     end
 
+    if vim.lsp.status then
+        local st = vim.lsp.status()
+        if st and st ~= "" then
+            return "󰑮 " .. st
+        end
+    end
+
     local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients
     local buf_clients = get_clients and get_clients({ bufnr = 0 }) or {}
     if #buf_clients == 0 then
@@ -53,7 +60,7 @@ require('lualine').setup({
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
-            statusline = { 'NvimTree' },
+            statusline = {},
             winbar = {},
         },
         ignore_focus = {},
@@ -92,5 +99,5 @@ require('lualine').setup({
     tabline = {},
     winbar = {},
     inactive_winbar = {},
-    extensions = {}
+    extensions = { 'nvim-tree' }
 })

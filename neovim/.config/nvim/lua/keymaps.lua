@@ -5,9 +5,24 @@ keymap.set("i", "jj", "<Esc>")
 keymap.set("n", "H", "^")
 keymap.set("n", "L", "$")
 
--- Fast save & quit
+-- Fast save & quit & close buffer
 keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
 keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit window" })
+keymap.set("n", "<leader>c", function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local modified = vim.bo[bufnr].modified
+    if modified then
+        local choice = vim.fn.confirm("当前文件有未保存修改，是否保存？", "&Yes\n&No\n&Cancel", 1)
+        if choice == 1 then
+            vim.cmd("write")
+            vim.cmd("bdelete")
+        elseif choice == 2 then
+            vim.cmd("bdelete!")
+        end
+    else
+        vim.cmd("bdelete")
+    end
+end, { desc = "Close current tab/buffer (Space+c)" })
 keymap.set("n", "<leader><space>", ":nohlsearch<CR>", { desc = "Clear search highlight" })
 
 -- Visual mode indentation (keep selection)

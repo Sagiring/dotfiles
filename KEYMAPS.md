@@ -16,6 +16,7 @@
 | **Normal** | `L` | 快速跳至当前行尾（等同于 `$`） |
 | **Normal** | `<leader>w` | 快速保存文件 (`:w`) |
 | **Normal** | `<leader>q` | 快速关闭当前窗口 (`:q`) |
+| **Normal** | `<leader>c` | 快速关闭当前文件标签页 (`:bdelete`，未保存时弹窗提示) |
 | **Normal** | `<leader><space>` | 清除搜索高亮颜色 (`:nohlsearch`) |
 | **Visual** | `<` / `>` | 连续左/右缩进代码块（**自动保持选区**，无需重复选中） |
 | **Visual** | `J` / `K` | 将选中的整块代码**上下平移** |
@@ -42,9 +43,12 @@
 | `<leader>fw` | **全局搜索光标所在单词** | Find in Path with selection |
 | `<leader>fb` | 查看当前所有已打开的 Buffers | Recent Files |
 | `<leader>fo` | 查看历史最近打开过的文件 (Oldfiles) | Recent Files |
+| `<leader>gb` | **查看并切换 Git 分支**（模糊搜索，回车秒切分支） | Git Branches Popup |
 | `<leader>gc` | 查看 Git 提交历史列表 | Git Log |
 | `<leader>gs` | 查看当前 Git 变更与状态文件 | Git Changes |
 | `<leader>fs` | **全局检索 Class 类名与符号** | Search Everywhere (Classes/Symbols) |
+| `<leader>fd` | **当前文件所有 Warning / Error 列表**（回车秒跳） | Document Problems |
+| `<leader>fD` | **全工程所有 Warning / Error 列表** | Workspace Problems |
 
 ### 1.4 代码智能导航与跳转（无缝秒开，零卡顿）
 | 快捷键 | 功能说明 | 对应 IDEA 场景 |

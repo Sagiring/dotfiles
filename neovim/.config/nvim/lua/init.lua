@@ -21,6 +21,13 @@ opt.termguicolors = true        -- True color support
 opt.signcolumn = "yes"          -- Always show sign column
 opt.updatetime = 250            -- Faster completion and diagnostics
 opt.timeoutlen = 600            -- Keymap timeout (毫秒)，给快捷键充足的前缀输入等待时间
+opt.hidden = true               -- 允许在有未保存修改时切换 Buffer（保留撤销历史与修改）
+opt.confirm = true              -- 退出或关闭未保存文件时，弹出确认弹窗 (Y)es/(N)o/(C)ancel，不再报错阻断
+
+-- Shortmess to avoid unnecessary hit-enter prompts
+opt.shortmess:append("c")
+opt.shortmess:append("s")
+opt.shortmess:append("W")
 
 require('keymaps')
 
@@ -39,10 +46,38 @@ require('plugins.bufferline-config')
 require('plugins.gitsigns-config')
 require('plugins.telescope-config')
 
+-- 兼容 Neovim 0.11: 自动补齐 make_position_params 的 position_encoding 参数，杜绝 Telescope / LSP 插件触发弹窗警告与 hit-enter 提示
+do
+  if vim.lsp and vim.lsp.util and vim.lsp.util.make_position_params then
+    local orig_make_position_params = vim.lsp.util.make_position_params
+    vim.lsp.util.make_position_params = function(winnr, position_encoding)
+      if not position_encoding then
+        local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients)({ bufnr = 0 })
+        local client = clients and clients[1]
+        position_encoding = client and (client.offset_encoding or client.position_encoding) or "utf-16"
+      end
+      return orig_make_position_params(winnr, position_encoding)
+    end
+  end
+end
+
+-- 兼容修复 Treesitter 异步高亮渲染: 窗口或标签页关闭/切换时，安全拦截 Invalid window id，彻底消除红字报错
+do
+  if vim.api and vim.api.nvim__redraw then
+    local orig_redraw = vim.api.nvim__redraw
+    vim.api.nvim__redraw = function(opts)
+      if type(opts) == "table" and opts.win and not vim.api.nvim_win_is_valid(opts.win) then
+        return
+      end
+      pcall(orig_redraw, opts)
+    end
+  end
+end
+
 local old_notify = vim.notify
-vim.notify = function(msg, ...)
-  if type(msg) == "string" and msg:match("deprecated") then
+vim.notify = function(msg, level, opts)
+  if type(msg) == "string" and (msg:match("deprecated") or msg:match("position_encoding")) then
     return
   end
-  old_notify(msg, ...)
+  old_notify(msg, level, opts)
 end
