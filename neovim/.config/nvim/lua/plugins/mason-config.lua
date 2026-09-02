@@ -82,23 +82,28 @@ local handlers = {
         ["jdtls"] = function ()
                 local home = os.getenv("HOME") or "/Users/sagiring"
                 local java21_bin = "/Library/Java/JavaVirtualMachines/zulu21.46.19-ca-fx-jdk21.0.9-macosx_aarch64/bin/java"
-
                 local root_markers = { "pom.xml", "gradlew", "mvnw", ".git" }
-                local root_dir = util.root_pattern(unpack(root_markers))(vim.fn.expand("%:p:h")) or vim.fn.getcwd()
-                local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
-                local workspace_dir = home .. "/.local/share/nvim/jdtls-workspace/" .. project_name
 
                 lspconfig.jdtls.setup {
                         capabilities = capabilities,
                         cmd = {
                                 "jdtls",
                                 "--java-executable", java21_bin,
-                                "-data", workspace_dir,
                                 "--jvm-arg=-Xmx1024m",
-                                "--jvm-arg=-XX:+UseG1GC",
-                                "--jvm-arg=-XX:MaxGCPauseMillis=100",
                         },
                         root_dir = util.root_pattern(unpack(root_markers)),
+                        on_new_config = function(config, new_root_dir)
+                                if new_root_dir then
+                                        local project_name = vim.fn.fnamemodify(new_root_dir, ":p:h:t")
+                                        local workspace_dir = home .. "/.local/share/nvim/jdtls-workspace/" .. project_name
+                                        config.cmd = {
+                                                "jdtls",
+                                                "--java-executable", java21_bin,
+                                                "-data", workspace_dir,
+                                                "--jvm-arg=-Xmx1024m",
+                                        }
+                                end
+                        end,
                         settings = {
                                 java = {
                                         -- 限制并发构建，关闭后台自动频繁全量构建，防止高负载打满 CPU/内存
