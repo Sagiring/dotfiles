@@ -35,8 +35,11 @@
   - `<Space>q` = **Q**uit ➡️ **退出窗口** (`:q`)
   - `<Space>e` = **E**xplorer ➡️ 开关左侧目录树
   - `<Space>rn` = **R**e**N**ame ➡️ 智能重命名变量/方法
-  - `Ctrl + o` = **O**ut / **O**ld ➡️ **返回上一个光标/跳转位置**（Back，跳进代码后一键返回）
-  - `Ctrl + i` = **I**n ➡️ **前进到下一个光标/跳转位置**（Forward）
+  - `<Space>o` / `Ctrl + o` = **O**ut / **O**ld ➡️ **返回上一个光标/跳转位置**（Back，跳进代码后一键返回）
+  - `<Space>i` / `Ctrl + i` = **I**n ➡️ **前进到下一个光标/跳转位置**（Forward）
+  - `<Space>[` / `<Space>]` = 切换上/下一个文件 Tab（也可按 `<Space>bp` / `<Space>bn`）
+  - `H` = **行首**（大写 H 跳行首非空字符）
+  - `L` = **行尾**（大写 L 跳行尾）
   - `K` = 查看方法入参和 Javadoc 注释（Vim 传统“查看手册”键）
 
 ---
@@ -56,13 +59,15 @@
 | **Visual** | `<leader>p` | 粘贴并**保护剪贴板**（不会被替换掉的内容覆盖寄存器） |
 
 ### 1.2 目录树与标签页（Nvim-Tree & Bufferline）
-| 快捷键 | 功能说明 |
-|---|---|
-| `<leader>e` 或 `Ctrl + n` | 展开 / 折叠左侧文件树 (`NvimTreeToggle`) |
-| `<leader>h` | 光标焦点快速跳入左侧目录树 |
-| `<leader>l` | 光标焦点从目录树切回右侧代码编辑窗口 |
-| `Ctrl + Shift + L` (`<C-L>`) | 切换到下一个文件标签页 (`BufferLineCycleNext`) |
-| `Ctrl + Shift + H` (`<C-H>`) | 切换到上一个文件标签页 (`BufferLineCyclePrev`) |
+| 快捷键 | 功能说明 | 推荐记忆 |
+|---|---|---|
+| `<leader>e` 或 `Ctrl + n` | 展开 / 折叠左侧文件树 (`NvimTreeToggle`) | Explorer |
+| `<leader>h` | 光标焦点快速跳入左侧目录树 | 向左跳进树 |
+| `<leader>l` | 光标焦点从目录树切回右侧代码编辑窗口 | 向右跳回编辑器 |
+| `<leader>]` 或 `<leader>bn` | **切换到下一个文件标签页** (`BufferLineCycleNext`) | 推荐 Space 键位 |
+| `<leader>[` 或 `<leader>bp` | **切换到上一个文件标签页** (`BufferLineCyclePrev`) | 推荐 Space 键位 |
+| `Ctrl + Shift + L` (`<C-L>`) | 切换到下一个文件标签页 | 备用 Ctrl 键位 |
+| `Ctrl + Shift + H` (`<C-H>`) | 切换到上一个文件标签页 | 备用 Ctrl 键位 |
 
 ### 1.3 模糊检索与当前文件搜索（Telescope & Vim）
 | 快捷键 | 功能说明 | 对应 IDEA 场景 |

@@ -52,9 +52,17 @@ keymap.set("n", "<leader>l", function()
     end
 end, { desc = "Focus editor window (Space+l)" })
 
--- Bufferline
-keymap.set("n", "<C-L>", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
-keymap.set("n", "<C-H>", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
+-- Bufferline (同时支持 Ctrl 与 Space 快捷键)
+keymap.set("n", "<C-L>", ":BufferLineCycleNext<CR>", { desc = "Next buffer (Ctrl+L)" })
+keymap.set("n", "<C-H>", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer (Ctrl+H)" })
+keymap.set("n", "<leader>]", ":BufferLineCycleNext<CR>", { desc = "Next buffer (Space+])" })
+keymap.set("n", "<leader>[", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer (Space+[)" })
+keymap.set("n", "<leader>bn", ":BufferLineCycleNext<CR>", { desc = "Buffer Next (Space+bn)" })
+keymap.set("n", "<leader>bp", ":BufferLineCyclePrev<CR>", { desc = "Buffer Prev (Space+bp)" })
+
+-- 跳转历史导航 (同时支持 Space+o / Space+i 与原生的 Ctrl+o / Ctrl+i，无需扭曲手腕按 Ctrl)
+keymap.set("n", "<leader>o", "<C-o>", { desc = "Jump backward / Back (Space+o 返回上一个位置)" })
+keymap.set("n", "<leader>i", "<C-i>", { desc = "Jump forward (Space+i 前进到下一个位置)" })
 
 -- LSP keymaps (自动适应 LSP 客户端与原生/Telescope 降级)
 local function get_word_under_cursor()
@@ -85,16 +93,25 @@ keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover documentation" })
 
 keymap.set("n", "gi", function()
     local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients)({ bufnr = 0 })
-    if #clients > 0 then
+    local has_impl = false
+    for _, c in ipairs(clients) do
+        if c.server_capabilities and c.server_capabilities.implementationProvider then
+            has_impl = true
+            break
+        end
+    end
+
+    if has_impl then
         local ok, tb = pcall(require, "telescope.builtin")
         if ok then tb.lsp_implementations() else vim.lsp.buf.implementation() end
     else
+        -- 对于不原生提供 implementationProvider 的语言（如 PHP Intelephense / Python 等），智能秒切全局实现与引用检索
         local word = get_word_under_cursor()
         local ok, tb = pcall(require, "telescope.builtin")
         if ok and word ~= "" then
             tb.grep_string({
                 search = word,
-                prompt_title = "查看实现 (全局搜索: " .. word .. ")",
+                prompt_title = "查找实现与引用 (全局检索: " .. word .. ")",
             })
         elseif word ~= "" then
             vim.cmd("normal! *")
