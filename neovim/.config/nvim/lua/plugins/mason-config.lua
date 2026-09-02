@@ -80,38 +80,17 @@ local handlers = {
                 }
         end,
         ["jdtls"] = function ()
-                local home = os.getenv("HOME") or "/Users/sagiring"
                 local java21_bin = "/Library/Java/JavaVirtualMachines/zulu21.46.19-ca-fx-jdk21.0.9-macosx_aarch64/bin/java"
-
-                local function get_jdtls_root(fname)
-                        return util.root_pattern(".git")(fname)
-                                or util.root_pattern("pom.xml", "mvnw", "gradlew")(fname)
-                                or vim.fn.getcwd()
-                end
 
                 lspconfig.jdtls.setup {
                         capabilities = capabilities,
                         cmd = {
                                 "jdtls",
                                 "--java-executable", java21_bin,
+                                "--jvm-arg=-Xms256m",
                                 "--jvm-arg=-Xmx1024m",
                         },
-                        root_dir = get_jdtls_root,
-                        on_new_config = function(config, new_root_dir)
-                                if new_root_dir then
-                                        local project_name = vim.fs.basename(new_root_dir) or vim.fn.fnamemodify(new_root_dir, ":t")
-                                        if not project_name or project_name == "" then
-                                                project_name = "default"
-                                        end
-                                        local workspace_dir = home .. "/.local/share/nvim/jdtls-workspace/" .. project_name
-                                        config.cmd = {
-                                                "jdtls",
-                                                "--java-executable", java21_bin,
-                                                "-data", workspace_dir,
-                                                "--jvm-arg=-Xmx1024m",
-                                        }
-                                end
-                        end,
+                        root_dir = util.root_pattern(".git", "pom.xml", "mvnw", "gradlew"),
                         settings = {
                                 java = {
                                         -- 限制并发构建，关闭后台自动频繁全量构建，防止高负载打满 CPU/内存
