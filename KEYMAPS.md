@@ -44,20 +44,20 @@
 | `<leader>fo` | 查看历史最近打开过的文件 (Oldfiles) | Recent Files |
 | `<leader>gc` | 查看 Git 提交历史列表 | Git Log |
 | `<leader>gs` | 查看当前 Git 变更与状态文件 | Git Changes |
-| `<leader>fs` | **全局检索 Class 类名与符号**（Java/LSP） | Search Everywhere (Classes/Symbols) |
+| `<leader>fs` | **全局检索 Class 类名与符号** | Search Everywhere (Classes/Symbols) |
 
-### 1.4 Java / LSP 智能开发与代码导航 (双重保障：LSP 优先，自动降级极速匹配)
+### 1.4 代码智能导航与跳转（无缝秒开，零卡顿）
 | 快捷键 | 功能说明 | 对应 IDEA 场景 |
 |---|---|---|
-| `gd` | **跳转到定义 (Go to definition)**（无 LSP 时自动降级为全局单词定位） | `Cmd + B` / `Cmd + Click` |
-| `gi` | **查找接口实现 (Go to implementation)**（无 LSP 时自动降级为全局搜索） | `Cmd + Alt + B` |
-| `gr` | **查找全部引用 (Find references)**（无 LSP 时自动降级为全局搜索） | `Alt + F7` |
+| `gd` | **跳转到定义 (Go to definition)**（优先 LSP，无 LSP 时秒级定位） | `Cmd + B` / `Cmd + Click` |
+| `gi` | **查找接口实现 (Go to implementation)**（交互式浮窗查看实现） | `Cmd + Alt + B` |
+| `gr` | **查找全部引用 (Find references)**（交互式浮窗列出所有引用代码） | `Alt + F7` |
 | `gD` | 跳转到声明 (Go to declaration) | Go to Type Declaration |
-| `K` | 查看当前类/方法/变量的悬浮文档说明 (Hover Doc) | `F1` / Quick Documentation |
-| `<leader>fs` | **全局搜索类与符号**（优先 LSP，无 LSP 时秒切全局 Live Grep 搜索） | Search Everywhere (Classes/Symbols) |
+| `K` | 查看悬浮文档说明 (Hover Doc) | `F1` / Quick Documentation |
+| `<leader>fs` | **全局搜索类与符号**（交互式快速检索） | Search Everywhere (Classes/Symbols) |
 | `<leader>rn` | 智能重命名符号 (Rename Symbol) | `Shift + F6` |
 | `<leader>ca` | 快速修复与代码重构 (Code Action) | `Alt + Enter` (Show Context Actions) |
-| `<leader>fm` 或 `<leader>cf` | 智能格式化代码 (LSP Format) | `Cmd + Alt + L` |
+| `<leader>fm` 或 `<leader>cf` | 智能格式化代码 (Format) | `Cmd + Alt + L` |
 | `[d` / `]d` | 上一个 / 下一个语法警告或编译错误 | Previous / Next Highlighted Error |
 | `<leader>d` | 浮窗展示当前行的详细错误信息 | Show Error Description |
 | `<leader>dq` | 在底部列表列出当前文件的所有诊断问题 | Show Problems Tool Window |

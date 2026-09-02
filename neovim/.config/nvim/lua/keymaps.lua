@@ -52,9 +52,16 @@ keymap.set("n", "gd", function()
         local ok, tb = pcall(require, "telescope.builtin")
         if ok then tb.lsp_definitions() else vim.lsp.buf.definition() end
     else
-        -- 无 LSP 时无缝降级为全局单词搜索
+        local word = get_word_under_cursor()
         local ok, tb = pcall(require, "telescope.builtin")
-        if ok then tb.grep_string({ search = get_word_under_cursor() }) else vim.cmd("normal! *") end
+        if ok and word ~= "" then
+            tb.grep_string({
+                search = word,
+                prompt_title = "跳转定义 (全局搜索: " .. word .. ")",
+            })
+        elseif word ~= "" then
+            vim.cmd("normal! *")
+        end
     end
 end, { desc = "Go to definition (跳转定义 / 降级全局搜索)" })
 
@@ -67,8 +74,16 @@ keymap.set("n", "gi", function()
         local ok, tb = pcall(require, "telescope.builtin")
         if ok then tb.lsp_implementations() else vim.lsp.buf.implementation() end
     else
+        local word = get_word_under_cursor()
         local ok, tb = pcall(require, "telescope.builtin")
-        if ok then tb.grep_string({ search = get_word_under_cursor() }) else vim.cmd("normal! *") end
+        if ok and word ~= "" then
+            tb.grep_string({
+                search = word,
+                prompt_title = "查看实现 (全局搜索: " .. word .. ")",
+            })
+        elseif word ~= "" then
+            vim.cmd("normal! *")
+        end
     end
 end, { desc = "Go to implementation (查看实现 / 降级全局搜索)" })
 
@@ -78,8 +93,16 @@ keymap.set("n", "gr", function()
         local ok, tb = pcall(require, "telescope.builtin")
         if ok then tb.lsp_references() else vim.lsp.buf.references() end
     else
+        local word = get_word_under_cursor()
         local ok, tb = pcall(require, "telescope.builtin")
-        if ok then tb.grep_string({ search = get_word_under_cursor() }) else vim.cmd("normal! *") end
+        if ok and word ~= "" then
+            tb.grep_string({
+                search = word,
+                prompt_title = "查看引用 (全局搜索: " .. word .. ")",
+            })
+        elseif word ~= "" then
+            vim.cmd("normal! *")
+        end
     end
 end, { desc = "Find references (查看引用 / 降级全局搜索)" })
 keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })

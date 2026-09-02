@@ -29,9 +29,6 @@ end
 
 -- 状态栏组件：正在索引时展示动态进度条，完成后展示就绪的 LSP 引擎
 local function lsp_status_component()
-    if _G.jdtls_progress_msg and _G.jdtls_progress_msg ~= "" then
-        return _G.jdtls_progress_msg
-    end
     if lsp_progress_message ~= "" then
         return lsp_progress_message
     end
