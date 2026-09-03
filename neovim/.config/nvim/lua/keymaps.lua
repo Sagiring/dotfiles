@@ -91,6 +91,10 @@ end, { desc = "Go to definition (跳转定义 / 降级全局搜索)" })
 keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "LSP: Go to declaration" })
 keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover documentation" })
 
+-- 别名快捷键：支持 Space 风格的前缀跳转 (<Space>rd 跳定义, <Space>ri 跳实现)
+keymap.set("n", "<leader>rd", "gd", { remap = true, desc = "Go to definition (Space+rd 等同于 gd，支持 Jar 反编译)" })
+keymap.set("n", "<leader>ri", "gi", { remap = true, desc = "Go to implementation (Space+ri 等同于 gi，支持 Jar 反编译)" })
+
 keymap.set("n", "gi", function()
     local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients)({ bufnr = 0 })
     local has_impl = false

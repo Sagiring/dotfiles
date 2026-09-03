@@ -61,6 +61,63 @@ local function get_jdtls_paths()
         }
 end
 
+local function get_decompiler_bundles()
+        local bundles = {}
+        local decompiler_jars = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/packages/vscode-java-decompiler/server/*.jar", false, true)
+        for _, jar in ipairs(decompiler_jars) do
+                table.insert(bundles, jar)
+        end
+        return bundles
+end
+
+-- 拦截并反编译 Jar 包中的 Class 字节码 (jdt:// 协议)
+vim.api.nvim_create_autocmd({ "BufReadCmd" }, {
+        pattern = "jdt://*",
+        callback = function(args)
+                local buf = args.buf
+                local uri = args.match
+                vim.bo[buf].modifiable = true
+                vim.bo[buf].swapfile = false
+                vim.bo[buf].buftype = "nofile"
+                vim.bo[buf].filetype = "java"
+
+                local client = (vim.lsp.get_clients and vim.lsp.get_clients({ name = "jdtls" }) or {})[1]
+                if not client then
+                        vim.wait(3000, function()
+                                local cls = (vim.lsp.get_clients and vim.lsp.get_clients({ name = "jdtls" }) or {})
+                                return #cls > 0
+                        end, 100)
+                        client = (vim.lsp.get_clients and vim.lsp.get_clients({ name = "jdtls" }) or {})[1]
+                end
+
+                if not client then
+                        vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "// [JDTLS] 正在启动或无法连接，请稍候重试: " .. uri })
+                        vim.bo[buf].modifiable = false
+                        return
+                end
+
+                vim.lsp.buf_attach_client(buf, client.id)
+
+                local content_loaded = false
+                client:request("java/classFileContents", { uri = uri }, function(err, result)
+                        if err then
+                                vim.notify("JDTLS 反编译异常: " .. vim.inspect(err), vim.log.levels.WARN)
+                                return
+                        end
+                        if result then
+                                local normalized = string.gsub(result, "\r\n", "\n")
+                                local lines = vim.split(normalized, "\n", { plain = true })
+                                vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+                                vim.bo[buf].modifiable = false
+                                vim.bo[buf].readonly = true
+                                content_loaded = true
+                        end
+                end, buf)
+
+                vim.wait(3000, function() return content_loaded end, 50)
+        end,
+})
+
 local handlers = {
         function (server_name)
                 require("lspconfig")[server_name].setup {
@@ -167,6 +224,12 @@ local handlers = {
                 lspconfig.jdtls.setup {
                         capabilities = capabilities,
                         filetypes = { "java" },
+                        init_options = {
+                                bundles = get_decompiler_bundles(),
+                                extendedClientCapabilities = {
+                                        classFileContentsSupport = true,
+                                },
+                        },
                         root_dir = function(fname)
                                 return util.root_pattern(".git", "mvnw", "gradlew", "pom.xml", "build.gradle")(fname)
                                         or vim.fs.dirname(fname)
@@ -176,6 +239,13 @@ local handlers = {
                                 local hash = vim.fn.sha256(new_root_dir):sub(1, 8)
                                 local workspace_dir = vim.fn.expand("~/.cache/jdtls/workspaces/") .. project_name .. "_" .. hash
                                 vim.fn.mkdir(workspace_dir, "p")
+
+                                new_config.init_options = vim.tbl_deep_extend("force", new_config.init_options or {}, {
+                                        bundles = get_decompiler_bundles(),
+                                        extendedClientCapabilities = {
+                                                classFileContentsSupport = true,
+                                        },
+                                })
 
                                 local cmd = {
                                         jdtls_paths.java_bin,
@@ -214,6 +284,9 @@ local handlers = {
                                 java = {
                                         signatureHelp = { enabled = true },
                                         contentProvider = { preferred = "fernflower" },
+                                        decompiler = {
+                                                showSource = true,
+                                        },
                                         completion = {
                                                 favoriteStaticMembers = {
                                                         "org.junit.jupiter.api.Assertions.*",

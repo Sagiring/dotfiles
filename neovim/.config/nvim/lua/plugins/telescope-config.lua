@@ -1,9 +1,60 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
+local previewers = require('telescope.previewers')
+local utils = require('telescope.utils')
+
+-- 拦截 Telescope URI 过滤，使其能够原生识别和加载 jdt:// 协议（Jar 包内类文件）
+local orig_is_uri = utils.is_uri
+utils.is_uri = function(filename)
+    if filename and filename:match("^jdt://") then
+        return false
+    end
+    return orig_is_uri(filename)
+end
+
+-- 自定义 Telescope 预览器，支持实时反编译预览 Jar 包内的 .class 源码
+local default_maker = previewers.buffer_previewer_maker
+local custom_previewer_maker = function(filepath, bufnr, opts)
+    opts = opts or {}
+    if filepath and filepath:match("^jdt://") then
+        local jdt_buf = vim.fn.bufnr(filepath)
+        if jdt_buf ~= -1 and vim.api.nvim_buf_is_loaded(jdt_buf) then
+            local lines = vim.api.nvim_buf_get_lines(jdt_buf, 0, -1, false)
+            vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+            vim.bo[bufnr].filetype = "java"
+            if opts.callback then opts.callback(bufnr) end
+            return
+        end
+
+        local client = (vim.lsp.get_clients and vim.lsp.get_clients({ name = "jdtls" }) or {})[1]
+        if client then
+            client:request("java/classFileContents", { uri = filepath }, function(err, result)
+                if result and vim.api.nvim_buf_is_valid(bufnr) then
+                    local normalized = string.gsub(result, "\r\n", "\n")
+                    local lines = vim.split(normalized, "\n", { plain = true })
+                    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+                    vim.bo[bufnr].filetype = "java"
+                    if opts.callback then opts.callback(bufnr) end
+                end
+            end, bufnr)
+            return
+        end
+    end
+    default_maker(filepath, bufnr, opts)
+end
 
 telescope.setup({
     defaults = {
+        buffer_previewer_maker = custom_previewer_maker,
+        path_display = function(opts, path)
+            if path and path:match("^jdt://") then
+                local jar = path:match("contents/([^/]+)/") or "jar"
+                local class = path:match("([^/]+%.class)") or path
+                return string.format("📦 %s (%s)", class, jar)
+            end
+            return utils.path_tail(path)
+        end,
         mappings = {
             i = {
                 ["<C-j>"] = actions.move_selection_next,

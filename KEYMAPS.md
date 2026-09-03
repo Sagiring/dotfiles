@@ -92,11 +92,11 @@
 ### 1.4 代码智能导航与跳转（无缝秒开，零卡顿）
 | 快捷键 | 功能说明 | 对应 IDEA 场景 |
 |---|---|---|
-| `gd` | **跳转到定义 (Go to definition)**（优先 LSP，无 LSP 时秒级定位） | `Cmd + B` / `Cmd + Click` |
-| `gi` | **查找接口实现 (Go to implementation)**（交互式浮窗查看实现） | `Cmd + Alt + B` |
+| `gd` 或 `<leader>rd` | **跳转到定义 (Go to definition)**（✨ **自动进入 Jar 包并反编译源码**） | `Cmd + B` / `Cmd + Click` |
+| `gi` 或 `<leader>ri` | **查找接口实现 (Go to implementation)**（✨ **自动进入 Jar 包并反编译源码**） | `Cmd + Alt + B` |
 | `gr` | **查找全部引用 (Find references)**（交互式浮窗列出所有引用代码） | `Alt + F7` |
-| `Ctrl + o` | **返回上一个跳转/光标位置**（Back，原路返回上一个文件或引用位置） | `Cmd + [` / `Navigate Back` |
-| `Ctrl + i` | **前进到下一个跳转/光标位置**（Forward，按多了返回可以再前进） | `Cmd + ]` / `Navigate Forward` |
+| `<leader>o` / `Ctrl + o` | **返回上一个跳转/光标位置**（Back，原路返回上一个文件或引用位置） | `Cmd + [` / `Navigate Back` |
+| `<leader>i` / `Ctrl + i` | **前进到下一个跳转/光标位置**（Forward，按多了返回可以再前进） | `Cmd + ]` / `Navigate Forward` |
 | `gD` | 跳转到声明 (Go to declaration) | Go to Type Declaration |
 | `K` | 查看悬浮文档说明 (Hover Doc) | `F1` / Quick Documentation |
 | `<leader>fs` | **全局搜索类与符号**（交互式快速检索） | Search Everywhere (Classes/Symbols) |
