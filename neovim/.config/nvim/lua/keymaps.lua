@@ -73,7 +73,7 @@ keymap.set("n", "gd", function()
     local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients)({ bufnr = 0 })
     if #clients > 0 then
         local ok, tb = pcall(require, "telescope.builtin")
-        if ok then tb.lsp_definitions() else vim.lsp.buf.definition() end
+        if ok then tb.lsp_definitions({ reuse_win = true }) else vim.lsp.buf.definition() end
     else
         local word = get_word_under_cursor()
         local ok, tb = pcall(require, "telescope.builtin")
@@ -107,7 +107,7 @@ keymap.set("n", "gi", function()
 
     if has_impl then
         local ok, tb = pcall(require, "telescope.builtin")
-        if ok then tb.lsp_implementations() else vim.lsp.buf.implementation() end
+        if ok then tb.lsp_implementations({ reuse_win = true }) else vim.lsp.buf.implementation() end
     else
         -- 对于不原生提供 implementationProvider 的语言（如 PHP Intelephense / Python 等），智能秒切全局实现与引用检索
         local word = get_word_under_cursor()
