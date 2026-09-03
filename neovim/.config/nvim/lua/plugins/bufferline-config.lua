@@ -12,8 +12,9 @@ require("bufferline").setup {
                 -- 自定义 Buffer 标签名称（针对 Jar 包反编译的 jdt:// 类文件进行极简化展示）
                 name_formatter = function(buf)
                         if buf.path and buf.path:match("^jdt://") then
-                                local class = buf.path:match("([^/]+%.class)") or buf.name
-                                return "📦 " .. class
+                                local clean_path = buf.path:gsub("%?.*$", "")
+                                local class = clean_path:match("([^/]+)$") or buf.name
+                                return "[Jar] " .. class
                         end
                 end,
                 -- 使用 nvim 内置 lsp 诊断

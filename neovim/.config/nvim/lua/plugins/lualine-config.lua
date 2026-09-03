@@ -45,15 +45,17 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
         lsp_progress.percentage = nil
         lsp_progress.title = ""
         lsp_progress.message = ""
-        vim.defer_fn(function()
+        -- 进度结束后立即主动刷新状态栏，恢复为常驻绿色图标
+        vim.schedule(function()
             pcall(vim.cmd, "redrawstatus")
-        end, 300)
+        end)
     end
     pcall(vim.cmd, "redrawstatus")
 end
 
 -- 进度条与 LSP 状态组件
 local function lsp_status_component()
+    -- 仅当 LSP 处于活动工作进度中（如正在索引、编译、扫描 Maven 依赖）时显示进度条与旋转动画
     if lsp_progress.active then
         local spinner = spinner_frames[lsp_progress.spinner_idx]
         local bar = render_progress_bar(lsp_progress.percentage, 8)
@@ -62,13 +64,6 @@ local function lsp_status_component()
             extra_msg = extra_msg:sub(1, 17) .. "..."
         end
         return string.format("%s [%s]%s%s", spinner, lsp_progress.client, bar, extra_msg)
-    end
-
-    if vim.lsp.status then
-        local st = vim.lsp.status()
-        if st and st ~= "" then
-            return "󰑮 " .. st
-        end
     end
 
     local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients

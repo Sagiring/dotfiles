@@ -1,14 +1,14 @@
-# ⌨️ Dotfiles 快捷键与使用技巧速查手册 (Cheatsheet)
+# Dotfiles 快捷键与使用技巧速查手册 (Cheatsheet)
 
 本手册整理了当前环境中 **Neovim / Vim**、**Tmux**、**Bash 别名与实用函数**、**Git 别名** 的全部常用快捷键与操作指南。
 
 ---
 
-## 1. 🚀 Neovim / Vim 快捷键
+## 1. Neovim / Vim 快捷键
 
 > **注**：`<leader>` 键已映射为 **`Space`（空格键）**。
 
-### 1.0 🧠 快捷键“模块化英文缩写”记忆法（3 分钟快速上手）
+### 1.0 快捷键“模块化英文缩写”记忆法（3 分钟快速上手）
 > **核心记忆口诀**：**找东西按 `<Space>f + 首字母`，跳代码按 `g + 首字母`，搞 Git 按 `<Space>g + 首字母`。**
 
 - **`g` 系列（Go to 跳转）**：
@@ -29,14 +29,25 @@
   - `<Space>gb` = **G**it **B**ranches ➡️ 查分支并**一键切分支**（回车秒切）
   - `<Space>gc` = **G**it **C**ommits ➡️ 查**提交历史**
   - `<Space>gs` = **G**it **S**tatus ➡️ 查**修改状态**
+  - `<Space>gp` = **G**it **P**review ➡️ **浮窗预览当前修改块 Diff**（也可按 `<Space>hp`）
+  - `<Space>hr` = **H**unk **R**eset ➡️ **一键撤销当前代码修改块**
+  - `]c` / `[c` = **C**hange ➡️ 跳到**下/上一个 Git 修改点**
+- **`<Space>s` 系列（Split 分屏与窗口）**：
+  - `<Space>sv` = **S**plit **V**ertical ➡️ **左右垂直分屏**
+  - `<Space>sp` = **S**plit ➡️ **上下水平分屏**
+  - `<Space>sc` = **S**plit **C**lose ➡️ **关闭当前分屏**
+  - `<Space>se` = **S**plit **E**qual ➡️ **均分分屏尺寸**
+  - `Ctrl + h/j/k/l` 或 `<Space>sh/sj/sk/sl` ➡️ **极速跳左/下/上/右窗口**
 - **日常最高频操作（单词首字母）**：
   - `<Space>w` = **W**rite ➡️ **保存文件** (`:w`)
   - `<Space>c` = **C**lose ➡️ **关闭当前 Tab**
   - `<Space>q` = **Q**uit ➡️ **退出窗口** (`:q`)
   - `<Space>e` = **E**xplorer ➡️ 开关左侧目录树
+  - `<Space>co` = **C**ode **O**rganize ➡️ **Java 自动导包与清理无用 Import**（避开 `<Space>o` 冲突）
   - `<Space>rn` = **R**e**N**ame ➡️ 智能重命名变量/方法
   - `<Space>o` / `Ctrl + o` = **O**ut / **O**ld ➡️ **返回上一个光标/跳转位置**（Back，跳进代码后一键返回）
   - `<Space>i` / `Ctrl + i` = **I**n ➡️ **前进到下一个光标/跳转位置**（Forward）
+  - `Ctrl + d` / `Ctrl + u` = **半屏翻页并自动居中** (`zz`，视野不眩晕)
   - `<Space>[` / `<Space>]` = 切换上/下一个文件 Tab（也可按 `<Space>bp` / `<Space>bn`）
   - `H` = **行首**（大写 H 跳行首非空字符）
   - `L` = **行尾**（大写 L 跳行尾）
@@ -92,8 +103,8 @@
 ### 1.4 代码智能导航与跳转（无缝秒开，零卡顿）
 | 快捷键 | 功能说明 | 对应 IDEA 场景 |
 |---|---|---|
-| `gd` 或 `<leader>rd` | **跳转到定义 (Go to definition)**（✨ **自动进入 Jar 包并反编译源码**） | `Cmd + B` / `Cmd + Click` |
-| `gi` 或 `<leader>ri` | **查找接口实现 (Go to implementation)**（✨ **自动进入 Jar 包并反编译源码**） | `Cmd + Alt + B` |
+| `gd` 或 `<leader>rd` | **跳转到定义 (Go to definition)**（**自动进入 Jar 包并反编译源码**） | `Cmd + B` / `Cmd + Click` |
+| `gi` 或 `<leader>ri` | **查找接口实现 (Go to implementation)**（**自动进入 Jar 包并反编译源码**） | `Cmd + Alt + B` |
 | `gr` | **查找全部引用 (Find references)**（交互式浮窗列出所有引用代码） | `Alt + F7` |
 | `<leader>o` / `Ctrl + o` | **返回上一个跳转/光标位置**（Back，原路返回上一个文件或引用位置） | `Cmd + [` / `Navigate Back` |
 | `<leader>i` / `Ctrl + i` | **前进到下一个跳转/光标位置**（Forward，按多了返回可以再前进） | `Cmd + ]` / `Navigate Forward` |
@@ -103,13 +114,48 @@
 | `<leader>rn` | 智能重命名符号 (Rename Symbol) | `Shift + F6` |
 | `<leader>ca` | 快速修复与代码重构 (Code Action) | `Alt + Enter` (Show Context Actions) |
 | `<leader>fm` 或 `<leader>cf` | 智能格式化代码 (Format) | `Cmd + Alt + L` |
+| `<leader>co` | **Java 自动导入与清除无用 import** (Organize Imports) | Optimize Imports (`Ctrl+Alt+O`) |
 | `[d` / `]d` | 上一个 / 下一个语法警告或编译错误 | Previous / Next Highlighted Error |
 | `<leader>d` | 浮窗展示当前行的详细错误信息 | Show Error Description |
 | `<leader>dq` | 在底部列表列出当前文件的所有诊断问题 | Show Problems Tool Window |
 
+### 1.5 分屏管理与极速窗口跳转（Split & Windows）
+| 快捷键 | 功能说明 | 对应 IDEA 场景 |
+|---|---|---|
+| `<leader>sv` | **垂直分屏**（左右并排开新窗口，`:vsplit`） | Split Right |
+| `<leader>sp` | **水平分屏**（上下并排开新窗口，`:split`） | Split Down |
+| `<leader>sc` | **关闭当前分屏窗口**（`:close`） | Close Window |
+| `<leader>se` | **均分所有分屏窗口尺寸**（自动等宽等高，`<C-w>=`） | Balance Splits |
+| `Ctrl + h` 或 `<leader>sh` | **光标跳到左边分屏** | Focus Window Left |
+| `Ctrl + l` 或 `<leader>sl` | **光标跳到右边分屏** | Focus Window Right |
+| `Ctrl + j` 或 `<leader>sj` | **光标跳到下边分屏** | Focus Window Down |
+| `Ctrl + k` 或 `<leader>sk` | **光标跳到上边分屏** | Focus Window Up |
+| `Ctrl + d` | **半屏向下平滑翻页**（光标自动锁定屏幕中央 `zz`） | Page Down (Centered) |
+| `Ctrl + u` | **半屏向上平滑翻页**（光标自动锁定屏幕中央 `zz`） | Page Up (Centered) |
+| `n` / `N` | **跳下一个/上一个搜索结果**（自动居中并展开折叠 `nzzzv`） | Find Next / Prev (Centered) |
+
+### 1.6 GitLens 级代码变更与历史辅助（GitSigns）
+| 快捷键 / 特性 | 功能说明 | 对应 IDEA / VS Code |
+|---|---|---|
+| **行末浅灰悬浮** | **实时 Git Blame**（停顿 300ms 自动显示作者、提交时间与 commit 说明） | VS Code GitLens |
+| `]c` | **极速跳到下一个 Git 代码修改点** | Next Change (`F7`) |
+| `[c` | **极速跳到上一个 Git 代码修改点** | Previous Change (`Shift + F7`) |
+| `<leader>gp` 或 `<leader>hp` | **浮窗预览当前修改块的 Diff**（不破坏排版直接看修改前后对比） | Preview Hunk Diff |
+| `<leader>hr` | **一键撤销（Revert）当前修改块**（Visual 模式下可撤销选区） | Rollback Hunk |
+| `<leader>tb` | **一键开关/隐藏行末 Blame 幽灵悬浮** (Toggle Blame) | Toggle Git Blame Annotations |
+| `<leader>hd` | **在侧边并排打开当前文件与 HEAD 的完整 Diff 视图** | Compare with HEAD |
+
+### 1.7 现代化高效升级插件（Which-Key & Context & Indent）
+| 快捷键 / 特性 | 功能说明 | 对应体验 |
+|---|---|---|
+| **按住 `<Space>` 停顿 300ms** | **自动弹出 Which-Key 快捷键导航浮窗**（列出所有分组与按键，彻底无需死记硬背） | 快捷键活字典 |
+| **顶部粘性表头 (Sticky Scroll)** | **浏览长代码时，窗口最顶部自动锁定当前方法名与类名**（Treesitter-Context） | VS Code Sticky Scroll |
+| `[c` | 随时按 `[c` **光标跳回当前代码块最顶部的函数/类定义行** | Jump to Context Header |
+| **缩进对齐虚线 (Indent Lines)** | 多层嵌套代码块呈现淡色 `│` 参考虚线，**当前作用域高亮跟随**（Indent-Blankline） | VS Code Indent Guides |
+
 ---
 
-## 2. 🪟 Tmux 终端复用快捷键
+## 2. Tmux 终端复用快捷键
 
 > **注**：Tmux 前缀键（Prefix）为 **`Ctrl + a`**。
 
@@ -128,7 +174,7 @@
 
 ---
 
-## 3. 🐚 Bash 别名与实用命令
+## 3. Bash 别名与实用命令
 
 ### 3.1 常用目录与文件操作
 | 别名 / 命令 | 完整命令 | 说明 |

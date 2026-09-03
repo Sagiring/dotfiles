@@ -5,6 +5,12 @@ keymap.set("i", "jj", "<Esc>")
 keymap.set("n", "H", "^")
 keymap.set("n", "L", "$")
 
+-- 视野平滑控制：翻页与搜索跳转时光标始终牢牢居中，避免晕头
+keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center cursor" })
+keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center cursor" })
+keymap.set("n", "n", "nzzzv", { desc = "Next search match (centered)" })
+keymap.set("n", "N", "Nzzzv", { desc = "Previous search match (centered)" })
+
 -- Fast save & quit & close buffer
 keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
 keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit window" })
@@ -52,6 +58,23 @@ keymap.set("n", "<leader>l", function()
     end
 end, { desc = "Focus editor window (Space+l)" })
 
+-- 分屏管理 (Split: Space+s 系列，彻底免去繁琐的 Ctrl+w)
+keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "Split vertically (垂直分屏 / 左右分屏)" })
+keymap.set("n", "<leader>sp", ":split<CR>", { desc = "Split horizontally (水平分屏 / 上下分屏)" })
+keymap.set("n", "<leader>sc", ":close<CR>", { desc = "Close current split window (关闭当前分屏)" })
+keymap.set("n", "<leader>se", "<C-w>=", { desc = "Equalize split window sizes (均分所有分屏宽度)" })
+
+-- 极速跨分屏窗口跳转 (同时支持单手无延迟 Ctrl+h/j/k/l 与 Space+s 流派)
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Window left (跳到左边分屏)" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Window down (跳到下边分屏)" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Window up (跳到上边分屏)" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Window right (跳到右边分屏)" })
+
+keymap.set("n", "<leader>sh", "<C-w>h", { desc = "Window left (Space+sh 跳到左边分屏)" })
+keymap.set("n", "<leader>sj", "<C-w>j", { desc = "Window down (Space+sj 跳到下边分屏)" })
+keymap.set("n", "<leader>sk", "<C-w>k", { desc = "Window up (Space+sk 跳到上边分屏)" })
+keymap.set("n", "<leader>sl", "<C-w>l", { desc = "Window right (Space+sl 跳到右边分屏)" })
+
 -- Bufferline (同时支持 Ctrl 与 Space 快捷键)
 keymap.set("n", "<C-L>", ":BufferLineCycleNext<CR>", { desc = "Next buffer (Ctrl+L)" })
 keymap.set("n", "<C-H>", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer (Ctrl+H)" })
@@ -72,8 +95,13 @@ end
 keymap.set("n", "gd", function()
     local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients)({ bufnr = 0 })
     if #clients > 0 then
-        local ok, tb = pcall(require, "telescope.builtin")
-        if ok then tb.lsp_definitions({ reuse_win = true }) else vim.lsp.buf.definition() end
+        -- Java 文件优先使用原生/nvim-jdtls 优化的定义跳转，彻底避免 Telescope 在 Jar 包反编译时因光标溢出触发红屏
+        if vim.bo.filetype == "java" then
+            vim.lsp.buf.definition()
+        else
+            local ok, tb = pcall(require, "telescope.builtin")
+            if ok then tb.lsp_definitions({ reuse_win = true }) else vim.lsp.buf.definition() end
+        end
     else
         local word = get_word_under_cursor()
         local ok, tb = pcall(require, "telescope.builtin")
@@ -106,10 +134,23 @@ keymap.set("n", "gi", function()
     end
 
     if has_impl then
-        local ok, tb = pcall(require, "telescope.builtin")
-        if ok then tb.lsp_implementations({ reuse_win = true }) else vim.lsp.buf.implementation() end
+        if vim.bo.filetype == "java" then
+            -- 优先使用原生 LSP 实现跳转，若由于光标位于普通方法/类上无下游子类实现时，智能回退至定义或全局检索
+            local current_pos = vim.api.nvim_win_get_cursor(0)
+            vim.lsp.buf.implementation()
+            vim.defer_fn(function()
+                -- 若 300ms 后光标未发生位移，说明当前符号没有不同的实现类（通常是普通类/方法），自动无缝跳转到定义
+                local new_pos = vim.api.nvim_win_get_cursor(0)
+                if current_pos[1] == new_pos[1] and current_pos[2] == new_pos[2] then
+                    vim.lsp.buf.definition()
+                end
+            end, 300)
+        else
+            local ok, tb = pcall(require, "telescope.builtin")
+            if ok then tb.lsp_implementations({ reuse_win = true }) else vim.lsp.buf.implementation() end
+        end
     else
-        -- 对于不原生提供 implementationProvider 的语言（如 PHP Intelephense / Python 等），智能秒切全局实现与引用检索
+        -- 对于不原生提供 implementationProvider 的场景，智能全局检索
         local word = get_word_under_cursor()
         local ok, tb = pcall(require, "telescope.builtin")
         if ok and word ~= "" then
@@ -145,6 +186,23 @@ keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" 
 keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code action" })
 keymap.set("n", "<leader>fm", function() vim.lsp.buf.format({ async = true }) end, { desc = "LSP: Format code" })
 keymap.set("n", "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, { desc = "LSP: Format code" })
+keymap.set("n", "<leader>co", function()
+    local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients)({ bufnr = 0 })
+    local is_java = vim.bo.filetype == "java"
+    if is_java then
+        local ok, jdtls = pcall(require, "jdtls")
+        if ok and jdtls.organize_imports then
+            jdtls.organize_imports()
+        else
+            vim.lsp.buf.code_action({
+                context = { only = { "source.organizeImports" } },
+                apply = true,
+            })
+        end
+    else
+        vim.lsp.buf.code_action()
+    end
+end, { desc = "Organize Imports (自动导入与清除无用 import, Space+co 避免与 Space+o 冲突)" })
 
 -- Diagnostic keymaps
 keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })

@@ -13,111 +13,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require("lspconfig")
 local util = require("lspconfig.util")
 
-local function get_java21_bin()
-        local candidates = {
-                "/Library/Java/JavaVirtualMachines/zulu21.46.19-ca-fx-jdk21.0.9-macosx_aarch64/bin/java",
-                vim.fn.expand("~/.jenv/versions/21/bin/java"),
-                vim.fn.expand("~/.jenv/versions/21.0/bin/java"),
-                vim.fn.expand("~/.jenv/versions/21.0.9/bin/java"),
-                "/opt/homebrew/opt/openjdk@21/bin/java",
-        }
-        for _, path in ipairs(candidates) do
-                if vim.fn.executable(path) == 1 then
-                        return path
-                end
-        end
-        local globs = vim.fn.glob("/Library/Java/JavaVirtualMachines/*21*/bin/java", false, true)
-        if #globs > 0 and vim.fn.executable(globs[1]) == 1 then
-                return globs[1]
-        end
-        local globs_home = vim.fn.glob("/Library/Java/JavaVirtualMachines/*21*/Contents/Home/bin/java", false, true)
-        if #globs_home > 0 and vim.fn.executable(globs_home[1]) == 1 then
-                return globs_home[1]
-        end
-        return "java"
-end
-
-local function get_jdtls_paths()
-        local mason_jdtls = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
-        local lombok_jar = mason_jdtls .. "/lombok.jar"
-        local launchers = vim.fn.glob(mason_jdtls .. "/plugins/org.eclipse.equinox.launcher_*.jar", false, true)
-        local launcher_jar = launchers[1]
-
-        local os_config = "config_mac"
-        if vim.fn.has("mac") == 1 then
-                os_config = "config_mac"
-        elseif vim.fn.has("unix") == 1 then
-                os_config = "config_linux"
-        elseif vim.fn.has("win32") == 1 then
-                os_config = "config_win"
-        end
-        local config_dir = mason_jdtls .. "/" .. os_config
-
-        return {
-                java_bin = get_java21_bin(),
-                lombok_jar = lombok_jar,
-                launcher_jar = launcher_jar,
-                config_dir = config_dir,
-        }
-end
-
-local function get_decompiler_bundles()
-        local bundles = {}
-        local decompiler_jars = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/packages/vscode-java-decompiler/server/*.jar", false, true)
-        for _, jar in ipairs(decompiler_jars) do
-                table.insert(bundles, jar)
-        end
-        return bundles
-end
-
--- 拦截并反编译 Jar 包中的 Class 字节码 (jdt:// 协议)
-vim.api.nvim_create_autocmd({ "BufReadCmd" }, {
-        pattern = "jdt://*",
-        callback = function(args)
-                local buf = args.buf
-                local uri = args.match
-                vim.bo[buf].modifiable = true
-                vim.bo[buf].swapfile = false
-                vim.bo[buf].buftype = "nofile"
-                vim.bo[buf].filetype = "java"
-
-                local client = (vim.lsp.get_clients and vim.lsp.get_clients({ name = "jdtls" }) or {})[1]
-                if not client then
-                        vim.wait(3000, function()
-                                local cls = (vim.lsp.get_clients and vim.lsp.get_clients({ name = "jdtls" }) or {})
-                                return #cls > 0
-                        end, 100)
-                        client = (vim.lsp.get_clients and vim.lsp.get_clients({ name = "jdtls" }) or {})[1]
-                end
-
-                if not client then
-                        vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "// [JDTLS] 正在启动或无法连接，请稍候重试: " .. uri })
-                        vim.bo[buf].modifiable = false
-                        return
-                end
-
-                vim.lsp.buf_attach_client(buf, client.id)
-
-                local content_loaded = false
-                client:request("java/classFileContents", { uri = uri }, function(err, result)
-                        if err then
-                                vim.notify("JDTLS 反编译异常: " .. vim.inspect(err), vim.log.levels.WARN)
-                                return
-                        end
-                        if result then
-                                local normalized = string.gsub(result, "\r\n", "\n")
-                                local lines = vim.split(normalized, "\n", { plain = true })
-                                vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
-                                vim.bo[buf].modifiable = false
-                                vim.bo[buf].readonly = true
-                                content_loaded = true
-                        end
-                end, buf)
-
-                vim.wait(3000, function() return content_loaded end, 50)
-        end,
-})
-
 local handlers = {
         function (server_name)
                 require("lspconfig")[server_name].setup {
@@ -197,134 +92,13 @@ local handlers = {
                 }
         end,
         ["jdtls"] = function ()
-                local jdtls_paths = get_jdtls_paths()
-                local java_runtimes = {
-                        {
-                                name = "JavaSE-1.8",
-                                path = "/Library/Java/JavaVirtualMachines/zulu8.86.0.25-ca-fx-jdk8.0.452-macosx_aarch64",
-                        },
-                        {
-                                name = "JavaSE-11",
-                                path = "/Library/Java/JavaVirtualMachines/zulu11.80.21-ca-fx-jdk11.0.27-macosx_aarch64",
-                        },
-                        {
-                                name = "JavaSE-21",
-                                path = "/Library/Java/JavaVirtualMachines/zulu21.46.19-ca-fx-jdk21.0.9-macosx_aarch64",
-                                default = true,
-                        },
-                }
-
-                local valid_runtimes = {}
-                for _, rt in ipairs(java_runtimes) do
-                        if vim.fn.isdirectory(rt.path) == 1 then
-                                table.insert(valid_runtimes, rt)
-                        end
-                end
-
-                lspconfig.jdtls.setup {
-                        capabilities = capabilities,
-                        filetypes = { "java" },
-                        init_options = {
-                                bundles = get_decompiler_bundles(),
-                                extendedClientCapabilities = {
-                                        classFileContentsSupport = true,
-                                },
-                        },
-                        root_dir = function(fname)
-                                return util.root_pattern(".git", "mvnw", "gradlew", "pom.xml", "build.gradle")(fname)
-                                        or vim.fs.dirname(fname)
-                        end,
-                        on_new_config = function(new_config, new_root_dir)
-                                local project_name = vim.fs.basename(new_root_dir) or "default_project"
-                                local hash = vim.fn.sha256(new_root_dir):sub(1, 8)
-                                local workspace_dir = vim.fn.expand("~/.cache/jdtls/workspaces/") .. project_name .. "_" .. hash
-                                vim.fn.mkdir(workspace_dir, "p")
-
-                                new_config.init_options = vim.tbl_deep_extend("force", new_config.init_options or {}, {
-                                        bundles = get_decompiler_bundles(),
-                                        extendedClientCapabilities = {
-                                                classFileContentsSupport = true,
-                                        },
-                                })
-
-                                local cmd = {
-                                        jdtls_paths.java_bin,
-                                        "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-                                        "-Dosgi.bundles.defaultStartLevel=4",
-                                        "-Declipse.product=org.eclipse.jdt.ls.core.product",
-                                        "-Dlog.protocol=true",
-                                        "-Dlog.level=ALL",
-                                        "-Xms512m",
-                                        "-Xmx2G",
-                                        "--add-modules=ALL-SYSTEM",
-                                        "--add-opens", "java.base/java.util=ALL-UNNAMED",
-                                        "--add-opens", "java.base/java.lang=ALL-UNNAMED",
-                                }
-
-                                if vim.fn.filereadable(jdtls_paths.lombok_jar) == 1 then
-                                        table.insert(cmd, "-javaagent:" .. jdtls_paths.lombok_jar)
-                                end
-
-                                if jdtls_paths.launcher_jar then
-                                        table.insert(cmd, "-jar")
-                                        table.insert(cmd, jdtls_paths.launcher_jar)
-                                end
-
-                                if jdtls_paths.config_dir and vim.fn.isdirectory(jdtls_paths.config_dir) == 1 then
-                                        table.insert(cmd, "-configuration")
-                                        table.insert(cmd, jdtls_paths.config_dir)
-                                end
-
-                                table.insert(cmd, "-data")
-                                table.insert(cmd, workspace_dir)
-
-                                new_config.cmd = cmd
-                        end,
-                        settings = {
-                                java = {
-                                        signatureHelp = { enabled = true },
-                                        contentProvider = { preferred = "fernflower" },
-                                        decompiler = {
-                                                showSource = true,
-                                        },
-                                        completion = {
-                                                favoriteStaticMembers = {
-                                                        "org.junit.jupiter.api.Assertions.*",
-                                                        "org.mockito.Mockito.*",
-                                                        "org.assertj.core.api.Assertions.*",
-                                                        "java.util.Objects.requireNonNull",
-                                                        "java.util.Objects.requireNonNullElse",
-                                                },
-                                                filteredTypes = {
-                                                        "com.sun.*",
-                                                        "io.micrometer.shaded.*",
-                                                        "java.awt.*",
-                                                        "jdk.*",
-                                                        "sun.*",
-                                                },
-                                        },
-                                        sources = {
-                                                organizeImports = {
-                                                        starThreshold = 9999,
-                                                        staticStarThreshold = 9999,
-                                                },
-                                        },
-                                        codeGeneration = {
-                                                toString = {
-                                                        template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
-                                                },
-                                                useBlocks = true,
-                                        },
-                                        configuration = {
-                                                runtimes = valid_runtimes,
-                                        },
-                                }
-                        }
-                }
+                -- 由 ftplugin/java.lua 与 nvim-jdtls 专有插件接管，避免重复启动与双实例竞态
         end,
 }
 
 require("mason-lspconfig").setup({
+        -- 禁用 automatic_enable，防止 mason-lspconfig 与 lspconfig.setup 重复启动两套服务导致【jdtls, jdtls】双实例严重耗尽内存
+        automatic_enable = false,
         ensure_installed = {
                 'pylsp',
                 'intelephense',
@@ -334,5 +108,15 @@ require("mason-lspconfig").setup({
                 'yamlls',
                 'jdtls',
         },
-        handlers = handlers
 })
+
+-- 显式遍历并执行各语言服务的配置 setup（兼容新版 mason-lspconfig 移除 handlers 参数并适配 Neovim 0.11）
+local default_handler = handlers[1]
+local installed_servers = require("mason-lspconfig").get_installed_servers()
+for _, server in ipairs(installed_servers) do
+        if handlers[server] then
+                handlers[server]()
+        elseif default_handler then
+                default_handler(server)
+        end
+end

@@ -16,7 +16,7 @@ cmp.setup({
         performance = {
                 debounce = 60,
                 throttle = 30,
-                fetching_timeout = 500,
+                fetching_timeout = 1500, -- 调优为 1500ms，防止大型 Java 项目类成员解析稍慢时候选词被丢弃
                 max_view_entries = 30,
         },
         snippet = {

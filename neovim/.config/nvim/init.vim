@@ -103,6 +103,7 @@ Plug 'williamboman/mason-lspconfig.nvim'
 
 " Grammar Completion "
 Plug 'neovim/nvim-lspconfig'
+Plug 'mfussenegger/nvim-jdtls'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -117,6 +118,10 @@ Plug 'windwp/nvim-autopairs'
 
 Plug 'akinsho/bufferline.nvim'
 Plug 'lewis6991/gitsigns.nvim'
+
+Plug 'folke/which-key.nvim'
+Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }

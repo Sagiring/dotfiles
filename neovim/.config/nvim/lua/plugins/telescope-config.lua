@@ -51,7 +51,7 @@ telescope.setup({
             if path and path:match("^jdt://") then
                 local jar = path:match("contents/([^/]+)/") or "jar"
                 local class = path:match("([^/]+%.class)") or path
-                return string.format("📦 %s (%s)", class, jar)
+                return string.format("[Jar] %s (%s)", class, jar)
             end
             return utils.path_tail(path)
         end,
