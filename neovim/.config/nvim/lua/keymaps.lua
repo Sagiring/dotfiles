@@ -42,21 +42,52 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 -- Paste without replacing clipboard register
 keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting register" })
 
--- Nvim-tree & Window navigation
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file tree (Space+e)" })
-keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { desc = "Toggle file tree (Ctrl+n)" })
+-- Nvim-tree & Diffview 智能自适应开关与导航 (解决双树并存打架问题)
+keymap.set("n", "<leader>e", function()
+    local ok, lib = pcall(require, "diffview.lib")
+    local view = ok and lib.get_current_view()
+    if view then
+        vim.cmd("DiffviewToggleFiles")
+    else
+        vim.cmd("NvimTreeToggle")
+    end
+end, { desc = "Toggle file tree / diff panel (Space+e 智能开关目录树/Diff树)" })
+keymap.set("n", "<C-n>", "<leader>e", { remap = true, desc = "Toggle file tree (Ctrl+n)" })
 
--- Space + h: 切换回左侧目录树
-keymap.set("n", "<leader>h", ":NvimTreeFocus<CR>", { desc = "Focus file tree (Space+h)" })
+-- Space + h: 智能聚焦到左侧目录树 (无论日常 NvimTree 还是 Diffview 变更树，杜绝双树打架)
+keymap.set("n", "<leader>h", function()
+    local ok, lib = pcall(require, "diffview.lib")
+    local view = ok and lib.get_current_view()
+    if view and view.panel then
+        if not view.panel:is_open() then
+            view.panel:open()
+        end
+        view.panel:focus()
+    else
+        vim.cmd("NvimTreeFocus")
+    end
+end, { desc = "Focus left tree (Space+h 智能聚焦左侧树，杜绝双树冲突)" })
 
--- Space + l: 从目录树切换回右侧编辑器
+-- Space + l: 从目录树平滑切回右侧主要编辑窗口 (自适应 NvimTree / DiffviewFiles)
 keymap.set("n", "<leader>l", function()
-    if vim.bo.filetype == "NvimTree" then
+    local ft = vim.bo.filetype
+    if ft == "NvimTree" then
+        vim.cmd("wincmd p")
+    elseif ft == "DiffviewFiles" or ft == "DiffviewFileHistory" then
+        local ok, lib = pcall(require, "diffview.lib")
+        local view = ok and lib.get_current_view()
+        if view and view.cur_layout then
+            local main_win = view.cur_layout:get_main_win()
+            if main_win and vim.api.nvim_win_is_valid(main_win.id) then
+                vim.api.nvim_set_current_win(main_win.id)
+                return
+            end
+        end
         vim.cmd("wincmd p")
     else
         vim.cmd("wincmd l")
     end
-end, { desc = "Focus editor window (Space+l)" })
+end, { desc = "Focus editor window from tree (Space+l 从树切回编辑器)" })
 
 -- 分屏管理 (Split: Space+s 系列，彻底免去繁琐的 Ctrl+w)
 keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "Split vertically (垂直分屏 / 左右分屏)" })

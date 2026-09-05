@@ -240,6 +240,28 @@ diffview.setup({
         DiffviewOpen = {},
         DiffviewFileHistory = {},
     },
+    hooks = {
+        -- 当 Diffview 打开时，若日常文件树 NvimTree 开着，自动先关闭它并记录状态，防止双树并存打架
+        view_opened = function(view)
+            local ok, tree_api = pcall(require, "nvim-tree.api")
+            if ok and tree_api.tree.is_visible() then
+                vim.g._diffview_had_nvim_tree = true
+                tree_api.tree.close()
+            else
+                vim.g._diffview_had_nvim_tree = false
+            end
+        end,
+        -- 当 Diffview 关闭时，若打开前曾开启 NvimTree，自动无缝恢复
+        view_closed = function(view)
+            if vim.g._diffview_had_nvim_tree then
+                vim.g._diffview_had_nvim_tree = false
+                local ok, tree_api = pcall(require, "nvim-tree.api")
+                if ok then
+                    pcall(tree_api.tree.open)
+                end
+            end
+        end,
+    },
     keymaps = {
         disable_defaults = false,
         view = {

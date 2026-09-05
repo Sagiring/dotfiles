@@ -75,12 +75,12 @@
 | **Visual** | `J` / `K` | 将选中的整块代码**上下平移** |
 | **Visual** | `<leader>p` | 粘贴并**保护剪贴板**（不会被替换掉的内容覆盖寄存器） |
 
-### 1.2 目录树与标签页（Nvim-Tree & Bufferline）
-| 快捷键 | 功能说明 | 推荐记忆 |
+### 1.2 目录树与标签页（Nvim-Tree & Diffview 智能自适应）
+| 快捷键 | 功能说明 | 智能自适应逻辑 |
 |---|---|---|
-| `<leader>e` 或 `Ctrl + n` | 展开 / 折叠左侧文件树 (`NvimTreeToggle`) | Explorer |
-| `<leader>h` | 光标焦点快速跳入左侧目录树 | 向左跳进树 |
-| `<leader>l` | 光标焦点从目录树切回右侧代码编辑窗口 | 向右跳回编辑器 |
+| `<leader>e` 或 `Ctrl + n` | **开关左侧目录树** | 在普通开发时开关 `NvimTree`；在 Diff 审查时开关 `Diffview` 侧边栏，**绝不串场打架** |
+| `<leader>h` | **光标焦点快速跳入左侧目录树** | 智能感知：日常模式跳入 `NvimTree`；Diff 模式跳入 `Diffview` 文件面板 |
+| `<leader>l` | **光标焦点从目录树平滑切回右侧代码编辑区** | 智能感知：从 `NvimTree` 或 `Diffview` 侧边树精准切回主代码编辑窗口 |
 | `<leader>]` 或 `<leader>bn` | **切换到下一个文件标签页** (`BufferLineCycleNext`) | 推荐 Space 键位 |
 | `<leader>[` 或 `<leader>bp` | **切换到上一个文件标签页** (`BufferLineCyclePrev`) | 推荐 Space 键位 |
 | `Ctrl + Shift + L` (`<C-L>`) | 切换到下一个文件标签页 | 备用 Ctrl 键位 |
