@@ -35,6 +35,179 @@ local function close_diff_and_edit_at_cursor()
     end
 end
 
+-- ==============================================================================
+-- 🎨 核心优化：彻底移除左侧孤立的 M/A 状态列与空白占位，直接顶格排版
+-- ==============================================================================
+do
+    local hl = require("diffview.hl")
+    local utils = require("diffview.utils")
+    local config = require("diffview.config")
+    local pl = utils.path
+
+    local function render_file(comp, show_path, depth)
+        local file = comp.context
+
+        -- 彻底移除左侧的 file.status .. " " 字符列！不再有悬空的字母与白带
+        if depth then
+            comp:add_text(string.rep(" ", depth * 2))
+        end
+
+        local icon, icon_hl = hl.get_file_icon(file.basename, file.extension)
+        comp:add_text(icon, icon_hl)
+
+        -- 文件名字体颜色继承 Git 状态高亮 (新增为绿色，修改为蓝色/黄色)，直观辨识且零浪费空间
+        local name_hl = file.active and "DiffviewFilePanelSelected" or hl.get_git_hl(file.status)
+        comp:add_text(file.basename, name_hl)
+
+        if file.stats then
+            if file.stats.additions then
+                comp:add_text(" " .. file.stats.additions, "DiffviewFilePanelInsertions")
+                comp:add_text(", ")
+                comp:add_text(tostring(file.stats.deletions), "DiffviewFilePanelDeletions")
+            elseif file.stats.conflicts then
+                local has_conflicts = file.stats.conflicts > 0
+                comp:add_text(
+                    " " .. (has_conflicts and file.stats.conflicts or config.get_config().signs.done),
+                    has_conflicts and "DiffviewFilePanelConflicts" or "DiffviewFilePanelInsertions"
+                )
+            end
+        end
+
+        if file.kind == "conflicting" and not (file.stats and file.stats.conflicts) then
+            comp:add_text(" !", "DiffviewFilePanelConflicts")
+        end
+
+        if show_path then
+            comp:add_text(" " .. file.parent_path, "DiffviewFilePanelPath")
+        end
+
+        comp:ln()
+    end
+
+    local function render_file_list(comp)
+        for _, file_comp in ipairs(comp.components) do
+            render_file(file_comp, true)
+        end
+    end
+
+    local function render_file_tree_recurse(depth, comp)
+        local conf = config.get_config()
+
+        if comp.name == "file" then
+            render_file(comp, false, depth)
+            return
+        end
+
+        if comp.name ~= "directory" then return end
+
+        local dir = comp.components[1]
+        local items = comp.components[2]
+        local ctx = comp.context
+
+        -- 彻底移除目录最前端的状态空白占位，从顶格/层级缩进直接开始！
+        dir:add_text(string.rep(" ", depth * 2))
+        dir:add_text(ctx.collapsed and conf.signs.fold_closed or conf.signs.fold_open, "DiffviewNonText")
+
+        if conf.use_icons then
+            dir:add_text(
+                " " .. (ctx.collapsed and conf.icons.folder_closed or conf.icons.folder_open) .. " ",
+                "DiffviewFolderSign"
+            )
+        end
+
+        dir:add_text(ctx.name, "DiffviewFolderName")
+        dir:ln()
+
+        if not ctx.collapsed then
+            for _, item in ipairs(items.components) do
+                render_file_tree_recurse(depth + 1, item)
+            end
+        end
+    end
+
+    local function render_file_tree(comp)
+        for _, c in ipairs(comp.components) do
+            render_file_tree_recurse(0, c)
+        end
+    end
+
+    local function render_files(listing_style, comp)
+        if listing_style == "list" then
+            return render_file_list(comp)
+        end
+        render_file_tree(comp)
+    end
+
+    -- 优雅替换默认的 FilePanel 渲染器 (伴随 dotfiles，永不被插件更新覆盖)
+    package.loaded["diffview.scene.views.diff.render"] = function(panel)
+        if not panel.render_data then
+            return
+        end
+
+        panel.render_data:clear()
+        local conf = config.get_config()
+        local width = panel:infer_width()
+
+        local comp = panel.components.path.comp
+
+        comp:add_line(
+            pl:truncate(pl:vim_fnamemodify(panel.adapter.ctx.toplevel, ":~"), width - 6),
+            "DiffviewFilePanelRootPath"
+        )
+
+        if conf.show_help_hints and panel.help_mapping then
+            comp:add_text("Help: ", "DiffviewFilePanelPath")
+            comp:add_line(panel.help_mapping, "DiffviewFilePanelCounter")
+            comp:add_line()
+        end
+
+        if #panel.files.conflicting > 0 then
+            comp = panel.components.conflicting.title.comp
+            comp:add_text("Conflicts ", "DiffviewFilePanelTitle")
+            comp:add_text("(" .. #panel.files.conflicting .. ")", "DiffviewFilePanelCounter")
+            comp:ln()
+
+            render_files(panel.listing_style, panel.components.conflicting.files.comp)
+            panel.components.conflicting.margin.comp:add_line()
+        end
+
+        local has_other_files = #panel.files.conflicting > 0 or #panel.files.staged > 0
+
+        if #panel.files.working > 0 or not has_other_files then
+            comp = panel.components.working.title.comp
+            comp:add_text("Changes ", "DiffviewFilePanelTitle")
+            comp:add_text("(" .. #panel.files.working .. ")", "DiffviewFilePanelCounter")
+            comp:ln()
+
+            render_files(panel.listing_style, panel.components.working.files.comp)
+            panel.components.working.margin.comp:add_line()
+        end
+
+        if #panel.files.staged > 0 then
+            comp = panel.components.staged.title.comp
+            comp:add_text("Staged changes ", "DiffviewFilePanelTitle")
+            comp:add_text("(" .. #panel.files.staged .. ")", "DiffviewFilePanelCounter")
+            comp:ln()
+
+            render_files(panel.listing_style, panel.components.staged.files.comp)
+            panel.components.staged.margin.comp:add_line()
+        end
+
+        if panel.rev_pretty_name or (panel.path_args and #panel.path_args > 0) then
+            local extra_info = utils.vec_join({ panel.rev_pretty_name }, panel.path_args or {})
+            comp = panel.components.info.title.comp
+            comp:add_line("Showing changes for:", "DiffviewFilePanelTitle")
+
+            comp = panel.components.info.entries.comp
+            for _, arg in ipairs(extra_info) do
+                local relpath = pl:relative(arg, panel.adapter.ctx.toplevel)
+                if relpath == "" then relpath = "." end
+                comp:add_line(pl:truncate(relpath, width - 5), "DiffviewFilePanelPath")
+            end
+        end
+    end
+end
+
 diffview.setup({
     diff_mappings = true,
     enhanced_diff_hl = true,
@@ -53,14 +226,14 @@ diffview.setup({
         },
     },
     file_panel = {
-        listing_style = "tree",             -- 目录树展示，结构清晰
+        listing_style = "tree",             -- 目录树展示，按 i 可随时在 tree 与 list 之间秒切
         tree_options = {
             flatten_dirs = true,
             folder_statuses = "only_folded",
         },
         win_config = {
             position = "left",
-            width = 35,
+            width = 40,                     -- 适度加宽至 40，让 Java 文件名彻底不再被截断
         },
     },
     default_args = {
@@ -97,6 +270,7 @@ diffview.setup({
             { "n", "l", actions.select_entry, { desc = "展开目录或打开文件对比" } },
             { "n", "h", actions.close_fold, { desc = "折叠目录" } },
             { "n", "R", actions.refresh_files, { desc = "刷新变更文件列表" } },
+            { "n", "i", actions.listing_style, { desc = "切换 树形(tree) / 列表(list) 视图" } },
             { "n", "<leader>gf", actions.toggle_files, { desc = "开关侧边文件面板" } },
 
             -- 文件列表中按 gf 或 <leader>ge 或 <leader>gq 同样支持直达文件编辑

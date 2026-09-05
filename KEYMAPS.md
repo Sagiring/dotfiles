@@ -167,6 +167,7 @@
 | `j` / `k` (在文件面板) | 在改动文件列表中快速切换选中文件 | 下一个 / 上一个变更文件 |
 | `<Tab>` / `<cr>` / `o` (在文件面板) | **打开当前光标选中的文件 Diff 对比**（彻底杜绝回撤） | View Selected File Diff |
 | `h` / `l` (在文件面板) | 折叠目录 / 展开目录或打开文件对比 | Fold / Expand & Open |
+| `i` (在文件面板) | **一键在 树形(tree) / 扁平列表(list) 间切换** | Toggle Tree / List View |
 
 ### 1.8 现代化高效升级插件（Which-Key & Context & Indent）
 | 快捷键 / 特性 | 功能说明 | 对应体验 |
