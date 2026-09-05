@@ -118,6 +118,7 @@ Plug 'windwp/nvim-autopairs'
 
 Plug 'akinsho/bufferline.nvim'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'sindrets/diffview.nvim'
 
 Plug 'folke/which-key.nvim'
 Plug 'nvim-treesitter/nvim-treesitter-context'

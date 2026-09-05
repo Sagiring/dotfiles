@@ -25,7 +25,13 @@
   - `<Space>fd` = **F**ind **D**iagnostics ➡️ 找当前文件**警告与错误** (Warning/Error)
   - `<Space>fD` = **F**ind **D**iagnostics (All) ➡️ 找**全工程所有警告与错误**
   - `<Space>fs` = **F**ind **S**ymbols ➡️ 找 **Class 类名与方法符号**
-- **`<Space>g` 系列（Git 版本管理）**：
+- **`<Space>g` 系列（Git 版本管理与 Diff 审查）**：
+  - `<Space>gm` = **G**it **M**aster Diff ➡️ **智能与 master 共同祖先对比**（三点增量 Diff，发 PR / Code Review 专用）
+  - `<Space>gd` = **G**it **D**iff ➡️ **查看本地当前未提交修改**（工作区 vs HEAD）
+  - `<Space>gD` = **G**it **D**iff Close ➡️ **一键关闭 Diff 对比视图**并恢复原窗口布局
+  - `<Space>gh` = **G**it **H**istory ➡️ **查看当前文件提交历史与每步 Diff 追溯**
+  - `<Space>gH` = **G**it **H**istory All ➡️ **查看全工程提交历史**
+  - `<Space>gf` = **G**it **F**iles ➡️ **开关 Diff 侧边栏改动文件树**
   - `<Space>gb` = **G**it **B**ranches ➡️ 查分支并**一键切分支**（回车秒切）
   - `<Space>gc` = **G**it **C**ommits ➡️ 查**提交历史**
   - `<Space>gs` = **G**it **S**tatus ➡️ 查**修改状态**
@@ -145,7 +151,23 @@
 | `<leader>tb` | **一键开关/隐藏行末 Blame 幽灵悬浮** (Toggle Blame) | Toggle Git Blame Annotations |
 | `<leader>hd` | **在侧边并排打开当前文件与 HEAD 的完整 Diff 视图** | Compare with HEAD |
 
-### 1.7 现代化高效升级插件（Which-Key & Context & Indent）
+### 1.7 IDE 级全局 Git Diff 与共同祖先审查（Diffview）
+| 快捷键 | 功能说明 | 核心场景与对应体验 |
+|---|---|---|
+| `<leader>gm` | **智能对比 master 共同祖先（三点增量 Diff）** | **发 PR / Code Review 专用**！自动寻找共同祖先，过滤干扰，只审阅分支自身改动 |
+| `<leader>gd` | **打开全局本地未提交 Diff 视图** | VS Code Source Control 侧边树 + 双栏 Diff 对比 |
+| `gf` 或 `<leader>ge` | **在当前行打开源文件（保留后台 Diff 标签页）** | **在 Diff 中直接跳入源文件并精确定位到当前行号**（通过 `gt`/`gT` 可随时切回 Diff） |
+| `<leader>gq` | **关闭 Diff 并直接停在当前行进入编辑** | 审阅代码发现问题，一键退出 Diff 并留在当前文件的当前行直接改代码 |
+| `<C-w><C-f>` | **分屏打开源文件并精确定位到当前行号** | Split Window Edit at Line |
+| `<C-w>gf` | **在新 Tab 标签页打开源文件并精确定位行号** | New Tab Edit at Line |
+| `<leader>gD` 或 `q` | **一键关闭 Diff 视图**并恢复原窗口 | 退出审查模式 |
+| `<leader>gh` | **查看当前文件的 Git 提交历史与 Diff 追溯** | IDEA Show History，逐个提交查看该文件的增量变化 |
+| `<leader>gH` | **查看全工程全局 Git 提交历史** | Git Log Graph 提交历史与审查 |
+| `<leader>gf` | **展开 / 折叠 Diff 视图左侧的文件列表抽屉** | Toggle File Drawer |
+| `j` / `k` (在文件面板) | 在改动文件列表中快速切换选中文件 | 下一个 / 上一个变更文件 |
+| `<cr>` / `o` (在文件面板) | 打开并高亮显示选中的文件 Diff 对比 | View File Diff |
+
+### 1.8 现代化高效升级插件（Which-Key & Context & Indent）
 | 快捷键 / 特性 | 功能说明 | 对应体验 |
 |---|---|---|
 | **按住 `<Space>` 停顿 300ms** | **自动弹出 Which-Key 快捷键导航浮窗**（列出所有分组与按键，彻底无需死记硬背） | 快捷键活字典 |
