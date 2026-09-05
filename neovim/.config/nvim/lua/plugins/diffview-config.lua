@@ -93,6 +93,9 @@ diffview.setup({
             { "n", "k", actions.prev_entry, { desc = "上一条变更" } },
             { "n", "<cr>", actions.select_entry, { desc = "打开该文件的对比视图" } },
             { "n", "o", actions.select_entry, { desc = "打开该文件的对比视图" } },
+            { "n", "<tab>", actions.select_entry, { desc = "打开当前光标文件的对比视图 (杜绝回撤)" } },
+            { "n", "l", actions.select_entry, { desc = "展开目录或打开文件对比" } },
+            { "n", "h", actions.close_fold, { desc = "折叠目录" } },
             { "n", "R", actions.refresh_files, { desc = "刷新变更文件列表" } },
             { "n", "<leader>gf", actions.toggle_files, { desc = "开关侧边文件面板" } },
 
@@ -107,6 +110,8 @@ diffview.setup({
             { "n", "j", actions.next_entry, { desc = "上一个提交记录" } },
             { "n", "k", actions.prev_entry, { desc = "下一个提交记录" } },
             { "n", "<cr>", actions.select_entry, { desc = "查看该提交的 Diff" } },
+            { "n", "o", actions.select_entry, { desc = "查看该提交的 Diff" } },
+            { "n", "<tab>", actions.select_entry, { desc = "查看该提交的 Diff" } },
             { "n", "gf", actions.goto_file_edit, { desc = "打开历史文件版本并定位" } },
         },
     },
