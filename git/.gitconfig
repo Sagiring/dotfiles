@@ -34,3 +34,5 @@
 	base = merge-base HEAD master
 	unstage = reset HEAD --
 	last = log -1 HEAD --stat
+	# pull rebase
+	pr = pull --rebase

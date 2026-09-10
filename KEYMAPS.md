@@ -26,6 +26,9 @@
   - `<Space>fD` = **F**ind **D**iagnostics (All) ➡️ 找**全工程所有警告与错误**
   - `<Space>fs` = **F**ind **S**ymbols ➡️ 找 **Class 类名与方法符号**
 - **`<Space>g` 系列（Git 版本管理与 Diff 审查）**：
+  - `<Space>gC` = **G**it **C**ommit ➡️ **提交修改并输入 Commit 消息**（`:!git commit -am "..."`）
+  - `<Space>gl` = **G**it Pul**l** ➡️ **极速拉取并衍合最新代码**（`git pull --rebase`，异步不卡顿）
+  - `<Space>gP` = **G**it **P**ush ➡️ **一键推送到远程分支**（`git push`，异步通知）
   - `<Space>gm` = **G**it **M**aster Diff ➡️ **智能与 master 共同祖先对比**（三点增量 Diff，发 PR / Code Review 专用）
   - `<Space>gd` = **G**it **D**iff ➡️ **查看本地当前未提交修改**（工作区 vs HEAD）
   - `<Space>gD` = **G**it **D**iff Close ➡️ **一键关闭 Diff 对比视图**并恢复原窗口布局
@@ -154,6 +157,9 @@
 ### 1.7 IDE 级全局 Git Diff 与共同祖先审查（Diffview）
 | 快捷键 | 功能说明 | 核心场景与对应体验 |
 |---|---|---|
+| `<leader>gC` | **Git 提交并输入 Commit 消息**（`:!git commit -am "..."`） | 快速保存并提交改动 |
+| `<leader>gl` | **Git 极速拉取并衍合**（`git pull --rebase`，异步不卡死） | 快速拉取远端更新 |
+| `<leader>gP` | **Git 一键推送到远端**（`git push`，异步通知） | 快速推送到远端仓库 |
 | `<leader>gm` | **智能对比 master 共同祖先（三点增量 Diff）** | **发 PR / Code Review 专用**！自动寻找共同祖先，过滤干扰，只审阅分支自身改动 |
 | `<leader>gd` | **打开全局本地未提交 Diff 视图** | VS Code Source Control 侧边树 + 双栏 Diff 对比 |
 | `gf` 或 `<leader>ge` | **在当前行打开源文件（保留后台 Diff 标签页）** | **在 Diff 中直接跳入源文件并精确定位到当前行号**（通过 `gt`/`gT` 可随时切回 Diff） |
@@ -229,10 +235,12 @@
 
 ---
 
-## 4. 🐙 Git 快捷别名
+## 4. 🐙 Git 快捷别名与终端快捷键
 
+### 4.1 Git 官方 Alias（`git <alias>`）
 | Alias 缩写 | 完整 Git 命令 | 说明 |
 |---|---|---|
+| `git pr` | `git pull --rebase` | **拉取并自动衍合**最新代码（避免多余 merge commit） |
 | `git st` / `git s` | `git status -sb` | 紧凑模式查看工作区状态 |
 | `git co <branch>` | `git checkout <branch>` | 切换分支或检出文件 |
 | `git br` | `git branch` | 查看本地分支列表 |
@@ -242,3 +250,11 @@
 | `git unstage <file>` | `git reset HEAD -- <file>` | 将文件移出暂存区 |
 | `git last` | `git log -1 HEAD --stat` | 查看最近一次提交的详细 Diff 统计 |
 | `git base` | `git merge-base HEAD master` | 查找当前分支与主干分支的交汇分叉点 Commit |
+
+### 4.2 Bash 极速别名（单手秒敲）
+| 快捷命令 | 完整命令 | 说明 |
+|---|---|---|
+| `g` | `git` | 享受与 `git` 完全一致的全套智能补全 |
+| `gpr` | `git pull --rebase` | **一键拉取并衍合**远端分支 |
+| `gp` | `git push` | **一键推送**当前分支 |
+| `gcm "xxx"` | `git commit -m "xxx"` | **极速提交**带说明的代码 |

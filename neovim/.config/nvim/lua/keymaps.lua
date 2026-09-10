@@ -240,3 +240,39 @@ keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" }
 keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
 keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
+-- Git 极简工作流 (Commit, Pull --rebase, Push)
+local function run_git_job(cmd, start_msg, success_msg)
+    vim.notify(start_msg, vim.log.levels.INFO)
+    vim.fn.jobstart(cmd, {
+        stdout_buffered = true,
+        stderr_buffered = true,
+        on_exit = function(_, exit_code, _)
+            if exit_code == 0 then
+                vim.notify(success_msg, vim.log.levels.INFO)
+            else
+                vim.notify("Git 操作失败，返回码: " .. exit_code, vim.log.levels.ERROR)
+            end
+        end,
+    })
+end
+
+-- 1. Space + gC: Git Commit (弹出输入框输入 commit message，自动 commit -am)
+keymap.set("n", "<leader>gC", function()
+    vim.ui.input({ prompt = "Git commit message > " }, function(msg)
+        if msg and msg ~= "" then
+            vim.notify("Git: 正在提交变更...", vim.log.levels.INFO)
+            vim.cmd("!git commit -am " .. vim.fn.fnameescape(msg))
+        end
+    end)
+end, { desc = "Git: Commit -am (Space+gC 提交修改并输入提交信息)" })
+
+-- 2. Space + gl: Git Pull --rebase (极速拉取并衍合)
+keymap.set("n", "<leader>gl", function()
+    run_git_job("git pull --rebase", "Git: 正在执行 git pull --rebase...", "Git: pull --rebase 成功！")
+end, { desc = "Git: Pull --rebase (Space+gl 极速拉取并衍合最新代码)" })
+
+-- 3. Space + gP: Git Push (一键推送到远程分支)
+keymap.set("n", "<leader>gP", function()
+    run_git_job("git push", "Git: 正在执行 git push...", "Git: push 推送成功！")
+end, { desc = "Git: Push (Space+gP 一键推送到远端)" })

@@ -58,13 +58,26 @@ if [ -n "$force_color_prompt" ]; then
 	fi
 fi
 
+# Git Prompt (clean & elegant branch display)
+if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh ]; then
+	. /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+elif [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh ]; then
+	. /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
+fi
+
+if declare -F __git_ps1 >/dev/null 2>&1; then
+	export GIT_PS1_SHOWDIRTYSTATE=1        # * for unstaged, + for staged
+	export GIT_PS1_SHOWSTASHSTATE=         # 禁用 $ 标记，保持干净
+	export GIT_PS1_SHOWUNTRACKEDFILES=     # 禁用 % 标记，保持干净
+	export GIT_PS1_SHOWUPSTREAM=           # 禁用 = 标记，保持干净
+fi
 
 if [ "$color_prompt" = yes ]; then
-	# \d: Date, \u: User, \W: Current directory basename, \$: Prompt symbol
-	PS1='\[\033[1;33m\]\d\[\033[00m\] \[\033[0;32m\]\u\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]\n\[\033[0;31m\]\$\[\033[00m\] ' 
+	# \d: Date, \u: User, \W: Current directory basename, git branch (cyan), \$: Prompt symbol
+	PS1='\[\033[1;33m\]\d\[\033[00m\] \[\033[0;32m\]\u\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]\[\033[0;36m\]$(__git_ps1 " on  %s")\[\033[00m\]\n\[\033[0;31m\]\$\[\033[00m\] ' 
 	# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1 " on %s")\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -139,6 +152,37 @@ if ! shopt -oq posix; then
 		. /usr/share/bash-completion/bash_completion
 	elif [ -f /etc/bash_completion ]; then
 		. /etc/bash_completion
+	fi
+
+	# Fallback: load macOS CommandLineTools / Xcode git completion if not already loaded
+	if ! declare -F __git_wrap__git_main >/dev/null 2>&1; then
+		if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
+			. /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+		elif [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash ]; then
+			. /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
+		fi
+	fi
+
+	# Load completions from Homebrew bash_completion.d (e.g. brew, npm, rg, tmux, cargo)
+	if [ -d /opt/homebrew/etc/bash_completion.d ]; then
+		for bcfile in /opt/homebrew/etc/bash_completion.d/*; do
+			[ -r "$bcfile" ] && . "$bcfile"
+		done
+		unset bcfile
+	fi
+
+	# Bind git completion to alias 'g'
+	if declare -F __git_complete >/dev/null 2>&1; then
+		__git_complete g __git_main 2>/dev/null || true
+	fi
+
+	# Readline 补全交互优化 (单次 Tab 列出所有候选，超量候选不阻塞弹窗)
+	if [[ $- == *i* ]]; then
+		bind 'set show-all-if-ambiguous on' 2>/dev/null      # 按一次 Tab 即可展示候选列表，无需双击
+		bind 'set completion-ignore-case on' 2>/dev/null     # 补全忽略大小写
+		bind 'set completion-query-items 300' 2>/dev/null    # 超过 100 项直接展示，不弹 (y or n) 询问
+		bind 'set colored-stats on' 2>/dev/null              # 补全候选项带颜色区分
+		bind 'set mark-symlinked-directories on' 2>/dev/null # 软链接目录自动加斜杠
 	fi
 fi
 

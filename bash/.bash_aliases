@@ -15,3 +15,9 @@ alias python="/opt/homebrew/bin/python3"
 alias python3="/opt/homebrew/bin/python3"
 alias highlight="highlight -O xterm256 --syntax json --style catppuccin-Macchiato"
 alias aicode="cursor"
+
+# git shortcuts
+alias g='git'
+alias gpr='git pull --rebase'
+alias gp='git push'
+alias gcm='git commit -m'
