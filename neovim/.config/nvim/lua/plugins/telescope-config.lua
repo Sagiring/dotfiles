@@ -46,6 +46,18 @@ end
 
 telescope.setup({
     defaults = {
+        layout_strategy = "horizontal",
+        layout_config = {
+            prompt_position = "top",
+            horizontal = {
+                preview_width = 0.55,
+                results_width = 0.45,
+            },
+            width = 0.90,
+            height = 0.85,
+            preview_cutoff = 100,
+        },
+        sorting_strategy = "ascending",
         buffer_previewer_maker = custom_previewer_maker,
         path_display = function(opts, path)
             if path and path:match("^jdt://") then
@@ -57,20 +69,39 @@ telescope.setup({
         end,
         mappings = {
             i = {
+                -- 核心修复：置顶输入框 (prompt_position='top') + 顺序列出 (sorting_strategy='ascending')
+                -- C-j / Down: 顺畅向下浏览下一项 (row 0 -> 1 -> 2)
+                -- C-k / Up: 顺畅向上浏览上一项 (row 2 -> 1 -> 0)
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
-                ["<M-j>"] = actions.move_selection_next,
-                ["<M-k>"] = actions.move_selection_previous,
                 ["<Down>"] = actions.move_selection_next,
                 ["<Up>"] = actions.move_selection_previous,
+                ["<M-j>"] = actions.move_selection_next,
+                ["<M-k>"] = actions.move_selection_previous,
+                -- 翻页与代码预览区滚动
+                ["<C-d>"] = actions.preview_scrolling_down,
+                ["<C-u>"] = actions.preview_scrolling_up,
+                ["<C-f>"] = actions.results_scrolling_down,
+                ["<C-b>"] = actions.results_scrolling_up,
+                ["<PageDown>"] = actions.results_scrolling_down,
+                ["<PageUp>"] = actions.results_scrolling_up,
             },
             n = {
                 ["j"] = actions.move_selection_next,
                 ["k"] = actions.move_selection_previous,
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
+                ["<Down>"] = actions.move_selection_next,
+                ["<Up>"] = actions.move_selection_previous,
                 ["<M-j>"] = actions.move_selection_next,
                 ["<M-k>"] = actions.move_selection_previous,
+                -- 翻页与代码预览区滚动
+                ["<C-d>"] = actions.preview_scrolling_down,
+                ["<C-u>"] = actions.preview_scrolling_up,
+                ["<C-f>"] = actions.results_scrolling_down,
+                ["<C-b>"] = actions.results_scrolling_up,
+                ["<PageDown>"] = actions.results_scrolling_down,
+                ["<PageUp>"] = actions.results_scrolling_up,
             },
         },
     },

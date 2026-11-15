@@ -241,3 +241,4 @@ export PATH=/Users/sagiring/.opencode/bin:$PATH
 
 # Added by AI Skills keyring.sh
 export ALPHA_LOG_USER="zhangjingming8725"
+export PATH="$HOME/.local/bin:$PATH"

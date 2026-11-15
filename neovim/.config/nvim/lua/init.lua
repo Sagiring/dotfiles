@@ -44,7 +44,7 @@ end
 if vim.deprecate then
   local orig_deprecate = vim.deprecate
   vim.deprecate = function(name, alternative, version, plugin, backtrace)
-    if name and name:match("lspconfig") then
+    if name and (name:match("lspconfig") or name:match("tbl_islist")) then
       return
     end
     orig_deprecate(name, alternative, version, plugin, backtrace)

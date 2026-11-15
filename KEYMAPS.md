@@ -109,6 +109,13 @@
 | `<leader>fd` | **当前文件所有 Warning / Error 列表**（回车秒跳） | Document Problems |
 | `<leader>fD` | **全工程所有 Warning / Error 列表** | Workspace Problems |
 
+> **💡 Telescope 浮窗内导航与翻页（支持 Insert 与 Normal 模式）**：
+> - `Ctrl + j` / `Down`（Normal 模式 `j`）：**向下移动选择下一个匹配项**
+> - `Ctrl + k` / `Up`（Normal 模式 `k`）：**向上移动选择上一个匹配项**
+> - `Ctrl + d` / `Ctrl + u`：**右侧代码预览区向下 / 向上半屏翻滚浏览**
+> - `Ctrl + f` / `Ctrl + b`（或 `PageDown` / `PageUp`）：**搜索结果列表整页向下 / 向上翻页**
+> - `Enter`：打开选中的文件并直达代码行；`Esc` / `Ctrl + c`：退出搜索浮窗
+
 ### 1.4 代码智能导航与跳转（无缝秒开，零卡顿）
 | 快捷键 | 功能说明 | 对应 IDEA 场景 |
 |---|---|---|
